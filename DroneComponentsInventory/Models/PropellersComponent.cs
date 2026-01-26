@@ -19,11 +19,9 @@ namespace DroneComponentsInventory.Models
         [Column("model")]
         public string Model { get; set; } = null!;
 
-        // diameter in millimeters
         [Column("diameter_mm")]
         public int DiameterMm { get; set; }
 
-        // pitch in inches (use decimal for fractional values)
         [Column("pitch_inch")]
         public decimal PitchInch { get; set; }
 
@@ -34,14 +32,12 @@ namespace DroneComponentsInventory.Models
         [Column("material")]
         public string Material { get; set; } = null!;
 
-        // shaft diameter in millimeters (may be fractional)
         [Column("shaft_diameter_mm")]
         public decimal ShaftDiameterMm { get; set; }
 
         [MaxLength(20)]
         [Column("rotation_direction")]
-        public string RotationDirection { get; set; } = null!; // e.g., "CW" or "CCW"
-
+        public string RotationDirection { get; set; } = null!;
         [MaxLength(100)]
         [Column("recommended_motor_size")]
         public string RecommendedMotorSize { get; set; } = null!;
@@ -53,13 +49,12 @@ namespace DroneComponentsInventory.Models
         [Column("frame_class")]
         public string FrameClass { get; set; } = null!;
 
-        // weight in grams
         [Column("weight_g")]
         public decimal WeightG { get; set; }
 
         [MaxLength(200)]
         [Column("color_options")]
-        public string ColorOptions { get; set; } = null!; // comma-separated or JSON
+        public string ColorOptions { get; set; } = null!;
 
         [Column("included_quantity")]
         public int IncludedQuantity { get; set; }

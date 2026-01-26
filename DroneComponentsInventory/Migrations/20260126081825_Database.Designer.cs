@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DroneComponentsInventory.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260125135237_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260126081825_Database")]
+    partial class Database
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -36,7 +36,6 @@ namespace DroneComponentsInventory.Models
         [Column("receiver_type")]
         public string? ReceiverType { get; set; }
 
-        // Number of diversity antennas (0 if none)
         [Column("diversity_antennas")]
         public int? DiversityAntennas { get; set; }
 

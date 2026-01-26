@@ -21,7 +21,6 @@ using Microsoft.EntityFrameworkCore;
         [StringLength(100)]
         public string Model { get; set; } = string.Empty;
 
-        // 'type' is a common column name; map it but use a clearer C# property name
         [Column("type")]
         [StringLength(50)]
         public string? EscType { get; set; }

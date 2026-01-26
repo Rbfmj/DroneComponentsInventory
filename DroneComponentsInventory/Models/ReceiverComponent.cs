@@ -35,14 +35,8 @@ namespace DroneComponentsInventory.Models
         [MaxLength(100)]
         public string AntennaType { get; set; } = string.Empty;
 
-        /// <summary>
-        /// Effective range in kilometers (approximate)
-        /// </summary>
         public double? RangeKm { get; set; }
 
-        /// <summary>
-        /// Input voltage in volts (e.g., 5.0)
-        /// </summary>
         public double? VoltageInputV { get; set; }
 
         [MaxLength(100)]

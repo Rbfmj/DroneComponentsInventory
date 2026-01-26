@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
     namespace DroneComponentsInventory.Models
@@ -42,5 +43,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
         [Column("weight_g", TypeName = "decimal(8,2)")]
         public decimal? WeightG { get; set; }
+
+        [Column("price")]
+        [Precision(18, 2)]
+        public decimal? Price { get; set; }
     }
 }
