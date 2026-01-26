@@ -1,0 +1,75 @@
+@model DroneComponentsInventory.Models.FCComponent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>FCComponent</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.McuProcessor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.McuProcessor)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ImuGyro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ImuGyro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MountPatternMm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MountPatternMm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.VoltageInputS)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.VoltageInputS)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FirmwareSupport)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FirmwareSupport)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WeightG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WeightG)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.FcId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

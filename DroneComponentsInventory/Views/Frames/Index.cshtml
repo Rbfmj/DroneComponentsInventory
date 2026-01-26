@@ -1,0 +1,109 @@
+@model IEnumerable<DroneComponentsInventory.Models.FrameComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WheelbaseMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxPropInch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Geometry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrameWeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArmThicknessMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MotorMountPattern)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FcMountPattern)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxStackHeightMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WheelbaseMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxPropInch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geometry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrameWeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArmThicknessMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MotorMountPattern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FcMountPattern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxStackHeightMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FrameId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FrameId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FrameId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

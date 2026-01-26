@@ -1,0 +1,84 @@
+@model DroneComponentsInventory.Models.MotorsComponent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>MotorsComponent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StatorSizeMm" class="control-label"></label>
+                <input asp-for="StatorSizeMm" class="form-control" />
+                <span asp-validation-for="StatorSizeMm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Kv" class="control-label"></label>
+                <input asp-for="Kv" class="form-control" />
+                <span asp-validation-for="Kv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MountPattern" class="control-label"></label>
+                <input asp-for="MountPattern" class="form-control" />
+                <span asp-validation-for="MountPattern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeightGrams" class="control-label"></label>
+                <input asp-for="WeightGrams" class="form-control" />
+                <span asp-validation-for="WeightGrams" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecommendedVoltageS" class="control-label"></label>
+                <input asp-for="RecommendedVoltageS" class="form-control" />
+                <span asp-validation-for="RecommendedVoltageS" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecommendedPropInch" class="control-label"></label>
+                <input asp-for="RecommendedPropInch" class="form-control" />
+                <span asp-validation-for="RecommendedPropInch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MaxThrustGrams" class="control-label"></label>
+                <input asp-for="MaxThrustGrams" class="form-control" />
+                <span asp-validation-for="MaxThrustGrams" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,163 @@
+@model IEnumerable<DroneComponentsInventory.Models.ReceiverComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Protocol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ModulationProtocol)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrequencyBand)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Channels)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelemetrySupport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AntennaCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AntennaType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RangeKm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoltageInputV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutputSignal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FailsafeSupport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BindingMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IntendedUse)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LengthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WidthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeightMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MountingType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Protocol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModulationProtocol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrequencyBand)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Channels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelemetrySupport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AntennaCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AntennaType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RangeKm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoltageInputV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutputSignal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FailsafeSupport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BindingMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IntendedUse)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LengthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WidthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeightMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MountingType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ReceiverId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ReceiverId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ReceiverId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

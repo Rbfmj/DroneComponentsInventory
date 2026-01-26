@@ -1,0 +1,111 @@
+@model DroneComponentsInventory.Models.ReceiverAntennaComponent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+
+<div>
+    <h4>ReceiverAntennaComponent</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.FrequencyBand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.FrequencyBand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Polarization)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Polarization)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Connector)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Connector)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ConnectorGender)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ConnectorGender)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GainDbi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GainDbi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RadiationPattern)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RadiationPattern)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CompatibleReceivers)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CompatibleReceivers)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.MountType)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.MountType)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CableLengthMm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CableLengthMm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WeightG)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WeightG)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.LengthMm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.LengthMm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.ReceiverAntennaId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+</body>
+</html>

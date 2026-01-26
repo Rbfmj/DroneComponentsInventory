@@ -1,0 +1,104 @@
+@model DroneComponentsInventory.Models.ReceiverAntennaComponent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Create</title>
+</head>
+<body>
+
+<h4>ReceiverAntennaComponent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FrequencyBand" class="control-label"></label>
+                <input asp-for="FrequencyBand" class="form-control" />
+                <span asp-validation-for="FrequencyBand" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Polarization" class="control-label"></label>
+                <input asp-for="Polarization" class="form-control" />
+                <span asp-validation-for="Polarization" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Connector" class="control-label"></label>
+                <input asp-for="Connector" class="form-control" />
+                <span asp-validation-for="Connector" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConnectorGender" class="control-label"></label>
+                <input asp-for="ConnectorGender" class="form-control" />
+                <span asp-validation-for="ConnectorGender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="GainDbi" class="control-label"></label>
+                <input asp-for="GainDbi" class="form-control" />
+                <span asp-validation-for="GainDbi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RadiationPattern" class="control-label"></label>
+                <input asp-for="RadiationPattern" class="form-control" />
+                <span asp-validation-for="RadiationPattern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CompatibleReceivers" class="control-label"></label>
+                <input asp-for="CompatibleReceivers" class="form-control" />
+                <span asp-validation-for="CompatibleReceivers" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MountType" class="control-label"></label>
+                <input asp-for="MountType" class="form-control" />
+                <span asp-validation-for="MountType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CableLengthMm" class="control-label"></label>
+                <input asp-for="CableLengthMm" class="form-control" />
+                <span asp-validation-for="CableLengthMm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeightG" class="control-label"></label>
+                <input asp-for="WeightG" class="form-control" />
+                <span asp-validation-for="WeightG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LengthMm" class="control-label"></label>
+                <input asp-for="LengthMm" class="form-control" />
+                <span asp-validation-for="LengthMm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

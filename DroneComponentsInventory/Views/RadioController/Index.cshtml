@@ -1,0 +1,139 @@
+@model IEnumerable<DroneComponentsInventory.Models.RadioControllerComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ControllerStyle)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrequencyGhz)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProtocolsSupported)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MaxChannels)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OutputPowerMw)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelemetrySupport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GimbalType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatteryType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LengthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WidthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeightMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirmwareSupport)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ControllerStyle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrequencyGhz)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProtocolsSupported)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxChannels)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutputPowerMw)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelemetrySupport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GimbalType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatteryType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LengthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WidthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeightMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirmwareSupport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.RadioControllerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.RadioControllerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.RadioControllerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

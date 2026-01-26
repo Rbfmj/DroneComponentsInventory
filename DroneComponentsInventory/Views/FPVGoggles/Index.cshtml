@@ -1,0 +1,127 @@
+@model IEnumerable<DroneComponentsInventory.Models.FPVGogglesComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VideoSystem)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DisplayType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ScreenSizeInch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Resolution)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LatencyMs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReceiverType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiversityAntennas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightGrams)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DvrCapability)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BatteryLifeHours)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PowerInput)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IPDAdjustable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoSystem)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisplayType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScreenSizeInch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Resolution)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LatencyMs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiverType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiversityAntennas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightGrams)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DvrCapability)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BatteryLifeHours)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PowerInput)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IPDAdjustable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.FPVGogglesId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.FPVGogglesId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.FPVGogglesId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

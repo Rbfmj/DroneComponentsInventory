@@ -1,0 +1,110 @@
+@model DroneComponentsInventory.Models.PropellersComponent
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>PropellersComponent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PropellerId" />
+            <div class="form-group">
+                <label asp-for="Manufacturer" class="control-label"></label>
+                <input asp-for="Manufacturer" class="form-control" />
+                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Model" class="control-label"></label>
+                <input asp-for="Model" class="form-control" />
+                <span asp-validation-for="Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DiameterMm" class="control-label"></label>
+                <input asp-for="DiameterMm" class="form-control" />
+                <span asp-validation-for="DiameterMm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PitchInch" class="control-label"></label>
+                <input asp-for="PitchInch" class="form-control" />
+                <span asp-validation-for="PitchInch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="BladeCount" class="control-label"></label>
+                <input asp-for="BladeCount" class="form-control" />
+                <span asp-validation-for="BladeCount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Material" class="control-label"></label>
+                <input asp-for="Material" class="form-control" />
+                <span asp-validation-for="Material" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ShaftDiameterMm" class="control-label"></label>
+                <input asp-for="ShaftDiameterMm" class="form-control" />
+                <span asp-validation-for="ShaftDiameterMm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RotationDirection" class="control-label"></label>
+                <input asp-for="RotationDirection" class="form-control" />
+                <span asp-validation-for="RotationDirection" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecommendedMotorSize" class="control-label"></label>
+                <input asp-for="RecommendedMotorSize" class="form-control" />
+                <span asp-validation-for="RecommendedMotorSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RecommendedMotorKv" class="control-label"></label>
+                <input asp-for="RecommendedMotorKv" class="form-control" />
+                <span asp-validation-for="RecommendedMotorKv" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FrameClass" class="control-label"></label>
+                <input asp-for="FrameClass" class="form-control" />
+                <span asp-validation-for="FrameClass" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WeightG" class="control-label"></label>
+                <input asp-for="WeightG" class="form-control" />
+                <span asp-validation-for="WeightG" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ColorOptions" class="control-label"></label>
+                <input asp-for="ColorOptions" class="form-control" />
+                <span asp-validation-for="ColorOptions" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IncludedQuantity" class="control-label"></label>
+                <input asp-for="IncludedQuantity" class="form-control" />
+                <span asp-validation-for="IncludedQuantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Price" class="control-label"></label>
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+</body>
+</html>

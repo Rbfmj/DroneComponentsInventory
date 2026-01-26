@@ -1,0 +1,127 @@
+@model IEnumerable<DroneComponentsInventory.Models.BatteryComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CellCountS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NominalVoltageV)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CapacityMah)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DischargeRateC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BurstRateC)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DischargeConnector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BalanceConnector)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chemistry)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LengthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WidthMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeightMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CellCountS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NominalVoltageV)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CapacityMah)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DischargeRateC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BurstRateC)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DischargeConnector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BalanceConnector)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chemistry)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LengthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WidthMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeightMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.BatteryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.BatteryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.BatteryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

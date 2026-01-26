@@ -1,0 +1,127 @@
+@model IEnumerable<DroneComponentsInventory.Models.PropellersComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiameterMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PitchInch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BladeCount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ShaftDiameterMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RotationDirection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecommendedMotorSize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecommendedMotorKv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FrameClass)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ColorOptions)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IncludedQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiameterMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PitchInch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BladeCount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Material)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ShaftDiameterMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RotationDirection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecommendedMotorSize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecommendedMotorKv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FrameClass)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ColorOptions)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IncludedQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PropellerId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.PropellerId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.PropellerId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

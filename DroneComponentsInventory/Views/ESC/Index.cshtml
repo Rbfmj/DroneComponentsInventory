@@ -1,0 +1,91 @@
+@model IEnumerable<DroneComponentsInventory.Models.ESCComponent>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EscType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContinuousCurrentA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VoltageInputS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MountPatternMm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SupportedProtocols)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeightG)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EscType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContinuousCurrentA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VoltageInputS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MountPatternMm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SupportedProtocols)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeightG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EscId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EscId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EscId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>
