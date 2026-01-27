@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DroneComponentsInventory.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260126081825_Database")]
+    [Migration("20260127191322_Database")]
     partial class Database
     {
         /// <inheritdoc />
@@ -27,78 +27,71 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("battery_id");
 
                     b.Property<string>("BalanceConnector")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("balance_connector");
 
-                    b.Property<double>("BurstRateC")
+                    b.Property<double?>("BurstRateC")
                         .HasColumnType("REAL")
                         .HasColumnName("burst_rate_c");
 
-                    b.Property<int>("CapacityMah")
+                    b.Property<int?>("CapacityMah")
                         .HasColumnType("INTEGER")
                         .HasColumnName("capacity_mah");
 
-                    b.Property<int>("CellCountS")
+                    b.Property<int?>("CellCountS")
                         .HasColumnType("INTEGER")
                         .HasColumnName("cell_count_s");
 
                     b.Property<string>("Chemistry")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("chemistry");
 
                     b.Property<string>("DischargeConnector")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("discharge_connector");
 
-                    b.Property<double>("DischargeRateC")
+                    b.Property<double?>("DischargeRateC")
                         .HasColumnType("REAL")
                         .HasColumnName("discharge_rate_c");
 
-                    b.Property<double>("HeightMm")
+                    b.Property<double?>("HeightMm")
                         .HasColumnType("REAL")
                         .HasColumnName("height_mm");
 
-                    b.Property<double>("LengthMm")
+                    b.Property<double?>("LengthMm")
                         .HasColumnType("REAL")
                         .HasColumnName("length_mm");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
-                    b.Property<decimal>("NominalVoltageV")
-                        .HasColumnType("decimal(6,2)")
+                    b.Property<double?>("NominalVoltageV")
+                        .HasColumnType("REAL")
                         .HasColumnName("nominal_voltage_v");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(10,2)")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
-                    b.Property<double>("WeightG")
+                    b.Property<double?>("WeightG")
                         .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.Property<double>("WidthMm")
+                    b.Property<double?>("WidthMm")
                         .HasColumnType("REAL")
                         .HasColumnName("width_mm");
 
-                    b.HasKey("BatteryId");
+                    b.HasKey("BatteryId")
+                        .HasName("pk_battery_components");
 
-                    b.ToTable("battery_components");
+                    b.ToTable("battery_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.ESCComponent", b =>
@@ -108,24 +101,21 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("esc_id");
 
-                    b.Property<decimal?>("ContinuousCurrentA")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("ContinuousCurrentA")
+                        .HasColumnType("REAL")
                         .HasColumnName("continuous_current_a");
 
                     b.Property<string>("EscType")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
-                        .HasColumnName("type");
+                        .HasColumnName("esc_type");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
@@ -133,9 +123,8 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("mount_pattern_mm");
 
-                    b.Property<decimal?>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<string>("SupportedProtocols")
@@ -150,9 +139,10 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("EscId");
+                    b.HasKey("EscId")
+                        .HasName("pk_esc_components");
 
-                    b.ToTable("esc_components");
+                    b.ToTable("esc_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.FCComponent", b =>
@@ -163,49 +153,47 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("fc_id");
 
                     b.Property<string>("FirmwareSupport")
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("firmware_support");
 
                     b.Property<string>("ImuGyro")
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("imu_gyro");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("McuProcessor")
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("mcu_processor");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
                     b.Property<string>("MountPatternMm")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("mount_pattern_mm");
 
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
+                        .HasColumnName("price");
+
                     b.Property<string>("VoltageInputS")
-                        .HasMaxLength(20)
                         .HasColumnType("TEXT")
                         .HasColumnName("voltage_input_s");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("decimal(8,2)")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("FcId");
+                    b.HasKey("FcId")
+                        .HasName("pk_fc_components");
 
-                    b.ToTable("fc_components");
+                    b.ToTable("fc_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.FPVCameraComponent", b =>
@@ -219,23 +207,21 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("fov_modes");
 
-                    b.Property<decimal?>("LensFocalMm")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("LensFocalMm")
+                        .HasColumnType("REAL")
                         .HasColumnName("lens_focal_mm");
 
-                    b.Property<decimal?>("LowLightLux")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("LowLightLux")
+                        .HasColumnType("REAL")
                         .HasColumnName("low_light_lux");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
@@ -243,9 +229,8 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("mount_size_mm");
 
-                    b.Property<decimal?>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<int?>("ResolutionTvl")
@@ -253,7 +238,6 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("resolution_tvl");
 
                     b.Property<string>("SensorSize")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("sensor_size");
 
@@ -262,17 +246,17 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("supported_aspect_ratios");
 
                     b.Property<string>("TypeSystem")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("type_system");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("decimal(8,2)")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("CameraId");
+                    b.HasKey("CameraId")
+                        .HasName("pk_fpv_camera_components");
 
-                    b.ToTable("fpv_camera_components");
+                    b.ToTable("fpv_camera_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.FPVGogglesComponent", b =>
@@ -320,8 +304,8 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("power_input");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<string>("ReceiverType")
@@ -342,11 +326,12 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<int?>("WeightGrams")
                         .HasColumnType("INTEGER")
-                        .HasColumnName("weight_g");
+                        .HasColumnName("weight_grams");
 
-                    b.HasKey("FPVGogglesId");
+                    b.HasKey("FPVGogglesId")
+                        .HasName("pk_fpv_goggles_components");
 
-                    b.ToTable("fpv_goggles_components");
+                    b.ToTable("fpv_goggles_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.FrameComponent", b =>
@@ -398,63 +383,73 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("TEXT")
                         .HasColumnName("motor_mount_pattern");
 
-                    b.Property<decimal?>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<int?>("WheelbaseMm")
                         .HasColumnType("INTEGER")
                         .HasColumnName("wheelbase_mm");
 
-                    b.HasKey("FrameId");
+                    b.HasKey("FrameId")
+                        .HasName("pk_frame_components");
 
-                    b.ToTable("frame_components");
+                    b.ToTable("frame_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.MotorsComponent", b =>
                 {
                     b.Property<int>("MotorId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("motor_id");
 
                     b.Property<int?>("Kv")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("kv");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("manufacturer");
 
-                    b.Property<decimal?>("MaxThrustGrams")
-                        .HasColumnType("TEXT");
+                    b.Property<double?>("MaxThrustGrams")
+                        .HasColumnType("REAL")
+                        .HasColumnName("max_thrust_grams");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("model");
 
                     b.Property<string>("MountPattern")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("mount_pattern");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
+                        .HasColumnName("price");
 
                     b.Property<string>("RecommendedPropInch")
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("recommended_prop_inch");
 
                     b.Property<int?>("RecommendedVoltageS")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("recommended_voltage_s");
 
-                    b.Property<decimal?>("StatorSizeMm")
-                        .HasColumnType("TEXT");
+                    b.Property<double?>("StatorSizeMm")
+                        .HasColumnType("REAL")
+                        .HasColumnName("stator_size_mm");
 
-                    b.Property<decimal?>("WeightGrams")
-                        .HasColumnType("TEXT");
+                    b.Property<double?>("WeightGrams")
+                        .HasColumnType("REAL")
+                        .HasColumnName("weight_grams");
 
-                    b.HasKey("MotorId");
+                    b.HasKey("MotorId")
+                        .HasName("pk_motors_components");
 
-                    b.ToTable("MotorsComponents");
+                    b.ToTable("motors_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.PropellersComponent", b =>
@@ -464,83 +459,72 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("propeller_id");
 
-                    b.Property<int>("BladeCount")
+                    b.Property<int?>("BladeCount")
                         .HasColumnType("INTEGER")
                         .HasColumnName("blade_count");
 
                     b.Property<string>("ColorOptions")
-                        .IsRequired()
-                        .HasMaxLength(200)
                         .HasColumnType("TEXT")
                         .HasColumnName("color_options");
 
-                    b.Property<int>("DiameterMm")
+                    b.Property<int?>("DiameterMm")
                         .HasColumnType("INTEGER")
                         .HasColumnName("diameter_mm");
 
                     b.Property<string>("FrameClass")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("frame_class");
 
-                    b.Property<int>("IncludedQuantity")
+                    b.Property<int?>("IncludedQuantity")
                         .HasColumnType("INTEGER")
                         .HasColumnName("included_quantity");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("Material")
-                        .IsRequired()
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("material");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
-                    b.Property<decimal>("PitchInch")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("PitchInch")
+                        .HasColumnType("REAL")
                         .HasColumnName("pitch_inch");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
-                    b.Property<int>("RecommendedMotorKv")
+                    b.Property<int?>("RecommendedMotorKv")
                         .HasColumnType("INTEGER")
                         .HasColumnName("recommended_motor_kv");
 
                     b.Property<string>("RecommendedMotorSize")
-                        .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("recommended_motor_size");
 
                     b.Property<string>("RotationDirection")
-                        .IsRequired()
-                        .HasMaxLength(20)
                         .HasColumnType("TEXT")
                         .HasColumnName("rotation_direction");
 
-                    b.Property<decimal>("ShaftDiameterMm")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("ShaftDiameterMm")
+                        .HasColumnType("REAL")
                         .HasColumnName("shaft_diameter_mm");
 
-                    b.Property<decimal>("WeightG")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("PropellerId");
+                    b.HasKey("PropellerId")
+                        .HasName("pk_propellers_components");
 
-                    b.ToTable("propellers_components");
+                    b.ToTable("propellers_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.RadioControllerComponent", b =>
@@ -551,26 +535,22 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("radio_controller_id");
 
                     b.Property<string>("BatteryType")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("battery_type");
 
                     b.Property<string>("ControllerStyle")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("controller_style");
 
                     b.Property<string>("FirmwareSupport")
-                        .HasMaxLength(200)
                         .HasColumnType("TEXT")
                         .HasColumnName("firmware_support");
 
-                    b.Property<decimal?>("FrequencyGhz")
-                        .HasColumnType("decimal(6,3)")
+                    b.Property<double?>("FrequencyGhz")
+                        .HasColumnType("REAL")
                         .HasColumnName("frequency_ghz");
 
                     b.Property<string>("GimbalType")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("gimbal_type");
 
@@ -584,7 +564,6 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
@@ -594,26 +573,22 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
-                    b.Property<decimal?>("OutputPowerMw")
-                        .HasColumnType("decimal(8,2)")
+                    b.Property<double?>("OutputPowerMw")
+                        .HasColumnType("REAL")
                         .HasColumnName("output_power_mw");
 
-                    b.Property<decimal?>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<string>("ProtocolsSupported")
-                        .HasMaxLength(200)
                         .HasColumnType("TEXT")
                         .HasColumnName("protocols_supported");
 
                     b.Property<string>("ScreenType")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("screen_type");
 
@@ -621,17 +596,18 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("telemetry_support");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("decimal(8,2)")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
                     b.Property<int?>("WidthMm")
                         .HasColumnType("INTEGER")
                         .HasColumnName("width_mm");
 
-                    b.HasKey("RadioControllerId");
+                    b.HasKey("RadioControllerId")
+                        .HasName("pk_radio_controller_components");
 
-                    b.ToTable("radio_controller_components");
+                    b.ToTable("radio_controller_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.ReceiverAntennaComponent", b =>
@@ -646,27 +622,23 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("cable_length_mm");
 
                     b.Property<string>("CompatibleReceivers")
-                        .HasMaxLength(200)
                         .HasColumnType("TEXT")
                         .HasColumnName("compatible_receivers");
 
                     b.Property<string>("Connector")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("connector");
 
                     b.Property<string>("ConnectorGender")
-                        .HasMaxLength(20)
                         .HasColumnType("TEXT")
                         .HasColumnName("connector_gender");
 
                     b.Property<string>("FrequencyBand")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("frequency_band");
 
-                    b.Property<decimal?>("GainDbi")
-                        .HasColumnType("decimal(6,2)")
+                    b.Property<double?>("GainDbi")
+                        .HasColumnType("REAL")
                         .HasColumnName("gain_dbi");
 
                     b.Property<int?>("LengthMm")
@@ -675,189 +647,196 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
                     b.Property<string>("MountType")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("mount_type");
 
                     b.Property<string>("Polarization")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("polarization");
 
-                    b.Property<decimal?>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<string>("RadiationPattern")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("radiation_pattern");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("decimal(8,2)")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("ReceiverAntennaId");
+                    b.HasKey("ReceiverAntennaId")
+                        .HasName("pk_receiver_antenna_components");
 
-                    b.ToTable("receiver_antenna_components");
+                    b.ToTable("receiver_antenna_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.ReceiverComponent", b =>
                 {
                     b.Property<int>("ReceiverId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("receiver_id");
 
                     b.Property<int?>("AntennaCount")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antenna_count");
 
                     b.Property<string>("AntennaType")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antenna_type");
 
                     b.Property<string>("BindingMethod")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("binding_method");
 
                     b.Property<int?>("Channels")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("channels");
 
-                    b.Property<bool>("FailsafeSupport")
-                        .HasColumnType("INTEGER");
+                    b.Property<bool?>("FailsafeSupport")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("failsafe_support");
 
                     b.Property<string>("FrequencyBand")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("frequency_band");
 
                     b.Property<int?>("HeightMm")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("height_mm");
 
                     b.Property<string>("IntendedUse")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("intended_use");
 
                     b.Property<int?>("LengthMm")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("length_mm");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("model");
 
                     b.Property<string>("ModulationProtocol")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("modulation_protocol");
 
                     b.Property<string>("MountingType")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("mounting_type");
 
                     b.Property<string>("OutputSignal")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("output_signal");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
+                        .HasColumnName("price");
 
                     b.Property<string>("Protocol")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("protocol");
 
                     b.Property<double?>("RangeKm")
-                        .HasColumnType("REAL");
+                        .HasColumnType("REAL")
+                        .HasColumnName("range_km");
 
-                    b.Property<bool>("TelemetrySupport")
-                        .HasColumnType("INTEGER");
+                    b.Property<bool?>("TelemetrySupport")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("telemetry_support");
 
                     b.Property<double?>("VoltageInputV")
-                        .HasColumnType("REAL");
+                        .HasColumnType("REAL")
+                        .HasColumnName("voltage_input_v");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("decimal(10,2)");
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
+                        .HasColumnName("weight_g");
 
                     b.Property<int?>("WidthMm")
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("width_mm");
 
-                    b.HasKey("ReceiverId");
+                    b.HasKey("ReceiverId")
+                        .HasName("pk_receiver_components");
 
-                    b.ToTable("ReceiverComponents");
+                    b.ToTable("receiver_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.VideoAntennaComponent", b =>
                 {
                     b.Property<int>("AntennaId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("antenna_id");
 
                     b.Property<string>("AntennaClass")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("antenna_class");
 
                     b.Property<double?>("AxialRatio")
-                        .HasColumnType("REAL");
+                        .HasColumnType("REAL")
+                        .HasColumnName("axial_ratio");
 
                     b.Property<string>("Connector")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("connector");
 
-                    b.Property<double>("GainDbi")
-                        .HasColumnType("REAL");
+                    b.Property<double?>("GainDbi")
+                        .HasColumnType("REAL")
+                        .HasColumnName("gain_dbi");
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("manufacturer");
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("model");
 
                     b.Property<string>("OperatingFrequencyMhz")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("operating_frequency_mhz");
 
                     b.Property<string>("Polarization")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("polarization");
 
-                    b.Property<decimal>("Price")
-                        .HasPrecision(18, 2)
-                        .HasColumnType("TEXT");
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
+                        .HasColumnName("price");
 
                     b.Property<string>("RadiationPattern")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
+                        .HasColumnType("TEXT")
+                        .HasColumnName("radiation_pattern");
 
-                    b.Property<int>("WeightGrams")
-                        .HasColumnType("INTEGER");
+                    b.Property<int?>("WeightGrams")
+                        .HasColumnType("INTEGER")
+                        .HasColumnName("weight_grams");
 
-                    b.HasKey("AntennaId");
+                    b.HasKey("AntennaId")
+                        .HasName("pk_video_antenna_components");
 
-                    b.ToTable("VideoAntennaComponents");
+                    b.ToTable("video_antenna_components", (string)null);
                 });
 
             modelBuilder.Entity("DroneComponentsInventory.Models.VideoTransmitterComponent", b =>
@@ -868,7 +847,6 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnName("vtx_id");
 
                     b.Property<string>("AntennaConnector")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("antenna_connector");
 
@@ -878,7 +856,6 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<string>("Manufacturer")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("manufacturer");
 
@@ -888,35 +865,33 @@ namespace DroneComponentsInventory.Migrations
 
                     b.Property<string>("Model")
                         .IsRequired()
-                        .HasMaxLength(100)
                         .HasColumnType("TEXT")
                         .HasColumnName("model");
 
                     b.Property<string>("MountPatternMm")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("mount_pattern_mm");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("Price")
+                        .HasColumnType("REAL")
                         .HasColumnName("price");
 
                     b.Property<string>("Type")
-                        .HasMaxLength(50)
                         .HasColumnType("TEXT")
                         .HasColumnName("type");
 
-                    b.Property<decimal?>("VoltageInputS")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("VoltageInputS")
+                        .HasColumnType("REAL")
                         .HasColumnName("voltage_input_s");
 
-                    b.Property<decimal?>("WeightG")
-                        .HasColumnType("TEXT")
+                    b.Property<double?>("WeightG")
+                        .HasColumnType("REAL")
                         .HasColumnName("weight_g");
 
-                    b.HasKey("VtxId");
+                    b.HasKey("VtxId")
+                        .HasName("pk_video_transmitter_components");
 
-                    b.ToTable("VideoTransmitterComponents");
+                    b.ToTable("video_transmitter_components", (string)null);
                 });
 #pragma warning restore 612, 618
         }

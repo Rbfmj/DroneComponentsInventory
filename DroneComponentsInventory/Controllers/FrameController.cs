@@ -9,22 +9,22 @@ using DroneComponentsInventory.Models;
 
 namespace DroneComponentsInventory.Controllers
 {
-    public class FramesController : Controller
+    public class FrameController : Controller
     {
         private readonly AppDbContext _context;
 
-        public FramesController(AppDbContext context)
+        public FrameController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: Frames
+        // GET: Frame
         public async Task<IActionResult> Index()
         {
             return View(await _context.FrameComponents.ToListAsync());
         }
 
-        // GET: Frames/Details/5
+        // GET: Frame/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,13 +42,13 @@ namespace DroneComponentsInventory.Controllers
             return View(frameComponent);
         }
 
-        // GET: Frames/Create
+        // GET: Frame/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Frames/Create
+        // POST: Frame/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -64,7 +64,7 @@ namespace DroneComponentsInventory.Controllers
             return View(frameComponent);
         }
 
-        // GET: Frames/Edit/5
+        // GET: Frame/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace DroneComponentsInventory.Controllers
             return View(frameComponent);
         }
 
-        // POST: Frames/Edit/5
+        // POST: Frame/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace DroneComponentsInventory.Controllers
             return View(frameComponent);
         }
 
-        // GET: Frames/Delete/5
+        // GET: Frame/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace DroneComponentsInventory.Controllers
             return View(frameComponent);
         }
 
-        // POST: Frames/Delete/5
+        // POST: Frame/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

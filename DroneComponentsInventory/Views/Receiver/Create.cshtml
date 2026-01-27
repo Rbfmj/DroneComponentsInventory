@@ -49,10 +49,10 @@
                 <input asp-for="Channels" class="form-control" />
                 <span asp-validation-for="Channels" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="TelemetrySupport" /> @Html.DisplayNameFor(model => model.TelemetrySupport)
-                </label>
+            <div class="form-group">
+                <label asp-for="TelemetrySupport" class="control-label"></label>
+                <input asp-for="TelemetrySupport" class="form-control" />
+                <span asp-validation-for="TelemetrySupport" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="AntennaCount" class="control-label"></label>
@@ -79,10 +79,10 @@
                 <input asp-for="OutputSignal" class="form-control" />
                 <span asp-validation-for="OutputSignal" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="FailsafeSupport" /> @Html.DisplayNameFor(model => model.FailsafeSupport)
-                </label>
+            <div class="form-group">
+                <label asp-for="FailsafeSupport" class="control-label"></label>
+                <input asp-for="FailsafeSupport" class="form-control" />
+                <span asp-validation-for="FailsafeSupport" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="BindingMethod" class="control-label"></label>

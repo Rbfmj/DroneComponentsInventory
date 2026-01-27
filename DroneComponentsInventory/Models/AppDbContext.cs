@@ -8,7 +8,6 @@ namespace DroneComponentsInventory.Models
             : base(options)
         {
         }
-
         public DbSet<FrameComponent> FrameComponents { get; set; } = null!;
         public DbSet<MotorsComponent> MotorsComponents { get; set; } = null!;
         public DbSet<FCComponent> FCComponents { get; set; } = null!;   

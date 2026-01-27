@@ -9,22 +9,22 @@ using DroneComponentsInventory.Models;
 
 namespace DroneComponentsInventory.Controllers
 {
-    public class FlightControllerController : Controller
+    public class FCController : Controller
     {
         private readonly AppDbContext _context;
 
-        public FlightControllerController(AppDbContext context)
+        public FCController(AppDbContext context)
         {
             _context = context;
         }
 
-        // GET: FlightController
+        // GET: FC
         public async Task<IActionResult> Index()
         {
             return View(await _context.FCComponents.ToListAsync());
         }
 
-        // GET: FlightController/Details/5
+        // GET: FC/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -42,18 +42,18 @@ namespace DroneComponentsInventory.Controllers
             return View(fCComponent);
         }
 
-        // GET: FlightController/Create
+        // GET: FC/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: FlightController/Create
+        // POST: FC/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FcId,Manufacturer,Model,McuProcessor,ImuGyro,MountPatternMm,VoltageInputS,FirmwareSupport,WeightG")] FCComponent fCComponent)
+        public async Task<IActionResult> Create([Bind("FcId,Manufacturer,Model,McuProcessor,ImuGyro,MountPatternMm,VoltageInputS,FirmwareSupport,WeightG,Price")] FCComponent fCComponent)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +64,7 @@ namespace DroneComponentsInventory.Controllers
             return View(fCComponent);
         }
 
-        // GET: FlightController/Edit/5
+        // GET: FC/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -80,7 +80,7 @@ namespace DroneComponentsInventory.Controllers
             return View(fCComponent);
         }
 
-        // POST: FlightController/Edit/5
+        // POST: FC/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -115,7 +115,7 @@ namespace DroneComponentsInventory.Controllers
             return View(fCComponent);
         }
 
-        // GET: FlightController/Delete/5
+        // GET: FC/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -133,7 +133,7 @@ namespace DroneComponentsInventory.Controllers
             return View(fCComponent);
         }
 
-        // POST: FlightController/Delete/5
+        // POST: FC/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
