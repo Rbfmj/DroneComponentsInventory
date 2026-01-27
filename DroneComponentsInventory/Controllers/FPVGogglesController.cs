@@ -21,7 +21,7 @@ namespace DroneComponentsInventory.Controllers
         // GET: FPVGoggles
         public async Task<IActionResult> Index()
         {
-            return View(await _context.FPVGogglesComponent.ToListAsync());
+            return View(await _context.FPVGogglesComponents.ToListAsync());
         }
 
         // GET: FPVGoggles/Details/5
@@ -32,7 +32,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var fPVGogglesComponent = await _context.FPVGogglesComponent
+            var fPVGogglesComponent = await _context.FPVGogglesComponents
                 .FirstOrDefaultAsync(m => m.FPVGogglesId == id);
             if (fPVGogglesComponent == null)
             {
@@ -72,7 +72,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var fPVGogglesComponent = await _context.FPVGogglesComponent.FindAsync(id);
+            var fPVGogglesComponent = await _context.FPVGogglesComponents.FindAsync(id);
             if (fPVGogglesComponent == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var fPVGogglesComponent = await _context.FPVGogglesComponent
+            var fPVGogglesComponent = await _context.FPVGogglesComponents
                 .FirstOrDefaultAsync(m => m.FPVGogglesId == id);
             if (fPVGogglesComponent == null)
             {
@@ -138,10 +138,10 @@ namespace DroneComponentsInventory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var fPVGogglesComponent = await _context.FPVGogglesComponent.FindAsync(id);
+            var fPVGogglesComponent = await _context.FPVGogglesComponents.FindAsync(id);
             if (fPVGogglesComponent != null)
             {
-                _context.FPVGogglesComponent.Remove(fPVGogglesComponent);
+                _context.FPVGogglesComponents.Remove(fPVGogglesComponent);
             }
 
             await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace DroneComponentsInventory.Controllers
 
         private bool FPVGogglesComponentExists(int id)
         {
-            return _context.FPVGogglesComponent.Any(e => e.FPVGogglesId == id);
+            return _context.FPVGogglesComponents.Any(e => e.FPVGogglesId == id);
         }
     }
 }

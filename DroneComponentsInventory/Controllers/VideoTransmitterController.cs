@@ -21,7 +21,7 @@ namespace DroneComponentsInventory.Controllers
         // GET: VideoTransmitter
         public async Task<IActionResult> Index()
         {
-            return View(await _context.VideoTransmitterComponent.ToListAsync());
+            return View(await _context.VideoTransmitterComponents.ToListAsync());
         }
 
         // GET: VideoTransmitter/Details/5
@@ -32,7 +32,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var videoTransmitterComponent = await _context.VideoTransmitterComponent
+            var videoTransmitterComponent = await _context.VideoTransmitterComponents
                 .FirstOrDefaultAsync(m => m.VtxId == id);
             if (videoTransmitterComponent == null)
             {
@@ -72,7 +72,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var videoTransmitterComponent = await _context.VideoTransmitterComponent.FindAsync(id);
+            var videoTransmitterComponent = await _context.VideoTransmitterComponents.FindAsync(id);
             if (videoTransmitterComponent == null)
             {
                 return NotFound();
@@ -123,7 +123,7 @@ namespace DroneComponentsInventory.Controllers
                 return NotFound();
             }
 
-            var videoTransmitterComponent = await _context.VideoTransmitterComponent
+            var videoTransmitterComponent = await _context.VideoTransmitterComponents
                 .FirstOrDefaultAsync(m => m.VtxId == id);
             if (videoTransmitterComponent == null)
             {
@@ -138,10 +138,10 @@ namespace DroneComponentsInventory.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var videoTransmitterComponent = await _context.VideoTransmitterComponent.FindAsync(id);
+            var videoTransmitterComponent = await _context.VideoTransmitterComponents.FindAsync(id);
             if (videoTransmitterComponent != null)
             {
-                _context.VideoTransmitterComponent.Remove(videoTransmitterComponent);
+                _context.VideoTransmitterComponents.Remove(videoTransmitterComponent);
             }
 
             await _context.SaveChangesAsync();
@@ -150,7 +150,7 @@ namespace DroneComponentsInventory.Controllers
 
         private bool VideoTransmitterComponentExists(int id)
         {
-            return _context.VideoTransmitterComponent.Any(e => e.VtxId == id);
+            return _context.VideoTransmitterComponents.Any(e => e.VtxId == id);
         }
     }
 }

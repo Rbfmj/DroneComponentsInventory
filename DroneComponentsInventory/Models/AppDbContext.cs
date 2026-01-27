@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using DroneComponentsInventory.Models;
 
 namespace DroneComponentsInventory.Models
 {
@@ -15,9 +14,9 @@ namespace DroneComponentsInventory.Models
         public DbSet<FCComponent> FCComponents { get; set; } = null!;   
         public DbSet<ESCComponent> ESCComponents { get; set; } = null!;
         public DbSet<FPVCameraComponent> FPVCameraComponents { get; set; } = null!;
-        public DbSet<VideoTransmitterComponent> VideoTransmitterComponent { get; set; } = null!;
+        public DbSet<VideoTransmitterComponent> VideoTransmitterComponents { get; set; } = null!;
         public DbSet<VideoAntennaComponent> VideoAntennaComponents { get; set; } = null!;
-        public DbSet<FPVGogglesComponent> FPVGogglesComponent { get; set; } = null!;
+        public DbSet<FPVGogglesComponent> FPVGogglesComponents { get; set; } = null!;
         public DbSet<ReceiverComponent> ReceiverComponents { get; set; } = null!;
         public DbSet<ReceiverAntennaComponent> ReceiverAntennaComponents { get; set; } = null!;
         public DbSet<RadioControllerComponent> RadioControllerComponents { get; set; } = null!;
