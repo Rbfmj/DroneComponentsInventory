@@ -11,15 +11,15 @@ namespace DroneComponentsInventory.Models
         [Required]
         public string Model { get; set; } = null!;
         public int? DiameterMm { get; set; }
-        public double? PitchInch { get; set; }
+        public int? PitchInch { get; set; }
         public int? BladeCount { get; set; }
         public string? Material { get; set; }
-        public double? ShaftDiameterMm { get; set; }
+        public int? ShaftDiameterMm { get; set; }
         public string? RotationDirection { get; set; }
         public string? RecommendedMotorSize { get; set; }
         public int? RecommendedMotorKv { get; set; }
         public string? FrameClass { get; set; }
-        public double? WeightG { get; set; }
+        public int? WeightG { get; set; }
         public string? ColorOptions { get; set; }
         public int? IncludedQuantity { get; set; }
         public double? Price { get; set; }  

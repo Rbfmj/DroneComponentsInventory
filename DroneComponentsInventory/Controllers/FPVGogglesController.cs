@@ -33,7 +33,7 @@ namespace DroneComponentsInventory.Controllers
             }
 
             var fPVGogglesComponent = await _context.FPVGogglesComponents
-                .FirstOrDefaultAsync(m => m.FPVGogglesId == id);
+                .FirstOrDefaultAsync(m => m.FpvGogglesId == id);
             if (fPVGogglesComponent == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FPVGogglesId,Manufacturer,Model,VideoSystem,DisplayType,ScreenSizeInch,Resolution,LatencyMs,ReceiverType,DiversityAntennas,WeightGrams,DvrCapability,BatteryLifeHours,PowerInput,IPDAdjustable,Price")] FPVGogglesComponent fPVGogglesComponent)
+        public async Task<IActionResult> Create([Bind("FpvGogglesId,Manufacturer,Model,VideoSystem,DisplayType,ScreenSizeInch,Resolution,LatencyMs,ReceiverType,DiversityAntennas,WeightG,DvrCapability,BatteryLifeHours,PowerInput,IpdAdjustable,Price")] FPVGogglesComponent fPVGogglesComponent)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FPVGogglesId,Manufacturer,Model,VideoSystem,DisplayType,ScreenSizeInch,Resolution,LatencyMs,ReceiverType,DiversityAntennas,WeightGrams,DvrCapability,BatteryLifeHours,PowerInput,IPDAdjustable,Price")] FPVGogglesComponent fPVGogglesComponent)
+        public async Task<IActionResult> Edit(int id, [Bind("FpvGogglesId,Manufacturer,Model,VideoSystem,DisplayType,ScreenSizeInch,Resolution,LatencyMs,ReceiverType,DiversityAntennas,WeightG,DvrCapability,BatteryLifeHours,PowerInput,IpdAdjustable,Price")] FPVGogglesComponent fPVGogglesComponent)
         {
-            if (id != fPVGogglesComponent.FPVGogglesId)
+            if (id != fPVGogglesComponent.FpvGogglesId)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace DroneComponentsInventory.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FPVGogglesComponentExists(fPVGogglesComponent.FPVGogglesId))
+                    if (!FPVGogglesComponentExists(fPVGogglesComponent.FpvGogglesId))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace DroneComponentsInventory.Controllers
             }
 
             var fPVGogglesComponent = await _context.FPVGogglesComponents
-                .FirstOrDefaultAsync(m => m.FPVGogglesId == id);
+                .FirstOrDefaultAsync(m => m.FpvGogglesId == id);
             if (fPVGogglesComponent == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace DroneComponentsInventory.Controllers
 
         private bool FPVGogglesComponentExists(int id)
         {
-            return _context.FPVGogglesComponents.Any(e => e.FPVGogglesId == id);
+            return _context.FPVGogglesComponents.Any(e => e.FpvGogglesId == id);
         }
     }
 }

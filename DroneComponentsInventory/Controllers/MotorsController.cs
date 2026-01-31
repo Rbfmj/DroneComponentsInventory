@@ -53,7 +53,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("MotorId,Manufacturer,Model,StatorSizeMm,Kv,MountPattern,WeightGrams,RecommendedVoltageS,RecommendedPropInch,MaxThrustGrams,Price")] MotorsComponent motorsComponent)
+        public async Task<IActionResult> Create([Bind("MotorId,Manufacturer,Model,StatorSizeMm,Kv,MountPattern,WeightG,RecommendedVoltageS,RecommendedPropInch,MaxThrustG,Price")] MotorsComponent motorsComponent)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("MotorId,Manufacturer,Model,StatorSizeMm,Kv,MountPattern,WeightGrams,RecommendedVoltageS,RecommendedPropInch,MaxThrustGrams,Price")] MotorsComponent motorsComponent)
+        public async Task<IActionResult> Edit(int id, [Bind("MotorId,Manufacturer,Model,StatorSizeMm,Kv,MountPattern,WeightG,RecommendedVoltageS,RecommendedPropInch,MaxThrustG,Price")] MotorsComponent motorsComponent)
         {
             if (id != motorsComponent.MotorId)
             {

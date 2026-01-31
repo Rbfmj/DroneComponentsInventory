@@ -53,7 +53,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RadioControllerId,Manufacturer,Model,ControllerStyle,FrequencyGhz,ProtocolsSupported,MaxChannels,OutputPowerMw,TelemetrySupport,ScreenType,GimbalType,BatteryType,WeightG,LengthMm,WidthMm,HeightMm,FirmwareSupport,Price")] RadioControllerComponent radioControllerComponent)
+        public async Task<IActionResult> Create([Bind("RadioControllerId,Manufacturer,Model,ControllerStyle,FrequencyGhz,ProtocolsSupported,MaxChannels,OutputPowerMw,TelemetrySupport,ScreenType,GimbalType,BatteryType,WeightG,FirmwareSupport,Price")] RadioControllerComponent radioControllerComponent)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RadioControllerId,Manufacturer,Model,ControllerStyle,FrequencyGhz,ProtocolsSupported,MaxChannels,OutputPowerMw,TelemetrySupport,ScreenType,GimbalType,BatteryType,WeightG,LengthMm,WidthMm,HeightMm,FirmwareSupport,Price")] RadioControllerComponent radioControllerComponent)
+        public async Task<IActionResult> Edit(int id, [Bind("RadioControllerId,Manufacturer,Model,ControllerStyle,FrequencyGhz,ProtocolsSupported,MaxChannels,OutputPowerMw,TelemetrySupport,ScreenType,GimbalType,BatteryType,WeightG,FirmwareSupport,Price")] RadioControllerComponent radioControllerComponent)
         {
             if (id != radioControllerComponent.RadioControllerId)
             {

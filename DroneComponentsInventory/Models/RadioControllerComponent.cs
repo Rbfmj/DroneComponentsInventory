@@ -19,10 +19,7 @@
         public string? ScreenType { get; set; }
         public string? GimbalType { get; set; }
         public string? BatteryType { get; set; }
-        public double? WeightG { get; set; }
-        public int? LengthMm { get; set; }
-        public int? WidthMm { get; set; }
-        public int? HeightMm { get; set; }
+        public int? WeightG { get; set; }
         public string? FirmwareSupport { get; set; }
         public double? Price { get; set; }
     }

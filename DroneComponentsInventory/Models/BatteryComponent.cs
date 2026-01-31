@@ -18,10 +18,10 @@ namespace DroneComponentsInventory.Models
         public string? DischargeConnector { get; set; }
         public string? BalanceConnector { get; set; }
         public string? Chemistry { get; set; }
-        public double? WeightG { get; set; }
-        public double? LengthMm { get; set; }
-        public double? WidthMm { get; set; }
-        public double? HeightMm { get; set; }
+        public int? WeightG { get; set; }
+        public int? LengthMm { get; set; }
+        public int? WidthMm { get; set; }
+        public int? HeightMm { get; set; }
         public double? Price { get; set; }
     }
 }

@@ -73,10 +73,10 @@
             @Html.DisplayFor(model => model.DiversityAntennas)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightGrams)
+            @Html.DisplayNameFor(model => model.WeightG)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightGrams)
+            @Html.DisplayFor(model => model.WeightG)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.DvrCapability)
@@ -97,10 +97,10 @@
             @Html.DisplayFor(model => model.PowerInput)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IPDAdjustable)
+            @Html.DisplayNameFor(model => model.IpdAdjustable)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IPDAdjustable)
+            @Html.DisplayFor(model => model.IpdAdjustable)
         </dd>
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Price)
@@ -111,7 +111,7 @@
     </dl>
     
     <form asp-action="Delete">
-        <input type="hidden" asp-for="FPVGogglesId" />
+        <input type="hidden" asp-for="FpvGogglesId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
         <a asp-action="Index">Back to List</a>
     </form>

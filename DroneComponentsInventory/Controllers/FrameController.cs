@@ -53,7 +53,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FrameId,Manufacturer,Model,WheelbaseMm,MaxPropInch,Geometry,Material,FrameWeightG,ArmThicknessMm,MotorMountPattern,FcMountPattern,MaxStackHeightMm,Price")] FrameComponent frameComponent)
+        public async Task<IActionResult> Create([Bind("FrameId,Manufacturer,Model,WheelbaseMm,MaxPropInch,Geometry,Material,WeightG,ArmThicknessMm,MotorMountPattern,FcMountPattern,MaxStackHeightMm,Price")] FrameComponent frameComponent)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FrameId,Manufacturer,Model,WheelbaseMm,MaxPropInch,Geometry,Material,FrameWeightG,ArmThicknessMm,MotorMountPattern,FcMountPattern,MaxStackHeightMm,Price")] FrameComponent frameComponent)
+        public async Task<IActionResult> Edit(int id, [Bind("FrameId,Manufacturer,Model,WheelbaseMm,MaxPropInch,Geometry,Material,WeightG,ArmThicknessMm,MotorMountPattern,FcMountPattern,MaxStackHeightMm,Price")] FrameComponent frameComponent)
         {
             if (id != frameComponent.FrameId)
             {

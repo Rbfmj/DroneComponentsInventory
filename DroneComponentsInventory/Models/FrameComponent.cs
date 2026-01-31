@@ -14,7 +14,7 @@ namespace DroneComponentsInventory.Models
         public double? MaxPropInch { get; set; }
         public string? Geometry { get; set; }
         public string? Material { get; set; }
-        public int? FrameWeightG { get; set; }
+        public int? WeightG { get; set; }
         public int? ArmThicknessMm { get; set; }
         public string? MotorMountPattern { get; set; }
         public string? FcMountPattern { get; set; }

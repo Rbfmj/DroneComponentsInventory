@@ -5,7 +5,7 @@ namespace DroneComponentsInventory.Models
     public class FPVGogglesComponent
     {
         [Key]
-        public int FPVGogglesId { get; set; }
+        public int FpvGogglesId { get; set; }
         [Required]
         public string Manufacturer { get; set; } = null!;
         [Required]
@@ -17,11 +17,11 @@ namespace DroneComponentsInventory.Models
         public int? LatencyMs { get; set; }
         public string? ReceiverType { get; set; }
         public int? DiversityAntennas { get; set; }
-        public int? WeightGrams { get; set; }
+        public int? WeightG { get; set; }
         public bool? DvrCapability { get; set; }
         public double? BatteryLifeHours { get; set; }
         public string? PowerInput { get; set; }
-        public bool? IPDAdjustable { get; set; }
+        public bool? IpdAdjustable { get; set; }
         public double? Price { get; set; }
     }
 }

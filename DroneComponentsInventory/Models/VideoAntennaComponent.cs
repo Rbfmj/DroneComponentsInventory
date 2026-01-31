@@ -16,8 +16,8 @@ namespace DroneComponentsInventory.Models
         public double? GainDbi { get; set; }
         public double? AxialRatio { get; set; }
         public string? RadiationPattern { get; set; }
-        public string? OperatingFrequencyMhz { get; set; }
-        public int? WeightGrams { get; set; }
+        public double? OperatingFrequencyGhz { get; set; }
+        public int? WeightG { get; set; }
         public double? Price { get; set; }
     }
 }

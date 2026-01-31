@@ -53,7 +53,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("AntennaId,Manufacturer,Model,AntennaClass,Polarization,Connector,GainDbi,AxialRatio,RadiationPattern,OperatingFrequencyMhz,WeightGrams,Price")] VideoAntennaComponent videoAntennaComponent)
+        public async Task<IActionResult> Create([Bind("AntennaId,Manufacturer,Model,AntennaClass,Polarization,Connector,GainDbi,AxialRatio,RadiationPattern,OperatingFrequencyGhz,WeightG,Price")] VideoAntennaComponent videoAntennaComponent)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace DroneComponentsInventory.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("AntennaId,Manufacturer,Model,AntennaClass,Polarization,Connector,GainDbi,AxialRatio,RadiationPattern,OperatingFrequencyMhz,WeightGrams,Price")] VideoAntennaComponent videoAntennaComponent)
+        public async Task<IActionResult> Edit(int id, [Bind("AntennaId,Manufacturer,Model,AntennaClass,Polarization,Connector,GainDbi,AxialRatio,RadiationPattern,OperatingFrequencyGhz,WeightG,Price")] VideoAntennaComponent videoAntennaComponent)
         {
             if (id != videoAntennaComponent.AntennaId)
             {
