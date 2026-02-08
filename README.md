@@ -6,6 +6,8 @@ In terminal:
 
 3. dotnet run
 
-4. In browser type http://localhost:5099
+In browser:
+
+type http://localhost:5099
 
 To end close the terminal
