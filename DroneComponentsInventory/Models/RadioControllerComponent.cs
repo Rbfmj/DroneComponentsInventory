@@ -15,7 +15,7 @@
         public string? ProtocolsSupported { get; set; }
         public int? MaxChannels { get; set; }
         public double? OutputPowerMw { get; set; }
-        public bool? TelemetrySupport { get; set; }
+        public bool TelemetrySupport { get; set; } = false;
         public string? ScreenType { get; set; }
         public string? GimbalType { get; set; }
         public string? BatteryType { get; set; }

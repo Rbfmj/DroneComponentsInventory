@@ -1,0 +1,288 @@
+﻿/* ============================================================
+   Video antennas VIEW – MODAL OVERLAY & FORMS
+   ============================================================ */
+
+.videoantennas-view .videoantennas-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+}
+
+    .videoantennas-view .videoantennas-modal .panel {
+        position: relative;
+        width: 95%;
+        max-width: 900px;
+        max-height: 90%;
+        padding: 2.5rem 1.5rem 1.5rem;
+        overflow-y: auto;
+        background: #fff;
+        border-radius: 8px;
+        color: #333;
+        pointer-events: auto;
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+    }
+
+.videoantennas-modal .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* --- BUTTONS --- */
+.videoantennas-view .button,
+.videoantennas-view a.button,
+.videoantennas-view button.button,
+.videoantennas-view input.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    color: inherit;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+    .videoantennas-view .button:hover {
+        background: rgba(0, 0, 0, 0.03);
+        text-decoration: none;
+    }
+
+    .videoantennas-view .button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+    }
+
+    .videoantennas-view .button.small {
+        height: 32px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+    }
+
+        .videoantennas-view .button.small.danger {
+            color: #d9534f;
+            border-color: rgba(217, 83, 79, 0.12);
+        }
+
+/* --- FORM CONTROLS --- */
+.form-control,
+input.form-control,
+textarea.form-control,
+select.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+    .form-control:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+/* --- FORM checkboxes --- */
+.form-group.checkbox-group input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    -moz-appearance: checkbox !important;
+    appearance: checkbox !important;
+    display: inline-block !important;
+    width: 22px !important;
+    height: 22px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    border: 2px solid #2b8cff !important;
+    background-color: #fff !important;
+    cursor: pointer !important;
+    margin-top: 10px !important;
+}
+
+
+.videoantennas-panel .fpv-checkbox,
+.videoantennas-panel .form-group.checkbox-group input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    -moz-appearance: checkbox !important;
+    appearance: checkbox !important;
+    width: 26px !important;
+    height: 26px !important;
+    margin: 6px 0 8px 2px !important;
+    display: inline-block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    accent-color: #2b8cff !important;
+    border: 2px solid #2b8cff !important;
+    border-radius: 4px !important;
+    background-color: #ffffff !important;
+    cursor: pointer !important;
+}
+
+.form-group.checkbox-group {
+    display: block !important;
+}
+
+    .form-group.checkbox-group label {
+        margin-bottom: 8px !important;
+    }
+
+/* --- NUMBER INPUTS --- */
+input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+/* --- GRIDS & PANELS --- */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    color: #333;
+}
+
+.videoantennas-panel {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.videoantennas-view,
+.videoantennas-panel,
+.videoantennas-view .videoantennas-modal .panel {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+    .videoantennas-view h2,
+    .videoantennas-panel h2 {
+        margin-top: 0;
+        font-weight: 300;
+    }
+
+.text-danger {
+    color: #c00;
+}
+
+/* --- TILE GRID (INDEX VIEW) --- */
+.videoantennas-view .videoantennas-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1200px) {
+    .videoantennas-view .videoantennas-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .videoantennas-view .videoantennas-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .videoantennas-view .videoantennas-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .videoantennas-view .videoantennas-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.videoantennas-view .videoantennas-tile {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .videoantennas-view .videoantennas-tile:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+/* --- META DATA LISTS --- */
+.videoantennas-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+    .videoantennas-meta dt {
+        font-weight: 700;
+        color: #555;
+    }
+
+    .videoantennas-meta dd {
+        margin: 0;
+    }
+
+.videoantennas-panel dl.videoantennas-meta {
+    display: grid;
+    grid-template-columns: minmax(140px, 220px) 1fr;
+    gap: 8px 18px;
+}
+
+    .videoantennas-panel dl.videoantennas-meta dt {
+        font-weight: 600;
+        color: #555;
+    }
+
+    .videoantennas-panel dl.videoantennas-meta dd {
+        margin: 0;
+        color: #222;
+        word-break: break-word;
+    }

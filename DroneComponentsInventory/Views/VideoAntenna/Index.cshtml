@@ -1,103 +1,112 @@
 @model IEnumerable<DroneComponentsInventory.Models.VideoAntennaComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>FPV Video Antennas</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/videoantennas.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AntennaClass)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Polarization)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Connector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GainDbi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.AxialRatio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RadiationPattern)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OperatingFrequencyGhz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AntennaClass)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Polarization)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Connector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GainDbi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.AxialRatio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RadiationPattern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OperatingFrequencyGhz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.AntennaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.AntennaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.AntennaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="videoantennas-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>FPV Video Antennas</h2>
+
+                <p>Select a video antenna to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Video Antenna</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="videoantennas-grid" id="videoantennasGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.VideoAntennaComponent>())
+                    {
+                        <article class="videoantennas-tile" data-modal-id="vamodal-@item.AntennaId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.VideoAntennaComponent>())
+        {
+            <div id="vamodal-@item.AntennaId" class="videoantennas-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="videoantennas-meta">
+                        <dt>Antenna Class</dt>
+                        <dd>@item.AntennaClass</dd>
+
+                        <dt>Polarization</dt>
+                        <dd>@item.Polarization</dd>
+
+                        <dt>Connector</dt>
+                        <dd>@item.Connector</dd>
+
+                        <dt>Gain</dt>
+                        <dd>@(item.GainDbi?.ToString() + " dBi" ?? "")</dd>
+
+                        <dt>Axial Ratio</dt>
+                        <dd>@item.AxialRatio</dd>
+
+                        <dt>Radiation Pattern</dt>
+                        <dd>@item.RadiationPattern</dd>
+
+                        <dt>Operating Frequency</dt>
+                        <dd>@(item.OperatingFrequencyGhz?.ToString("0.0") + " GHz" ?? "")</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.AntennaId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.AntennaId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.AntennaId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/videoantennas-modals.js"></script>
+
 </body>
 </html>

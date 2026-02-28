@@ -5,107 +5,85 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Radio Controller Details</title>
 
-<div>
-    <h4>RadioControllerComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ControllerStyle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ControllerStyle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrequencyGhz)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrequencyGhz)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProtocolsSupported)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProtocolsSupported)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxChannels)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxChannels)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OutputPowerMw)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OutputPowerMw)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelemetrySupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TelemetrySupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ScreenType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ScreenType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GimbalType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GimbalType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BatteryType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BatteryType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirmwareSupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirmwareSupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.RadioControllerId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/radiocontrollers.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="radiocontrollers-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="radiocontrollers-meta">
+            <dt>Style</dt>
+            <dd>@(Model.ControllerStyle ?? "—")</dd>
+
+            <dt>Frequency</dt>
+            <dd>@(Model.FrequencyGhz?.ToString("0.0") + " GHz" ?? "—")</dd>
+
+            <dt>Protocols Supported</dt>
+            <dd>@(Model.ProtocolsSupported ?? "—")</dd>
+
+            <dt>Max Channels</dt>
+            <dd>@(Model.MaxChannels?.ToString() ?? "—")</dd>
+
+            <dt>Output Power</dt>
+            <dd>@(Model.OutputPowerMw?.ToString() + " mW" ?? "—")</dd>
+
+            <dt>Telemetry Support</dt>
+            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+
+            <dt>Screen Type</dt>
+            <dd>@(Model.ScreenType ?? "—")</dd>
+
+            <dt>Gimbal Type</dt>
+            <dd>@(Model.GimbalType ?? "—")</dd>
+
+            <dt>Battery Type</dt>
+            <dd>@(Model.BatteryType ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Firmware Support</dt>
+            <dd>@(Model.FirmwareSupport ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.RadioControllerId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.RadioControllerId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

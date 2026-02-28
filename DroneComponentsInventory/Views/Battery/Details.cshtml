@@ -1,117 +1,138 @@
 @model DroneComponentsInventory.Models.BatteryComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
 
-<div>
-    <h4>BatteryComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CellCountS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CellCountS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NominalVoltageV)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NominalVoltageV)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CapacityMah)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CapacityMah)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DischargeRateC)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DischargeRateC)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BurstRateC)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BurstRateC)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DischargeConnector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DischargeConnector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BalanceConnector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BalanceConnector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Chemistry)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Chemistry)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WidthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WidthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HeightMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HeightMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.BatteryId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/battery.css" />
+</head>
+
+<body class="is-preload">
+
+    <!-- =========================================================
+         BATTERY DETAILS PANEL
+         ========================================================= -->
+    <div class="battery-panel">
+
+        <!-- Page heading -->
+        <h2>Battery Details</h2>
+
+        <hr />
+
+        <!-- =====================================================
+             PREPARE DISPLAY-FRIENDLY VALUES
+             ===================================================== -->
+        @{
+            /* Collect available connectors into a single string */
+            var connectors = new List<string>();
+
+            if (!string.IsNullOrWhiteSpace(Model.DischargeConnector))
+            {
+                connectors.Add(Model.DischargeConnector!);
+            }
+
+            if (!string.IsNullOrWhiteSpace(Model.BalanceConnector))
+            {
+                connectors.Add(Model.BalanceConnector!);
+            }
+
+            var connectorsDisplay = connectors.Any()
+                ? string.Join(" / ", connectors)
+                : string.Empty;
+
+            /* Format dimensions only if at least one value exists */
+            var hasDimensions =
+                Model.LengthMm.HasValue ||
+                Model.WidthMm.HasValue ||
+                Model.HeightMm.HasValue;
+
+            var dimensionsDisplay = hasDimensions
+                ? $"{Model.LengthMm?.ToString() ?? ""}×{Model.WidthMm?.ToString() ?? ""}×{Model.HeightMm?.ToString() ?? ""} mm"
+                : string.Empty;
+
+            /* Format price consistently (2 decimal places) */
+            var priceDisplay = Model.Price.HasValue
+                ? Model.Price.Value.ToString("0.00")
+                : string.Empty;
+        }
+
+        <!-- =====================================================
+             BATTERY SPECIFICATIONS
+             ===================================================== -->
+        <dl class="battery-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@(Model.Manufacturer ?? string.Empty)</dd>
+
+            <dt>Model</dt>
+            <dd>@(Model.Model ?? string.Empty)</dd>
+
+            <dt>Cell Count (S)</dt>
+            <dd>@(Model.CellCountS.HasValue? Model.CellCountS.Value + "S" : string.Empty)</dd>
+
+            <dt>Nominal Voltage</dt>
+            <dd>@(Model.NominalVoltageV.HasValue? Model.NominalVoltageV.Value + "V" : string.Empty)</dd>
+
+            <dt>Capacity (mAh)</dt>
+            <dd>@(Model.CapacityMah.HasValue? Model.CapacityMah.Value + " mAh" : string.Empty)</dd>
+
+            <dt>Discharge Rate (C)</dt>
+            <dd>@(Model.DischargeRateC.HasValue? Model.DischargeRateC.Value + "C" : string.Empty)</dd>
+
+            <dt>Burst Rate (C)</dt>
+            <dd>@(Model.BurstRateC.HasValue? Model.BurstRateC.Value + "C" : string.Empty)</dd>
+
+            <dt>Connectors</dt>
+            <dd>@connectorsDisplay</dd>
+
+            <dt>Chemistry</dt>
+            <dd>@(Model.Chemistry ?? string.Empty)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@(Model.WeightG.HasValue? Model.WeightG.Value + " g" : string.Empty)</dd>
+
+            <dt>Dimensions (L×W×H)</dt>
+            <dd>@dimensionsDisplay</dd>
+
+            <dt>Price</dt>
+            <dd>@priceDisplay</dd>
+
+        </dl>
+
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.BatteryId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.BatteryId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

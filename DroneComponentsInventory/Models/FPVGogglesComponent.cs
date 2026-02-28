@@ -18,10 +18,10 @@ namespace DroneComponentsInventory.Models
         public string? ReceiverType { get; set; }
         public int? DiversityAntennas { get; set; }
         public int? WeightG { get; set; }
-        public bool? DvrCapability { get; set; }
+        public bool DvrCapability { get; set; } = false;
         public double? BatteryLifeHours { get; set; }
         public string? PowerInput { get; set; }
-        public bool? IpdAdjustable { get; set; }
+        public bool IpdAdjustable { get; set; } = false;
         public double? Price { get; set; }
     }
 }

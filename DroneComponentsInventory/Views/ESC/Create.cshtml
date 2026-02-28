@@ -1,79 +1,86 @@
 @model DroneComponentsInventory.Models.ESCComponent
 
 @{
+    /* Standalone view (no shared layout used) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/esc.css" />
 </head>
-<body>
+<body class="is-preload">
 
-<h4>ESCComponent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <div class="esc-panel">
+        <h2>Create ESC</h2>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+
+            <div class="form-grid">
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label">Model</label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="EscType" class="control-label">Type</label>
+                    <input asp-for="EscType" class="form-control" />
+                    <span asp-validation-for="EscType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ContinuousCurrentA" class="control-label">Continuous Current (A)</label>
+                    <input asp-for="ContinuousCurrentA" class="form-control" type="number" step="any" />
+                    <span asp-validation-for="ContinuousCurrentA" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VoltageInputS" class="control-label">Voltage Input (S)</label>
+                    <input asp-for="VoltageInputS" class="form-control" type="number" />
+                    <span asp-validation-for="VoltageInputS" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MountPatternMm" class="control-label">Mount Pattern (mm)</label>
+                    <input asp-for="MountPatternMm" class="form-control" type="number" />
+                    <span asp-validation-for="MountPatternMm" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="SupportedProtocols" class="control-label">Supported Protocols</label>
+                    <input asp-for="SupportedProtocols" class="form-control" />
+                    <span asp-validation-for="SupportedProtocols" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <input asp-for="WeightG" class="form-control" type="number" />
+                    <span asp-validation-for="WeightG" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Price</label>
+                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EscType" class="control-label"></label>
-                <input asp-for="EscType" class="form-control" />
-                <span asp-validation-for="EscType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ContinuousCurrentA" class="control-label"></label>
-                <input asp-for="ContinuousCurrentA" class="form-control" />
-                <span asp-validation-for="ContinuousCurrentA" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="VoltageInputS" class="control-label"></label>
-                <input asp-for="VoltageInputS" class="form-control" />
-                <span asp-validation-for="VoltageInputS" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MountPatternMm" class="control-label"></label>
-                <input asp-for="MountPatternMm" class="form-control" />
-                <span asp-validation-for="MountPatternMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SupportedProtocols" class="control-label"></label>
-                <input asp-for="SupportedProtocols" class="form-control" />
-                <span asp-validation-for="SupportedProtocols" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WeightG" class="control-label"></label>
-                <input asp-for="WeightG" class="form-control" />
-                <span asp-validation-for="WeightG" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <div style="margin-top:12px; display:flex; gap:8px;">
+                <input type="submit" value="Create" class="button small" />
+                <a asp-action="Index" class="button small">Cancel</a>
             </div>
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 </body>
 </html>

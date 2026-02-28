@@ -1,121 +1,118 @@
 @model IEnumerable<DroneComponentsInventory.Models.ReceiverAntennaComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>FPV Receiver Antennas</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/receiverantennas.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FrequencyBand)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Polarization)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Connector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ConnectorGender)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GainDbi)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RadiationPattern)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompatibleReceivers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MountType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CableLengthMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LengthMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrequencyBand)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Polarization)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Connector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ConnectorGender)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GainDbi)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RadiationPattern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompatibleReceivers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MountType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CableLengthMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LengthMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ReceiverAntennaId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ReceiverAntennaId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ReceiverAntennaId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="receiverantennas-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>FPV Receiver Antennas</h2>
+
+                <p>Select a receiver antenna to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Receiver Antenna</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="receiverantennas-grid" id="receiverantennasGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.ReceiverAntennaComponent>())
+                    {
+                        <article class="receiverantennas-tile" data-modal-id="ramodal-@item.ReceiverAntennaId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.ReceiverAntennaComponent>())
+        {
+            <div id="ramodal-@item.ReceiverAntennaId" class="receiverantennas-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="receiverantennas-meta">
+                        <dt>Frequency Band</dt>
+                        <dd>@item.FrequencyBand</dd>
+
+                        <dt>Polarization</dt>
+                        <dd>@item.Polarization</dd>
+
+                        <dt>Connector</dt>
+                        <dd>@item.Connector @item.ConnectorGender</dd>
+
+                        <dt>Gain</dt>
+                        <dd>@(item.GainDbi?.ToString() + " dBi" ?? "")</dd>
+
+                        <dt>Radiation Pattern</dt>
+                        <dd>@item.RadiationPattern</dd>
+
+                        <dt>Compatible Receivers</dt>
+                        <dd>@item.CompatibleReceivers</dd>
+
+                        <dt>Mount Type</dt>
+                        <dd>@item.MountType</dd>
+
+                        <dt>Cable Length</dt>
+                        <dd>@(item.CableLengthMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Length</dt>
+                        <dd>@(item.LengthMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.ReceiverAntennaId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.ReceiverAntennaId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.ReceiverAntennaId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/receiverantennas-modals.js"></script>
+
 </body>
 </html>

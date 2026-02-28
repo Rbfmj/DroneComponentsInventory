@@ -5,83 +5,73 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Video Transmitter Details</title>
 
-<div>
-    <h4>VideoTransmitterComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPowerMw)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxPowerMw)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VoltageInputS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VoltageInputS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountPatternMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountPatternMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ControlProtocols)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ControlProtocols)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AntennaConnector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AntennaConnector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.VtxId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/videotransmitters.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="videotransmitters-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="videotransmitters-meta">
+            <dt>Type</dt>
+            <dd>@(Model.Type ?? "—")</dd>
+
+            <dt>Max Power</dt>
+            <dd>@(Model.MaxPowerMw?.ToString() + " mW" ?? "—")</dd>
+
+            <dt>Voltage Input</dt>
+            <dd>@(Model.VoltageInputS ?? "—")</dd>
+
+            <dt>Mount Pattern</dt>
+            <dd>@(Model.MountPatternMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Control Protocols</dt>
+            <dd>@(Model.ControlProtocols ?? "—")</dd>
+
+            <dt>Antenna Connector</dt>
+            <dd>@(Model.AntennaConnector ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS (your new style)
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.VtxId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.VtxId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

@@ -14,13 +14,13 @@ namespace DroneComponentsInventory.Models
         public string? ModulationProtocol { get; set; }
         public string? FrequencyBand { get; set; }
         public int? Channels { get; set; }
-        public bool? TelemetrySupport { get; set; }
+        public bool TelemetrySupport { get; set; } = false;
         public int? AntennaCount { get; set; }
         public string? AntennaType { get; set; }
         public double? RangeKm { get; set; }
         public double? VoltageInputV { get; set; }
         public string? OutputSignal { get; set; }
-        public bool? FailsafeSupport { get; set; }
+        public bool FailsafeSupport { get; set; } = false;
         public string? BindingMethod { get; set; }
         public string? IntendedUse { get; set; }
         public int? WeightG { get; set; }

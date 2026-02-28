@@ -1,110 +1,297 @@
 @model DroneComponentsInventory.Models.BatteryComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
 
-<h4>BatteryComponent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/battery.css" />
+</head>
+
+<body class="is-preload">
+
+    <!-- =========================================================
+         BATTERY EDIT PANEL
+         ========================================================= -->
+    <div class="battery-panel">
+
+        <!-- Page heading -->
+        <h2>Edit Battery</h2>
+
+        <!-- =====================================================
+             EDIT FORM
+             ===================================================== -->
         <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="BatteryId" />
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+
+            <!-- Model-level validation errors -->
+            <div asp-validation-summary="ModelOnly"
+                 class="text-danger">
             </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
+
+            <!-- Hidden primary key (required for updates) -->
+            <input type="hidden"
+                   asp-for="BatteryId" />
+
+            <!-- =================================================
+                 FORM GRID
+                 ================================================= -->
+            <div class="form-grid">
+
+                <!-- Manufacturer -->
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label">
+                        Manufacturer
+                    </label>
+
+                    <input asp-for="Manufacturer"
+                           class="form-control" />
+
+                    <span asp-validation-for="Manufacturer"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Model -->
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label">
+                        Model
+                    </label>
+
+                    <input asp-for="Model"
+                           class="form-control" />
+
+                    <span asp-validation-for="Model"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Cell Count -->
+                <div class="form-group">
+                    <label asp-for="CellCountS" class="control-label">
+                        Cell Count (S)
+                    </label>
+
+                    <input asp-for="CellCountS"
+                           class="form-control"
+                           type="number" />
+
+                    <span asp-validation-for="CellCountS"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Nominal Voltage -->
+                <div class="form-group">
+                    <label asp-for="NominalVoltageV" class="control-label">
+                        Nominal Voltage (V)
+                    </label>
+
+                    <input asp-for="NominalVoltageV"
+                           class="form-control"
+                           type="number"
+                           step="any" />
+
+                    <span asp-validation-for="NominalVoltageV"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Capacity -->
+                <div class="form-group">
+                    <label asp-for="CapacityMah" class="control-label">
+                        Capacity (mAh)
+                    </label>
+
+                    <input asp-for="CapacityMah"
+                           class="form-control"
+                           type="number" />
+
+                    <span asp-validation-for="CapacityMah"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Discharge Rate -->
+                <div class="form-group">
+                    <label asp-for="DischargeRateC" class="control-label">
+                        Discharge Rate (C)
+                    </label>
+
+                    <input asp-for="DischargeRateC"
+                           class="form-control"
+                           type="number"
+                           step="any" />
+
+                    <span asp-validation-for="DischargeRateC"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Burst Rate -->
+                <div class="form-group">
+                    <label asp-for="BurstRateC" class="control-label">
+                        Burst Rate (C)
+                    </label>
+
+                    <input asp-for="BurstRateC"
+                           class="form-control"
+                           type="number"
+                           step="any" />
+
+                    <span asp-validation-for="BurstRateC"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Discharge Connector -->
+                <div class="form-group">
+                    <label asp-for="DischargeConnector" class="control-label">
+                        Discharge Connector
+                    </label>
+
+                    <input asp-for="DischargeConnector"
+                           class="form-control" />
+
+                    <span asp-validation-for="DischargeConnector"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Balance Connector -->
+                <div class="form-group">
+                    <label asp-for="BalanceConnector" class="control-label">
+                        Balance Connector
+                    </label>
+
+                    <input asp-for="BalanceConnector"
+                           class="form-control" />
+
+                    <span asp-validation-for="BalanceConnector"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Chemistry -->
+                <div class="form-group">
+                    <label asp-for="Chemistry" class="control-label">
+                        Chemistry
+                    </label>
+
+                    <input asp-for="Chemistry"
+                           class="form-control" />
+
+                    <span asp-validation-for="Chemistry"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Weight -->
+                <div class="form-group">
+                    <label asp-for="WeightG" class="control-label">
+                        Weight (g)
+                    </label>
+
+                    <input asp-for="WeightG"
+                           class="form-control"
+                           type="number"
+                           step="1" />
+
+                    <span asp-validation-for="WeightG"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Length -->
+                <div class="form-group">
+                    <label asp-for="LengthMm" class="control-label">
+                        Length (mm)
+                    </label>
+
+                    <input asp-for="LengthMm"
+                           class="form-control"
+                           type="number"
+                           step="1" />
+
+                    <span asp-validation-for="LengthMm"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Width -->
+                <div class="form-group">
+                    <label asp-for="WidthMm" class="control-label">
+                        Width (mm)
+                    </label>
+
+                    <input asp-for="WidthMm"
+                           class="form-control"
+                           type="number"
+                           step="1" />
+
+                    <span asp-validation-for="WidthMm"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Height -->
+                <div class="form-group">
+                    <label asp-for="HeightMm" class="control-label">
+                        Height (mm)
+                    </label>
+
+                    <input asp-for="HeightMm"
+                           class="form-control"
+                           type="number"
+                           step="1" />
+
+                    <span asp-validation-for="HeightMm"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <!-- Price -->
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">
+                        Price
+                    </label>
+
+                    <input asp-for="Price"
+                           class="form-control"
+                           type="number"
+                           step="0.01" />
+
+                    <span asp-validation-for="Price"
+                          class="text-danger">
+                    </span>
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="CellCountS" class="control-label"></label>
-                <input asp-for="CellCountS" class="form-control" />
-                <span asp-validation-for="CellCountS" class="text-danger"></span>
+
+            <!-- =================================================
+                 FORM ACTIONS
+                 ================================================= -->
+            <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+                <input type="submit"
+                       value="Save"
+                       class="button small" />
+
+                <a asp-action="Index"
+                       class="button small">
+                    Cancel
+                </a>
             </div>
-            <div class="form-group">
-                <label asp-for="NominalVoltageV" class="control-label"></label>
-                <input asp-for="NominalVoltageV" class="form-control" />
-                <span asp-validation-for="NominalVoltageV" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CapacityMah" class="control-label"></label>
-                <input asp-for="CapacityMah" class="form-control" />
-                <span asp-validation-for="CapacityMah" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DischargeRateC" class="control-label"></label>
-                <input asp-for="DischargeRateC" class="form-control" />
-                <span asp-validation-for="DischargeRateC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BurstRateC" class="control-label"></label>
-                <input asp-for="BurstRateC" class="form-control" />
-                <span asp-validation-for="BurstRateC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DischargeConnector" class="control-label"></label>
-                <input asp-for="DischargeConnector" class="form-control" />
-                <span asp-validation-for="DischargeConnector" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BalanceConnector" class="control-label"></label>
-                <input asp-for="BalanceConnector" class="form-control" />
-                <span asp-validation-for="BalanceConnector" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Chemistry" class="control-label"></label>
-                <input asp-for="Chemistry" class="form-control" />
-                <span asp-validation-for="Chemistry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WeightG" class="control-label"></label>
-                <input asp-for="WeightG" class="form-control" />
-                <span asp-validation-for="WeightG" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LengthMm" class="control-label"></label>
-                <input asp-for="LengthMm" class="form-control" />
-                <span asp-validation-for="LengthMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WidthMm" class="control-label"></label>
-                <input asp-for="WidthMm" class="form-control" />
-                <span asp-validation-for="WidthMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="HeightMm" class="control-label"></label>
-                <input asp-for="HeightMm" class="form-control" />
-                <span asp-validation-for="HeightMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+
         </form>
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
 
 </body>
 </html>

@@ -1,0 +1,295 @@
+/* ============================================================
+   FC VIEW – MODAL OVERLAY
+   Fullscreen dark overlay used for FC details/edit modal
+   ============================================================ */
+.fc-view .fc-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+}
+
+/* ============================================================
+   MODAL PANEL
+   Main white container inside the modal
+   ============================================================ */
+.fc-view .fc-modal .panel {
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    max-height: 90%;
+    padding: 2.5rem 1.5rem 1.5rem;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    color: #333;
+    pointer-events: auto;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* ============================================================
+   MODAL CLOSE BUTTON
+   ============================================================ */
+.fc-modal .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ============================================================
+   BUTTONS – MODAL & FC VIEW
+   Unified button styling for links, inputs, and buttons
+   ============================================================ */
+.fc-view .button,
+.fc-view a.button,
+.fc-view button.button,
+.fc-view input.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    color: inherit;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+    /* Hover & focus states */
+    .fc-view .button:hover {
+        background: rgba(0, 0, 0, 0.03);
+        text-decoration: none;
+    }
+
+    .fc-view .button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+    }
+
+    /* Small button variant */
+    .fc-view .button.small {
+        height: 32px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+    }
+
+        /* Danger button variant */
+        .fc-view .button.small.danger {
+            color: #d9534f;
+            border-color: rgba(217, 83, 79, 0.12);
+        }
+
+/* ============================================================
+   FORM CONTROLS – GLOBAL NORMALIZATION
+   Ensures all inputs look identical across browsers
+   ============================================================ */
+.form-control,
+input.form-control,
+textarea.form-control,
+select.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+    /* Focus effect */
+    .form-control:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+/* ============================================================
+   NUMBER INPUT NORMALIZATION
+   Removes spinners and matches text input appearance
+   ============================================================ */
+input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+/* ============================================================
+   FC GRID (CARD LAYOUT)
+   ============================================================ */
+.fc-view .fc-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 1200px) {
+    .fc-view .fc-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .fc-view .fc-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .fc-view .fc-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .fc-view .fc-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   FC TILE (GRID ITEM)
+   ============================================================ */
+.fc-view .fc-tile {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .fc-view .fc-tile:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Tile text */
+    .fc-view .fc-tile .title {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .fc-view .fc-tile .muted {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+/* ============================================================
+   FC META (DL LIST)
+   ============================================================ */
+.fc-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+    .fc-meta dt {
+        font-weight: 700;
+        color: #555;
+    }
+
+    .fc-meta dd {
+        margin: 0;
+    }
+
+/* ============================================================
+   FC PANEL (DETAIL / DELETE PAGES)
+   ============================================================ */
+.fc-panel {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+    /* Definition list layout inside panels */
+    .fc-panel dl.fc-meta {
+        display: grid;
+        grid-template-columns: minmax(140px, 220px) 1fr;
+        gap: 8px 18px;
+    }
+
+        .fc-panel dl.fc-meta dt {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .fc-panel dl.fc-meta dd {
+            margin: 0;
+            color: #222;
+            word-break: break-word;
+        }
+
+/* ============================================================
+   TYPOGRAPHY NORMALIZATION
+   ============================================================ */
+.fc-view,
+.fc-panel,
+.fc-view .fc-modal .panel {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+    /* Headings */
+    .fc-view h2,
+    .fc-panel h2 {
+        margin-top: 0;
+        font-weight: 300;
+    }
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    color: #333;
+}
+
+.text-danger {
+    color: #c00;
+}

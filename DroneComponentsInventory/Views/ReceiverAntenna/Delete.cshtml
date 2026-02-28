@@ -1,114 +1,100 @@
 @model DroneComponentsInventory.Models.ReceiverAntennaComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+    <title>Delete Receiver Antenna</title>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>ReceiverAntennaComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrequencyBand)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrequencyBand)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Polarization)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Polarization)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Connector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Connector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ConnectorGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ConnectorGender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GainDbi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GainDbi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RadiationPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RadiationPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompatibleReceivers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompatibleReceivers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CableLengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CableLengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="ReceiverAntennaId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/receiverantennas.css" />
+</head>
+<body class="is-preload">
+
+    <div class="receiverantennas-panel">
+
+        <h3 style="margin-top: 0;">
+            Delete Receiver Antenna
+        </h3>
+
+        <p>
+            Are you sure you want to delete this receiver antenna?
+            <strong>This action cannot be undone.</strong>
+        </p>
+
+        <hr />
+
+        <dl class="receiverantennas-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(m => m.Model)</dd>
+
+            <dt>Frequency Band</dt>
+            <dd>@Html.DisplayFor(m => m.FrequencyBand)</dd>
+
+            <dt>Polarization</dt>
+            <dd>@Html.DisplayFor(m => m.Polarization)</dd>
+
+            <dt>Connector</dt>
+            <dd>@Html.DisplayFor(m => m.Connector)</dd>
+
+            <dt>Connector Gender</dt>
+            <dd>@Html.DisplayFor(m => m.ConnectorGender)</dd>
+
+            <dt>Gain (dBi)</dt>
+            <dd>@Html.DisplayFor(m => m.GainDbi)</dd>
+
+            <dt>Radiation Pattern</dt>
+            <dd>@Html.DisplayFor(m => m.RadiationPattern)</dd>
+
+            <dt>Mount Type</dt>
+            <dd>@Html.DisplayFor(m => m.MountType)</dd>
+
+            <dt>Cable Length (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.CableLengthMm)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(m => m.WeightG)</dd>
+
+            <dt>Length (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.LengthMm)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(m => m.Price)</dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden"
+                   asp-for="ReceiverAntennaId" />
+
+            <div style="
+                margin-top: 16px;
+                display: flex;
+                gap: 12px;
+                justify-content: flex-end;">
+
+                <a asp-action="Index"
+                       class="button small">
+                    Cancel
+                </a>
+
+                <input type="submit"
+                       value="Delete"
+                       class="button small danger" />
+
+            </div>
+
+        </form>
+
+    </div>
 </body>
 </html>

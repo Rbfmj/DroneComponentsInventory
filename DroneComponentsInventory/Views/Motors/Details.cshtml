@@ -5,83 +5,73 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Motor Details</title>
 
-<div>
-    <h4>MotorsComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.StatorSizeMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.StatorSizeMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Kv)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Kv)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecommendedVoltageS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecommendedVoltageS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecommendedPropInch)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecommendedPropInch)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxThrustG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxThrustG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.MotorId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/motors.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="motors-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="motors-meta">
+            <dt>Stator Size</dt>
+            <dd>@(Model.StatorSizeMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>KV Rating</dt>
+            <dd>@(Model.Kv?.ToString() ?? "—")</dd>
+
+            <dt>Mount Pattern</dt>
+            <dd>@(Model.MountPattern ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Recommended Voltage</dt>
+            <dd>@(Model.RecommendedVoltageS?.ToString() ?? "—")</dd>
+
+            <dt>Recommended Prop</dt>
+            <dd>@(Model.RecommendedPropInch?.ToString() + "\"" ?? "—")</dd>
+
+            <dt>Max Thrust</dt>
+            <dd>@(Model.MaxThrustG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.MotorId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.MotorId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

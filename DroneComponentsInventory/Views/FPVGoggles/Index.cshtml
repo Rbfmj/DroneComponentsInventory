@@ -1,127 +1,124 @@
 @model IEnumerable<DroneComponentsInventory.Models.FPVGogglesComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>FPV Goggles</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fpvgoggles.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VideoSystem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DisplayType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenSizeInch)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Resolution)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LatencyMs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReceiverType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DiversityAntennas)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DvrCapability)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BatteryLifeHours)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PowerInput)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IpdAdjustable)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VideoSystem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DisplayType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenSizeInch)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Resolution)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LatencyMs)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReceiverType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DiversityAntennas)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DvrCapability)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BatteryLifeHours)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PowerInput)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IpdAdjustable)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FpvGogglesId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FpvGogglesId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FpvGogglesId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="fpvgoggles-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>FPV Goggles</h2>
+
+                <p>Select a pair of goggles to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Goggles</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="fpvgoggles-grid" id="fpvgogglesGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FPVGogglesComponent>())
+                    {
+                        <article class="fpvgoggles-tile" data-modal-id="gmodal-@item.FpvGogglesId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FPVGogglesComponent>())
+        {
+            <div id="gmodal-@item.FpvGogglesId" class="fpvgoggles-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="fpvgoggles-meta">
+                        <dt>Video System</dt>
+                        <dd>@item.VideoSystem</dd>
+
+                        <dt>Display Type</dt>
+                        <dd>@item.DisplayType</dd>
+
+                        <dt>Screen Size</dt>
+                        <dd>@(item.ScreenSizeInch?.ToString() + " in" ?? "")</dd>
+
+                        <dt>Resolution</dt>
+                        <dd>@item.Resolution</dd>
+
+                        <dt>Latency</dt>
+                        <dd>@(item.LatencyMs?.ToString() + " ms" ?? "")</dd>
+
+                        <dt>Receiver Type</dt>
+                        <dd>@item.ReceiverType</dd>
+
+                        <dt>Diversity Antennas</dt>
+                        <dd>@item.DiversityAntennas</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>DVR</dt>
+                        <dd>@(item.DvrCapability ? "Yes" : "No")</dd>
+
+                        <dt>Battery Life</dt>
+                        <dd>@(item.BatteryLifeHours?.ToString() + " h" ?? "")</dd>
+
+                        <dt>Power Input</dt>
+                        <dd>@item.PowerInput</dd>
+
+                        <dt>IPD Adjustable</dt>
+                        <dd>@(item.IpdAdjustable ? "Yes" : "No")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@(item.Price.HasValue ? item.Price.Value.ToString("0.00") : "")</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FpvGogglesId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FpvGogglesId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FpvGogglesId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/fpvgoggles-modals.js"></script>
+
 </body>
 </html>

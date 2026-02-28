@@ -5,101 +5,120 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+    <title>Edit Radio Controller</title>
 
-<h4>RadioControllerComponent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/radiocontrollers.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="radiocontrollers-panel">
+
+        <h2>Edit Radio Controller</h2>
+
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="RadioControllerId" />
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+
+            <div class="form-grid">
+                <!-- Same fields as Create.cshtml -->
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label">Model</label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ControllerStyle" class="control-label">Controller Style</label>
+                    <input asp-for="ControllerStyle" class="form-control" />
+                    <span asp-validation-for="ControllerStyle" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FrequencyGhz" class="control-label">Frequency (GHz)</label>
+                    <input asp-for="FrequencyGhz" class="form-control" type="number" step="0.1" />
+                    <span asp-validation-for="FrequencyGhz" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ProtocolsSupported" class="control-label">Protocols Supported</label>
+                    <input asp-for="ProtocolsSupported" class="form-control" />
+                    <span asp-validation-for="ProtocolsSupported" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MaxChannels" class="control-label">Max Channels</label>
+                    <input asp-for="MaxChannels" class="form-control" type="number" step="1" />
+                    <span asp-validation-for="MaxChannels" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="OutputPowerMw" class="control-label">Output Power (mW)</label>
+                    <input asp-for="OutputPowerMw" class="form-control" type="number" step="1" />
+                    <span asp-validation-for="OutputPowerMw" class="text-danger"></span>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label asp-for="TelemetrySupport" class="control-label">Telemetry Support</label>
+                    <input asp-for="TelemetrySupport" type="checkbox" class="fpv-checkbox" />
+                    <span asp-validation-for="TelemetrySupport" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ScreenType" class="control-label">Screen Type</label>
+                    <input asp-for="ScreenType" class="form-control" />
+                    <span asp-validation-for="ScreenType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="GimbalType" class="control-label">Gimbal Type</label>
+                    <input asp-for="GimbalType" class="form-control" />
+                    <span asp-validation-for="GimbalType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BatteryType" class="control-label">Battery Type</label>
+                    <input asp-for="BatteryType" class="form-control" />
+                    <span asp-validation-for="BatteryType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <input asp-for="WeightG" class="form-control" type="number" step="0.1" />
+                    <span asp-validation-for="WeightG" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirmwareSupport" class="control-label">Firmware Support</label>
+                    <input asp-for="FirmwareSupport" class="form-control" />
+                    <span asp-validation-for="FirmwareSupport" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Price ($)</label>
+                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ControllerStyle" class="control-label"></label>
-                <input asp-for="ControllerStyle" class="form-control" />
-                <span asp-validation-for="ControllerStyle" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FrequencyGhz" class="control-label"></label>
-                <input asp-for="FrequencyGhz" class="form-control" />
-                <span asp-validation-for="FrequencyGhz" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ProtocolsSupported" class="control-label"></label>
-                <input asp-for="ProtocolsSupported" class="form-control" />
-                <span asp-validation-for="ProtocolsSupported" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxChannels" class="control-label"></label>
-                <input asp-for="MaxChannels" class="form-control" />
-                <span asp-validation-for="MaxChannels" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="OutputPowerMw" class="control-label"></label>
-                <input asp-for="OutputPowerMw" class="form-control" />
-                <span asp-validation-for="OutputPowerMw" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TelemetrySupport" class="control-label"></label>
-                <input asp-for="TelemetrySupport" class="form-control" />
-                <span asp-validation-for="TelemetrySupport" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ScreenType" class="control-label"></label>
-                <input asp-for="ScreenType" class="form-control" />
-                <span asp-validation-for="ScreenType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GimbalType" class="control-label"></label>
-                <input asp-for="GimbalType" class="form-control" />
-                <span asp-validation-for="GimbalType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BatteryType" class="control-label"></label>
-                <input asp-for="BatteryType" class="form-control" />
-                <span asp-validation-for="BatteryType" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WeightG" class="control-label"></label>
-                <input asp-for="WeightG" class="form-control" />
-                <span asp-validation-for="WeightG" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FirmwareSupport" class="control-label"></label>
-                <input asp-for="FirmwareSupport" class="form-control" />
-                <span asp-validation-for="FirmwareSupport" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div style="margin-top: 24px; display: flex; gap: 12px;">
+                <input type="submit" value="Save" class="button small" />
+                <a asp-action="Index" class="button small">Cancel</a>
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    </div>
 
 </body>
 </html>

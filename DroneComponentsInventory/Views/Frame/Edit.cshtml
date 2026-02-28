@@ -5,91 +5,108 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit</title>
-</head>
-<body>
+    <title>Edit FPV Frame</title>
 
-<h4>FrameComponent</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/frames.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="frames-panel">
+
+        <h2>Edit FPV Frame</h2>
+
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="FrameId" />
-            <div class="form-group">
-                <label asp-for="Manufacturer" class="control-label"></label>
-                <input asp-for="Manufacturer" class="form-control" />
-                <span asp-validation-for="Manufacturer" class="text-danger"></span>
+
+            <div class="form-grid">
+                <!-- Exact same form fields as Create.cshtml above -->
+                <div class="form-group">
+                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <input asp-for="Manufacturer" class="form-control" />
+                    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Model" class="control-label">Model</label>
+                    <input asp-for="Model" class="form-control" />
+                    <span asp-validation-for="Model" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WheelbaseMm" class="control-label">Wheelbase (mm)</label>
+                    <input asp-for="WheelbaseMm" class="form-control" type="number" step="1" />
+                    <span asp-validation-for="WheelbaseMm" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MaxPropInch" class="control-label">Max Prop Size (inch)</label>
+                    <input asp-for="MaxPropInch" class="form-control" type="number" step="0.5" />
+                    <span asp-validation-for="MaxPropInch" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Geometry" class="control-label">Geometry</label>
+                    <input asp-for="Geometry" class="form-control" />
+                    <span asp-validation-for="Geometry" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Material" class="control-label">Material</label>
+                    <input asp-for="Material" class="form-control" />
+                    <span asp-validation-for="Material" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <input asp-for="WeightG" class="form-control" type="number" step="0.1" />
+                    <span asp-validation-for="WeightG" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ArmThicknessMm" class="control-label">Arm Thickness (mm)</label>
+                    <input asp-for="ArmThicknessMm" class="form-control" type="number" step="0.1" />
+                    <span asp-validation-for="ArmThicknessMm" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MotorMountPattern" class="control-label">Motor Mount Pattern</label>
+                    <input asp-for="MotorMountPattern" class="form-control" />
+                    <span asp-validation-for="MotorMountPattern" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FcMountPattern" class="control-label">FC Mount Pattern</label>
+                    <input asp-for="FcMountPattern" class="form-control" />
+                    <span asp-validation-for="FcMountPattern" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MaxStackHeightMm" class="control-label">Max Stack Height (mm)</label>
+                    <input asp-for="MaxStackHeightMm" class="form-control" type="number" step="1" />
+                    <span asp-validation-for="MaxStackHeightMm" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price" class="control-label">Price ($)</label>
+                    <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+
             </div>
-            <div class="form-group">
-                <label asp-for="Model" class="control-label"></label>
-                <input asp-for="Model" class="form-control" />
-                <span asp-validation-for="Model" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WheelbaseMm" class="control-label"></label>
-                <input asp-for="WheelbaseMm" class="form-control" />
-                <span asp-validation-for="WheelbaseMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxPropInch" class="control-label"></label>
-                <input asp-for="MaxPropInch" class="form-control" />
-                <span asp-validation-for="MaxPropInch" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Geometry" class="control-label"></label>
-                <input asp-for="Geometry" class="form-control" />
-                <span asp-validation-for="Geometry" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Material" class="control-label"></label>
-                <input asp-for="Material" class="form-control" />
-                <span asp-validation-for="Material" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="WeightG" class="control-label"></label>
-                <input asp-for="WeightG" class="form-control" />
-                <span asp-validation-for="WeightG" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ArmThicknessMm" class="control-label"></label>
-                <input asp-for="ArmThicknessMm" class="form-control" />
-                <span asp-validation-for="ArmThicknessMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MotorMountPattern" class="control-label"></label>
-                <input asp-for="MotorMountPattern" class="form-control" />
-                <span asp-validation-for="MotorMountPattern" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="FcMountPattern" class="control-label"></label>
-                <input asp-for="FcMountPattern" class="form-control" />
-                <span asp-validation-for="FcMountPattern" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="MaxStackHeightMm" class="control-label"></label>
-                <input asp-for="MaxStackHeightMm" class="form-control" />
-                <span asp-validation-for="MaxStackHeightMm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+
+            <div style="margin-top: 24px; display: flex; gap: 12px;">
+                <input type="submit" value="Save" class="button small" />
+                <a asp-action="Index" class="button small">Cancel</a>
             </div>
         </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    </div>
 
 </body>
 </html>

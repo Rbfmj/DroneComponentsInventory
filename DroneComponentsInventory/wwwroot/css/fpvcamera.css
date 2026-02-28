@@ -1,0 +1,250 @@
+/* ============================================================
+   FPV CAMERA VIEW – MODAL OVERLAY
+   Fullscreen dark overlay used for fpv camera details/edit modal
+   ============================================================ */
+.fpvcamera-view .fpvcamera-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+}
+
+.fpvcamera-view .fpvcamera-modal .panel {
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    max-height: 90%;
+    padding: 2.5rem 1.5rem 1.5rem;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    color: #333;
+    pointer-events: auto;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.fpvcamera-modal .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.fpvcamera-view .button,
+.fpvcamera-view a.button,
+.fpvcamera-view button.button,
+.fpvcamera-view input.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    color: inherit;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+    .fpvcamera-view .button:hover {
+        background: rgba(0, 0, 0, 0.03);
+        text-decoration: none;
+    }
+
+    .fpvcamera-view .button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+    }
+
+    .fpvcamera-view .button.small {
+        height: 32px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+    }
+
+        .fpvcamera-view .button.small.danger {
+            color: #d9534f;
+            border-color: rgba(217, 83, 79, 0.12);
+        }
+
+.form-control,
+input.form-control,
+textarea.form-control,
+select.form-control {
+    display: block;
+    width: 100%;
+    padding: 10px 12px;
+    box-sizing: border-box;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.4;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+    .form-control:focus {
+        outline: none;
+        background: #fff;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    }
+
+input[type="number"] {
+    appearance: none;
+    -moz-appearance: textfield;
+    -webkit-appearance: none;
+}
+
+    input[type="number"]::-webkit-inner-spin-button,
+    input[type="number"]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+.fpvcamera-view .fpvcamera-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1200px) {
+    .fpvcamera-view .fpvcamera-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .fpvcamera-view .fpvcamera-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .fpvcamera-view .fpvcamera-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .fpvcamera-view .fpvcamera-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fpvcamera-view .fpvcamera-tile {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+    .fpvcamera-view .fpvcamera-tile:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .fpvcamera-view .fpvcamera-tile .title {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .fpvcamera-view .fpvcamera-tile .muted {
+        font-size: 0.9rem;
+        color: #777;
+    }
+
+.fpvcamera-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+    .fpvcamera-meta dt {
+        font-weight: 700;
+        color: #555;
+    }
+
+    .fpvcamera-meta dd {
+        margin: 0;
+    }
+
+.fpvcamera-panel {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+    .fpvcamera-panel dl.fpvcamera-meta {
+        display: grid;
+        grid-template-columns: minmax(140px, 220px) 1fr;
+        gap: 8px 18px;
+    }
+
+        .fpvcamera-panel dl.fpvcamera-meta dt {
+            font-weight: 600;
+            color: #555;
+        }
+
+        .fpvcamera-panel dl.fpvcamera-meta dd {
+            margin: 0;
+            color: #222;
+            word-break: break-word;
+        }
+
+.fpvcamera-view,
+.fpvcamera-panel,
+.fpvcamera-view .fpvcamera-modal .panel {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+    .fpvcamera-view h2,
+    .fpvcamera-panel h2 {
+        margin-top: 0;
+        font-weight: 300;
+    }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 400;
+    color: #333;
+}
+
+.text-danger {
+    color: #c00;
+}

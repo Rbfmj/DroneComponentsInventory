@@ -5,77 +5,71 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/esc.css" />
 </head>
-<body>
+<body class="is-preload">
 
-<div>
-    <h4>ESCComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.EscType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.EscType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ContinuousCurrentA)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ContinuousCurrentA)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VoltageInputS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VoltageInputS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountPatternMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountPatternMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SupportedProtocols)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SupportedProtocols)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.EscId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="esc-panel">
+        <h2>ESC Details</h2>
+        <hr />
+        <dl class="esc-meta">
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(model => model.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(model => model.Model)</dd>
+
+            <dt>Type</dt>
+            <dd>@Html.DisplayFor(model => model.EscType)</dd>
+
+            <dt>Continuous Current (A)</dt>
+            <dd>@Html.DisplayFor(model => model.ContinuousCurrentA)</dd>
+
+            <dt>Voltage Input (S)</dt>
+            <dd>@Html.DisplayFor(model => model.VoltageInputS)</dd>
+
+            <dt>Mount Pattern (mm)</dt>
+            <dd>@Html.DisplayFor(model => model.MountPatternMm)</dd>
+
+            <dt>Supported Protocols</dt>
+            <dd>@Html.DisplayFor(model => model.SupportedProtocols)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(model => model.WeightG)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(model => model.Price)</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.EscId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.EscId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+    </div>
+
 </body>
 </html>

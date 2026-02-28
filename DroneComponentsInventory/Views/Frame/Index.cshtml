@@ -1,109 +1,115 @@
 @model IEnumerable<DroneComponentsInventory.Models.FrameComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>FPV Frames</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/frames.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WheelbaseMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxPropInch)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Geometry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Material)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ArmThicknessMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MotorMountPattern)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FcMountPattern)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxStackHeightMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WheelbaseMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxPropInch)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Geometry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Material)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArmThicknessMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MotorMountPattern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FcMountPattern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxStackHeightMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FrameId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FrameId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FrameId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="frames-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>FPV Frames</h2>
+
+                <p>Select a frame to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Frame</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="frames-grid" id="framesGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FrameComponent>())
+                    {
+                        <article class="frames-tile" data-modal-id="fmodal-@item.FrameId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FrameComponent>())
+        {
+            <div id="fmodal-@item.FrameId" class="frames-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="frames-meta">
+                        <dt>Wheelbase</dt>
+                        <dd>@(item.WheelbaseMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Max Prop Size</dt>
+                        <dd>@(item.MaxPropInch?.ToString() + "\"" ?? "")</dd>
+
+                        <dt>Geometry</dt>
+                        <dd>@item.Geometry</dd>
+
+                        <dt>Material</dt>
+                        <dd>@item.Material</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Arm Thickness</dt>
+                        <dd>@(item.ArmThicknessMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Motor Mount Pattern</dt>
+                        <dd>@item.MotorMountPattern</dd>
+
+                        <dt>FC Mount Pattern</dt>
+                        <dd>@item.FcMountPattern</dd>
+
+                        <dt>Max Stack Height</dt>
+                        <dd>@(item.MaxStackHeightMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FrameId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FrameId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FrameId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/frames-modals.js"></script>
+
 </body>
 </html>

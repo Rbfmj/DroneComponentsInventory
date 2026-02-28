@@ -1,117 +1,104 @@
 @model DroneComponentsInventory.Models.FPVGogglesComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
 
-<div>
-    <h4>FPVGogglesComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VideoSystem)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VideoSystem)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DisplayType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DisplayType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ScreenSizeInch)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ScreenSizeInch)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Resolution)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Resolution)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LatencyMs)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LatencyMs)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ReceiverType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ReceiverType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DiversityAntennas)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DiversityAntennas)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DvrCapability)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DvrCapability)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BatteryLifeHours)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BatteryLifeHours)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PowerInput)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PowerInput)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IpdAdjustable)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IpdAdjustable)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.FpvGogglesId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fpvgoggles.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="fpvgoggles-panel">
+
+        <h2>FPV Goggles Details</h2>
+
+        <hr />
+
+        <dl class="fpvgoggles-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@(Model.Manufacturer ?? string.Empty)</dd>
+
+            <dt>Model</dt>
+            <dd>@(Model.Model ?? string.Empty)</dd>
+
+            <dt>Video System</dt>
+            <dd>@(Model.VideoSystem ?? string.Empty)</dd>
+
+            <dt>Display Type</dt>
+            <dd>@(Model.DisplayType ?? string.Empty)</dd>
+
+            <dt>Screen Size</dt>
+            <dd>@(Model.ScreenSizeInch.HasValue ? Model.ScreenSizeInch.Value + " in" : string.Empty)</dd>
+
+            <dt>Resolution</dt>
+            <dd>@(Model.Resolution ?? string.Empty)</dd>
+
+            <dt>Latency (ms)</dt>
+            <dd>@(Model.LatencyMs.HasValue ? Model.LatencyMs.Value + " ms" : string.Empty)</dd>
+
+            <dt>Receiver Type</dt>
+            <dd>@(Model.ReceiverType ?? string.Empty)</dd>
+
+            <dt>Diversity Antennas</dt>
+            <dd>@(Model.DiversityAntennas.HasValue ? Model.DiversityAntennas.Value.ToString() : string.Empty)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@(Model.WeightG.HasValue ? Model.WeightG.Value + " g" : string.Empty)</dd>
+
+            <dt>DVR Capability</dt>
+            <dd>@(Model.DvrCapability ? "Yes" : "No")</dd>
+
+            <dt>Battery Life (h)</dt>
+            <dd>@(Model.BatteryLifeHours.HasValue ? Model.BatteryLifeHours.Value + " h" : string.Empty)</dd>
+
+            <dt>Power Input</dt>
+            <dd>@(Model.PowerInput ?? string.Empty)</dd>
+
+            <dt>IPD Adjustable</dt>
+            <dd>@(Model.IpdAdjustable ? "Yes" : "No")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? Model.Price.Value.ToString("0.00") : string.Empty)</dd>
+
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.FpvGogglesId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.FpvGogglesId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

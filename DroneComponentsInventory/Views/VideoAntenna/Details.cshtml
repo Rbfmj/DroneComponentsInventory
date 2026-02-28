@@ -5,89 +5,76 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Video Antenna Details</title>
 
-<div>
-    <h4>VideoAntennaComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AntennaClass)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AntennaClass)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Polarization)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Polarization)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Connector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Connector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GainDbi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GainDbi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AxialRatio)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AxialRatio)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RadiationPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RadiationPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OperatingFrequencyGhz)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OperatingFrequencyGhz)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.AntennaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/videoantennas.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="videoantennas-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="videoantennas-meta">
+            <dt>Antenna Class</dt>
+            <dd>@(Model.AntennaClass ?? "—")</dd>
+
+            <dt>Polarization</dt>
+            <dd>@(Model.Polarization ?? "—")</dd>
+
+            <dt>Connector</dt>
+            <dd>@(Model.Connector ?? "—")</dd>
+
+            <dt>Gain</dt>
+            <dd>@(Model.GainDbi?.ToString() + " dBi" ?? "—")</dd>
+
+            <dt>Axial Ratio</dt>
+            <dd>@(Model.AxialRatio?.ToString() ?? "—")</dd>
+
+            <dt>Radiation Pattern</dt>
+            <dd>@(Model.RadiationPattern ?? "—")</dd>
+
+            <dt>Operating Frequency</dt>
+            <dd>@(Model.OperatingFrequencyGhz?.ToString("0.0") + " GHz" ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS (your new style)
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.AntennaId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.AntennaId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

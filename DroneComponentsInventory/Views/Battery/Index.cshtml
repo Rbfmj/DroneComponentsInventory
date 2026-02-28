@@ -1,127 +1,209 @@
 @model IEnumerable<DroneComponentsInventory.Models.BatteryComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>Battery Components</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/battery.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CellCountS)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NominalVoltageV)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CapacityMah)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DischargeRateC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BurstRateC)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DischargeConnector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BalanceConnector)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chemistry)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LengthMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WidthMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.HeightMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CellCountS)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NominalVoltageV)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CapacityMah)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DischargeRateC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BurstRateC)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DischargeConnector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BalanceConnector)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Chemistry)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LengthMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WidthMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.HeightMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.BatteryId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.BatteryId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.BatteryId">Delete</a>
-            </td>
-        </tr>
+
+<body class="is-preload">
+
+    <!-- =========================================================
+         BATTERY VIEW ROOT
+         Scoped wrapper for battery-related pages
+         ========================================================= -->
+    <div class="battery-view">
+
+        <!-- =====================================================
+             HEADER / INTRO SECTION
+             ===================================================== -->
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>Battery Components</h2>
+
+                <p>
+                    Select a battery to view technical specifications.
+                </p>
+
+                <!-- Create new battery -->
+                <p>
+                    <a asp-action="Create" class="button small">
+                        Add New Battery
+                    </a>
+                </p>
+            </div>
+        </div>
+
+        <!-- =====================================================
+             BATTERY GRID (CLICKABLE TILES)
+             ===================================================== -->
+        <div class="wrapper">
+            <div class="inner">
+
+                <!-- Grid container (JS click delegation target) -->
+                <div class="battery-grid" id="batteryGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.BatteryComponent>())
+                    {
+                        <!-- Each tile opens its corresponding modal -->
+                        <article class="battery-tile"
+                                 data-modal-id="bmodal-@item.BatteryId">
+
+                            <div>
+                                <span class="title">
+                                    @item.Manufacturer
+                                </span>
+
+                                <span class="muted">
+                                    @item.Model
+                                </span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+            </div>
+        </div>
+
+        <!-- =====================================================
+             MODALS (ONE PER BATTERY)
+             Hidden by default, opened via JavaScript
+             ===================================================== -->
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.BatteryComponent>())
+        {
+            <div id="bmodal-@item.BatteryId"
+                 class="battery-modal"
+                 style="display:none;"
+                 aria-hidden="true">
+
+                <div class="panel">
+
+                    <!-- Close button (top-right corner) -->
+                    <button type="button"
+                            class="button small close-modal"
+                            style="position:absolute; right:12px; top:12px;">
+                        ×
+                    </button>
+
+                    <!-- Battery title -->
+                    <h2>
+                        @item.Manufacturer @item.Model
+                    </h2>
+
+                    <!-- Battery specifications -->
+                    <dl class="battery-meta">
+
+                        <dt>Configuration</dt>
+                        <dd>@(item.CellCountS?.ToString() + "S" ?? "")</dd>
+
+                        <dt>Voltage</dt>
+                        <dd>@(item.NominalVoltageV?.ToString() + "V" ?? "")</dd>
+
+                        <dt>Capacity</dt>
+                        <dd>@(item.CapacityMah?.ToString() + " mAh" ?? "")</dd>
+
+                        <dt>Discharge Rate</dt>
+                        <dd>@(item.DischargeRateC?.ToString() + "C" ?? "")</dd>
+
+                        <dt>Burst Rate</dt>
+                        <dd>@(item.BurstRateC?.ToString() + "C" ?? "")</dd>
+
+                        <dt>Connectors</dt>
+                        <dd>
+                            @string.Join(
+                                " / ",
+                                new[] { item.DischargeConnector, item.BalanceConnector }
+                                    .Where(x => !string.IsNullOrWhiteSpace(x))
+                            )
+                        </dd>
+
+                        <dt>Chemistry</dt>
+                        <dd>@item.Chemistry</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Dimensions</dt>
+                        <dd>@GetDimensions(item)</dd>
+
+                        <dt>Price</dt>
+                        <dd>@item.Price</dd>
+
+                    </dl>
+
+                    <!-- Action buttons -->
+                    <div style="
+                        margin-top: 16px;
+                        display: flex;
+                        gap: 12px;
+                        justify-content: flex-end;">
+
+                        <a class="button small"
+                               asp-action="Edit"
+                               asp-route-id="@item.BatteryId">
+                            Edit
+                        </a>
+
+                        <a class="button small"
+                               asp-action="Details"
+                               asp-route-id="@item.BatteryId">
+                            Details
+                        </a>
+
+                        <a class="button small danger"
+                               asp-action="Delete"
+                               asp-route-id="@item.BatteryId">
+                            Delete
+                        </a>
+
+                        <button type="button"
+                                class="button small close-modal">
+                            Close
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <!-- =========================================================
+         MODAL JAVASCRIPT
+         Handles open / close behavior
+         ========================================================= -->
+    <script src="/js/battery-modals.js"></script>
+
+<!-- =========================================================
+         RAZOR HELPER METHODS
+         ========================================================= -->
+@functions {
+
+    /* Formats dimensions like: 100×50×30 mm */
+    private string GetDimensions(DroneComponentsInventory.Models.BatteryComponent b)
+    {
+        var parts = new[] { b.LengthMm, b.WidthMm, b.HeightMm }
+            .Where(x => x.HasValue)
+            .Select(x => x.Value.ToString());
+
+        return parts.Any()
+            ? string.Join("×", parts) + " mm"
+            : "";
+    }
 }
-    </tbody>
-</table>
+
 </body>
 </html>

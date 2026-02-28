@@ -5,149 +5,106 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Receiver Details</title>
 
-<div>
-    <h4>ReceiverComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Protocol)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Protocol)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ModulationProtocol)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ModulationProtocol)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrequencyBand)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrequencyBand)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Channels)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Channels)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelemetrySupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TelemetrySupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AntennaCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AntennaCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.AntennaType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.AntennaType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RangeKm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RangeKm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VoltageInputV)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VoltageInputV)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OutputSignal)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OutputSignal)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FailsafeSupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FailsafeSupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BindingMethod)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BindingMethod)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IntendedUse)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IntendedUse)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WidthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WidthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.HeightMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.HeightMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountingType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountingType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ReceiverId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/receivers.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="receivers-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="receivers-meta">
+            <dt>Protocol</dt>
+            <dd>@(Model.Protocol ?? "—")</dd>
+
+            <dt>Modulation</dt>
+            <dd>@(Model.ModulationProtocol ?? "—")</dd>
+
+            <dt>Frequency Band</dt>
+            <dd>@(Model.FrequencyBand ?? "—")</dd>
+
+            <dt>Channels</dt>
+            <dd>@(Model.Channels?.ToString() ?? "—")</dd>
+
+            <dt>Telemetry Support</dt>
+            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+
+            <dt>Antenna Count</dt>
+            <dd>@(Model.AntennaCount?.ToString() ?? "—")</dd>
+
+            <dt>Antenna Type</dt>
+            <dd>@(Model.AntennaType ?? "—")</dd>
+
+            <dt>Range</dt>
+            <dd>@(Model.RangeKm?.ToString() + " km" ?? "—")</dd>
+
+            <dt>Voltage Input</dt>
+            <dd>@(Model.VoltageInputV?.ToString() + " V" ?? "—")</dd>
+
+            <dt>Output Signal</dt>
+            <dd>@(Model.OutputSignal ?? "—")</dd>
+
+            <dt>Failsafe Support</dt>
+            <dd>@(Model.FailsafeSupport ? "Yes" : "No")</dd>
+
+            <dt>Binding Method</dt>
+            <dd>@(Model.BindingMethod ?? "—")</dd>
+
+            <dt>Intended Use</dt>
+            <dd>@(Model.IntendedUse ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Length</dt>
+            <dd>@(Model.LengthMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Width</dt>
+            <dd>@(Model.WidthMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Height</dt>
+            <dd>@(Model.HeightMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Mounting Type</dt>
+            <dd>@(Model.MountingType ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.ReceiverId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.ReceiverId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

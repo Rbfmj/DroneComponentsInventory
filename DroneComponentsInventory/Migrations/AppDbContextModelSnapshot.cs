@@ -275,11 +275,11 @@ namespace DroneComponentsInventory.Migrations
                         .HasColumnType("INTEGER")
                         .HasColumnName("diversity_antennas");
 
-                    b.Property<bool?>("DvrCapability")
+                    b.Property<bool>("DvrCapability")
                         .HasColumnType("INTEGER")
                         .HasColumnName("dvr_capability");
 
-                    b.Property<bool?>("IpdAdjustable")
+                    b.Property<bool>("IpdAdjustable")
                         .HasColumnType("INTEGER")
                         .HasColumnName("ipd_adjustable");
 

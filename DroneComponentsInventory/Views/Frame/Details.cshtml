@@ -5,95 +5,79 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Frame Details</title>
 
-<div>
-    <h4>FrameComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WheelbaseMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WheelbaseMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPropInch)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxPropInch)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Geometry)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Geometry)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Material)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Material)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ArmThicknessMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ArmThicknessMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MotorMountPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MotorMountPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FcMountPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FcMountPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxStackHeightMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxStackHeightMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.FrameId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/frames.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="frames-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="frames-meta">
+            <dt>Wheelbase</dt>
+            <dd>@(Model.WheelbaseMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Max Prop Size</dt>
+            <dd>@(Model.MaxPropInch?.ToString() + "\"" ?? "—")</dd>
+
+            <dt>Geometry</dt>
+            <dd>@(Model.Geometry ?? "—")</dd>
+
+            <dt>Material</dt>
+            <dd>@(Model.Material ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Arm Thickness</dt>
+            <dd>@(Model.ArmThicknessMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Motor Mount Pattern</dt>
+            <dd>@(Model.MotorMountPattern ?? "—")</dd>
+
+            <dt>FC Mount Pattern</dt>
+            <dd>@(Model.FcMountPattern ?? "—")</dd>
+
+            <dt>Max Stack Height</dt>
+            <dd>@(Model.MaxStackHeightMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.FrameId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.FrameId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

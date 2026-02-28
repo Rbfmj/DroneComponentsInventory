@@ -1,120 +1,106 @@
 @model DroneComponentsInventory.Models.PropellersComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+    <title>Delete Propellers</title>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>PropellersComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DiameterMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DiameterMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.PitchInch)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.PitchInch)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BladeCount)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BladeCount)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Material)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Material)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ShaftDiameterMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ShaftDiameterMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RotationDirection)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RotationDirection)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecommendedMotorSize)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecommendedMotorSize)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RecommendedMotorKv)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RecommendedMotorKv)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrameClass)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrameClass)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ColorOptions)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ColorOptions)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IncludedQuantity)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IncludedQuantity)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="PropellerId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/propellers.css" />
+</head>
+<body class="is-preload">
+
+    <div class="propellers-panel">
+
+        <h3 style="margin-top: 0;">
+            Delete Propeller Set
+        </h3>
+
+        <p>
+            Are you sure you want to delete this propeller set?
+            <strong>This action cannot be undone.</strong>
+        </p>
+
+        <hr />
+
+        <dl class="propellers-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(m => m.Model)</dd>
+
+            <dt>Diameter (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.DiameterMm)</dd>
+
+            <dt>Pitch (in)</dt>
+            <dd>@Html.DisplayFor(m => m.PitchInch)</dd>
+
+            <dt>Blade Count</dt>
+            <dd>@Html.DisplayFor(m => m.BladeCount)</dd>
+
+            <dt>Material</dt>
+            <dd>@Html.DisplayFor(m => m.Material)</dd>
+
+            <dt>Shaft Diameter (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.ShaftDiameterMm)</dd>
+
+            <dt>Rotation</dt>
+            <dd>@Html.DisplayFor(m => m.RotationDirection)</dd>
+
+            <dt>Recommended Motor Size</dt>
+            <dd>@Html.DisplayFor(m => m.RecommendedMotorSize)</dd>
+
+            <dt>Recommended Motor KV</dt>
+            <dd>@Html.DisplayFor(m => m.RecommendedMotorKv)</dd>
+
+            <dt>Frame Class</dt>
+            <dd>@Html.DisplayFor(m => m.FrameClass)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(m => m.WeightG)</dd>
+
+            <dt>Colors Available</dt>
+            <dd>@Html.DisplayFor(m => m.ColorOptions)</dd>
+
+            <dt>Quantity Included</dt>
+            <dd>@Html.DisplayFor(m => m.IncludedQuantity)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(m => m.Price)</dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden"
+                   asp-for="PropellerId" />
+
+            <div style="
+                margin-top: 16px;
+                display: flex;
+                gap: 12px;
+                justify-content: flex-end;">
+
+                <a asp-action="Index"
+                       class="button small">
+                    Cancel
+                </a>
+
+                <input type="submit"
+                       value="Delete"
+                       class="button small danger" />
+
+            </div>
+
+        </form>
+
+    </div>
 </body>
 </html>

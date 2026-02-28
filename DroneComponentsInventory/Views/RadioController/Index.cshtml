@@ -1,121 +1,121 @@
 @model IEnumerable<DroneComponentsInventory.Models.RadioControllerComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
+    <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+
+    <title>Radio Controllers</title>
+
+    <!-- Core site styles -->
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/radiocontrollers.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ControllerStyle)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FrequencyGhz)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ProtocolsSupported)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MaxChannels)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OutputPowerMw)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TelemetrySupport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ScreenType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.GimbalType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BatteryType)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirmwareSupport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ControllerStyle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FrequencyGhz)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ProtocolsSupported)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MaxChannels)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OutputPowerMw)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TelemetrySupport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScreenType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GimbalType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BatteryType)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirmwareSupport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RadioControllerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RadioControllerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RadioControllerId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="radiocontrollers-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>Radio Controllers</h2>
+
+                <p>Select a radio controller to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Radio Controller</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="radiocontrollers-grid" id="radiocontrollersGrid">
+
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.RadioControllerComponent>())
+                    {
+                        <article class="radiocontrollers-tile" data-modal-id="rcmodal-@item.RadioControllerId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+
+                </div>
+
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.RadioControllerComponent>())
+        {
+            <div id="rcmodal-@item.RadioControllerId" class="radiocontrollers-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="radiocontrollers-meta">
+                        <dt>Style</dt>
+                        <dd>@item.ControllerStyle</dd>
+
+                        <dt>Frequency</dt>
+                        <dd>@(item.FrequencyGhz?.ToString("0.0") + " GHz" ?? "")</dd>
+
+                        <dt>Protocols Supported</dt>
+                        <dd>@item.ProtocolsSupported</dd>
+
+                        <dt>Max Channels</dt>
+                        <dd>@item.MaxChannels</dd>
+
+                        <dt>Output Power</dt>
+                        <dd>@(item.OutputPowerMw?.ToString() + " mW" ?? "")</dd>
+
+                        <dt>Telemetry Support</dt>
+                        <dd>@(item.TelemetrySupport ? "Yes" : "No")</dd>
+
+                        <dt>Screen Type</dt>
+                        <dd>@item.ScreenType</dd>
+
+                        <dt>Gimbal Type</dt>
+                        <dd>@item.GimbalType</dd>
+
+                        <dt>Battery Type</dt>
+                        <dd>@item.BatteryType</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Firmware Support</dt>
+                        <dd>@item.FirmwareSupport</dd>
+
+                        <dt>Price</dt>
+                        <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.RadioControllerId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.RadioControllerId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.RadioControllerId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/radiocontrollers-modals.js"></script>
+
 </body>
 </html>

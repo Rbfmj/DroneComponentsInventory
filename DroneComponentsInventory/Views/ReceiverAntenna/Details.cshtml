@@ -5,107 +5,82 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+    <title>Receiver Antenna Details</title>
 
-<div>
-    <h4>ReceiverAntennaComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrequencyBand)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrequencyBand)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Polarization)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Polarization)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Connector)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Connector)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ConnectorGender)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ConnectorGender)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GainDbi)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GainDbi)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.RadiationPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.RadiationPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompatibleReceivers)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompatibleReceivers)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CableLengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CableLengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.LengthMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.LengthMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.ReceiverAntennaId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/receiverantennas.css" />
+</head>
+
+<body class="is-preload">
+
+    <div class="receiverantennas-panel">
+
+        <h2>@Model.Manufacturer @Model.Model</h2>
+
+        <dl class="receiverantennas-meta">
+            <dt>Frequency Band</dt>
+            <dd>@(Model.FrequencyBand ?? "—")</dd>
+
+            <dt>Polarization</dt>
+            <dd>@(Model.Polarization ?? "—")</dd>
+
+            <dt>Connector</dt>
+            <dd>@(Model.Connector ?? "—") @Model.ConnectorGender</dd>
+
+            <dt>Gain</dt>
+            <dd>@(Model.GainDbi?.ToString() + " dBi" ?? "—")</dd>
+
+            <dt>Radiation Pattern</dt>
+            <dd>@(Model.RadiationPattern ?? "—")</dd>
+
+            <dt>Compatible Receivers</dt>
+            <dd>@(Model.CompatibleReceivers ?? "—")</dd>
+
+            <dt>Mount Type</dt>
+            <dd>@(Model.MountType ?? "—")</dd>
+
+            <dt>Cable Length</dt>
+            <dd>@(Model.CableLengthMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Weight</dt>
+            <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
+
+            <dt>Length</dt>
+            <dd>@(Model.LengthMm?.ToString() + " mm" ?? "—")</dd>
+
+            <dt>Price</dt>
+            <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS (your new style)
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.ReceiverAntennaId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.ReceiverAntennaId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+
+    </div>
+
 </body>
 </html>

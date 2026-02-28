@@ -5,77 +5,71 @@
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fc.css" />
 </head>
-<body>
+<body class="is-preload">
 
-<div>
-    <h4>FCComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.McuProcessor)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.McuProcessor)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ImuGyro)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ImuGyro)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MountPatternMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MountPatternMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VoltageInputS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VoltageInputS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirmwareSupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirmwareSupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.FcId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+    <div class="fc-panel">
+        <h2>Flight Controller Details</h2>
+        <hr />
+        <dl class="fc-meta">
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(model => model.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(model => model.Model)</dd>
+
+            <dt>Processor</dt>
+            <dd>@Html.DisplayFor(model => model.McuProcessor)</dd>
+
+            <dt>IMU / Gyro</dt>
+            <dd>@Html.DisplayFor(model => model.ImuGyro)</dd>
+
+            <dt>Mount Pattern (mm)</dt>
+            <dd>@Html.DisplayFor(model => model.MountPatternMm)</dd>
+
+            <dt>Voltage Input</dt>
+            <dd>@Html.DisplayFor(model => model.VoltageInputS)</dd>
+
+            <dt>Firmware Support</dt>
+            <dd>@Html.DisplayFor(model => model.FirmwareSupport)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(model => model.WeightG)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(model => model.Price)</dd>
+        </dl>
+
+        
+        <!-- =====================================================
+             ACTION BUTTONS
+             ===================================================== -->
+        <div style="margin-top: 12px; display: flex; gap: 8px;">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model?.FcId"
+                   class="button small">
+                Edit
+            </a>
+
+            <a asp-action="Delete"
+                   asp-route-id="@Model?.FcId"
+                   class="button small">
+                Delete
+            </a>
+
+            <a asp-action="Index"
+                   class="button small">
+                Back to List
+            </a>
+
+        </div>
+    </div>
+
 </body>
 </html>

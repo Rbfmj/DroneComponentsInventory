@@ -1,91 +1,96 @@
 @model IEnumerable<DroneComponentsInventory.Models.FCComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>Flight Controllers</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fc.css" />
+
+    <noscript>
+        <link rel="stylesheet" href="/css/noscript.css" />
+    </noscript>
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.McuProcessor)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImuGyro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MountPatternMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VoltageInputS)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FirmwareSupport)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.McuProcessor)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImuGyro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MountPatternMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VoltageInputS)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirmwareSupport)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.FcId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.FcId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.FcId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="fc-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>Flight Controllers</h2>
+                <p>Select a flight controller to view technical specifications.</p>
+                <p><a asp-action="Create" class="button small">Add New FC</a></p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+                <div class="fc-grid" id="fcGrid">
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FCComponent>())
+                    {
+                        <article class="fc-tile" data-modal-id="fmodal-@item.FcId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FCComponent>())
+        {
+            <div id="fmodal-@item.FcId" class="fc-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="fc-meta">
+                        <dt>Processor</dt>
+                        <dd>@item.McuProcessor</dd>
+
+                        <dt>IMU / Gyro</dt>
+                        <dd>@item.ImuGyro</dd>
+
+                        <dt>Mount Pattern</dt>
+                        <dd>@(item.MountPatternMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Voltage Input</dt>
+                        <dd>@item.VoltageInputS</dd>
+
+                        <dt>Firmware</dt>
+                        <dd>@item.FirmwareSupport</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@item.Price</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FcId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FcId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FcId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/fc-modals.js"></script>
+
 </body>
 </html>

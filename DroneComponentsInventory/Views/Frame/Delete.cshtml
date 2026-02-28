@@ -1,102 +1,97 @@
 @model DroneComponentsInventory.Models.FrameComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+    <title>Delete Frame</title>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>FrameComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WheelbaseMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WheelbaseMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxPropInch)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxPropInch)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Geometry)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Geometry)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Material)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Material)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ArmThicknessMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ArmThicknessMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MotorMountPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MotorMountPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FcMountPattern)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FcMountPattern)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxStackHeightMm)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxStackHeightMm)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="FrameId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/frames.css" />
+</head>
+<body class="is-preload">
+
+    <div class="frames-panel">
+
+        <h3 style="margin-top: 0;">
+            Delete Frame
+        </h3>
+
+        <p>
+            Are you sure you want to delete this frame?
+            <strong>This action cannot be undone.</strong>
+        </p>
+
+        <hr />
+
+        <dl class="frames-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(m => m.Model)</dd>
+
+            <dt>Wheelbase (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.WheelbaseMm)</dd>
+
+            <dt>Max Prop Size (in)</dt>
+            <dd>@Html.DisplayFor(m => m.MaxPropInch)</dd>
+
+            <dt>Geometry</dt>
+            <dd>@Html.DisplayFor(m => m.Geometry)</dd>
+
+            <dt>Material</dt>
+            <dd>@Html.DisplayFor(m => m.Material)</dd>
+
+            <dt>Arm Thickness (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.ArmThicknessMm)</dd>
+
+            <dt>Motor Mount</dt>
+            <dd>@Html.DisplayFor(m => m.MotorMountPattern)</dd>
+
+            <dt>FC Mount Pattern</dt>
+            <dd>@Html.DisplayFor(m => m.FcMountPattern)</dd>
+
+            <dt>Max Stack Height (mm)</dt>
+            <dd>@Html.DisplayFor(m => m.MaxStackHeightMm)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(m => m.WeightG)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(m => m.Price)</dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden"
+                   asp-for="FrameId" />
+
+            <div style="
+                margin-top: 16px;
+                display: flex;
+                gap: 12px;
+                justify-content: flex-end;">
+
+                <a asp-action="Index"
+                       class="button small">
+                    Cancel
+                </a>
+
+                <input type="submit"
+                       value="Delete"
+                       class="button small danger" />
+
+            </div>
+
+        </form>
+
+    </div>
 </body>
 </html>

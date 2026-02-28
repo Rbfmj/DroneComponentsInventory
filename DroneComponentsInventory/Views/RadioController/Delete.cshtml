@@ -1,114 +1,103 @@
 @model DroneComponentsInventory.Models.RadioControllerComponent
 
 @{
+    /* Standalone view – no shared layout */
     Layout = null;
 }
-
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
+    <title>Delete Radio Controller</title>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>RadioControllerComponent</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Manufacturer)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Manufacturer)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Model)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Model)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ControllerStyle)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ControllerStyle)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FrequencyGhz)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FrequencyGhz)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ProtocolsSupported)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ProtocolsSupported)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.MaxChannels)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.MaxChannels)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OutputPowerMw)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OutputPowerMw)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.TelemetrySupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.TelemetrySupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ScreenType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ScreenType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.GimbalType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.GimbalType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.BatteryType)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.BatteryType)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.WeightG)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.WeightG)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.FirmwareSupport)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.FirmwareSupport)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
-        </dd>
-    </dl>
-    
-    <form asp-action="Delete">
-        <input type="hidden" asp-for="RadioControllerId" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Back to List</a>
-    </form>
-</div>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/radiocontrollers.css" />
+</head>
+<body class="is-preload">
+
+    <div class="radiocontrollers-panel">
+
+        <h3 style="margin-top: 0;">
+            Delete Radio Controller
+        </h3>
+
+        <p>
+            Are you sure you want to delete this radio controller?
+            <strong>This action cannot be undone.</strong>
+        </p>
+
+        <hr />
+
+        <dl class="radiocontrollers-meta">
+
+            <dt>Manufacturer</dt>
+            <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
+
+            <dt>Model</dt>
+            <dd>@Html.DisplayFor(m => m.Model)</dd>
+
+            <dt>Style</dt>
+            <dd>@Html.DisplayFor(m => m.ControllerStyle)</dd>
+
+            <dt>Frequency (GHz)</dt>
+            <dd>@Html.DisplayFor(m => m.FrequencyGhz)</dd>
+
+            <dt>Protocols</dt>
+            <dd>@Html.DisplayFor(m => m.ProtocolsSupported)</dd>
+
+            <dt>Max Channels</dt>
+            <dd>@Html.DisplayFor(m => m.MaxChannels)</dd>
+
+            <dt>Output Power (mW)</dt>
+            <dd>@Html.DisplayFor(m => m.OutputPowerMw)</dd>
+
+            <dt>Telemetry Support</dt>
+            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+
+            <dt>Screen Type</dt>
+            <dd>@Html.DisplayFor(m => m.ScreenType)</dd>
+
+            <dt>Gimbal Type</dt>
+            <dd>@Html.DisplayFor(m => m.GimbalType)</dd>
+
+            <dt>Battery Type</dt>
+            <dd>@Html.DisplayFor(m => m.BatteryType)</dd>
+
+            <dt>Firmware</dt>
+            <dd>@Html.DisplayFor(m => m.FirmwareSupport)</dd>
+
+            <dt>Weight (g)</dt>
+            <dd>@Html.DisplayFor(m => m.WeightG)</dd>
+
+            <dt>Price</dt>
+            <dd>@Html.DisplayFor(m => m.Price)</dd>
+
+        </dl>
+
+        <form asp-action="Delete">
+
+            <input type="hidden"
+                   asp-for="RadioControllerId" />
+
+            <div style="
+                margin-top: 16px;
+                display: flex;
+                gap: 12px;
+                justify-content: flex-end;">
+
+                <a asp-action="Index"
+                       class="button small">
+                    Cancel
+                </a>
+
+                <input type="submit"
+                       value="Delete"
+                       class="button small danger" />
+
+            </div>
+
+        </form>
+
+    </div>
 </body>
 </html>

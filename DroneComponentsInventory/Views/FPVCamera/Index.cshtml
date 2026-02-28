@@ -1,109 +1,105 @@
 @model IEnumerable<DroneComponentsInventory.Models.FPVCameraComponent>
+@using System.Linq
 
 @{
+    /* This view is rendered standalone (no shared layout) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
+    <title>FPV Cameras</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/fpvcamera.css" />
 </head>
-<body>
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Manufacturer)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Model)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TypeSystem)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SensorSize)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ResolutionTvl)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.FovModes)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LensFocalMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SupportedAspectRatios)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.LowLightLux)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WeightG)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.MountSizeMm)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TypeSystem)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SensorSize)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ResolutionTvl)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FovModes)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LensFocalMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SupportedAspectRatios)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LowLightLux)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WeightG)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.MountSizeMm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CameraId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CameraId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CameraId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+<body class="is-preload">
+
+    <div class="fpvcamera-view">
+
+        <div class="wrapper style1 align-center">
+            <div class="inner">
+                <h2>FPV Cameras</h2>
+                <p>Select a camera to view technical specifications.</p>
+
+                <p>
+                    <a asp-action="Create" class="button small">Add New Camera</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="wrapper">
+            <div class="inner">
+                <div class="fpvcamera-grid" id="fpvcameraGrid">
+                    @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FPVCameraComponent>())
+                    {
+                        <article class="fpvcamera-tile" data-modal-id="cmodal-@item.CameraId">
+                            <div>
+                                <span class="title">@item.Manufacturer</span>
+                                <span class="muted">@item.Model</span>
+                            </div>
+                        </article>
+                    }
+                </div>
+            </div>
+        </div>
+
+        @foreach (var item in Model ?? Enumerable.Empty<DroneComponentsInventory.Models.FPVCameraComponent>())
+        {
+            <div id="cmodal-@item.CameraId" class="fpvcamera-modal" style="display:none;" aria-hidden="true">
+                <div class="panel">
+                    <button type="button" class="button small close-modal" style="position:absolute; right:12px; top:12px;">×</button>
+
+                    <h2>@item.Manufacturer @item.Model</h2>
+
+                    <dl class="fpvcamera-meta">
+                        <dt>Type / System</dt>
+                        <dd>@item.TypeSystem</dd>
+
+                        <dt>Sensor Size</dt>
+                        <dd>@item.SensorSize</dd>
+
+                        <dt>Resolution</dt>
+                        <dd>@(item.ResolutionTvl?.ToString() + " TVL" ?? "")</dd>
+
+                        <dt>FOV Modes</dt>
+                        <dd>@item.FovModes</dd>
+
+                        <dt>Lens</dt>
+                        <dd>@(item.LensFocalMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Aspect Ratios</dt>
+                        <dd>@item.SupportedAspectRatios</dd>
+
+                        <dt>Low Light Sensitivity</dt>
+                        <dd>@(item.LowLightLux?.ToString() ?? "")</dd>
+
+                        <dt>Weight</dt>
+                        <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
+
+                        <dt>Mount Size</dt>
+                        <dd>@(item.MountSizeMm?.ToString() + " mm" ?? "")</dd>
+
+                        <dt>Price</dt>
+                        <dd>@item.Price</dd>
+                    </dl>
+
+                    <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.CameraId">Edit</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.CameraId">Details</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.CameraId">Delete</a>
+                        <button type="button" class="button small close-modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+    <script src="/js/fpvcamera-modals.js"></script>
+
 </body>
 </html>
