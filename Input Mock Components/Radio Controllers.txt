@@ -1,0 +1,50 @@
+Manufacturer - RadioMaster  
+Model - Boxer Radio Controller
+ControllerStyle - Full-size / Compact gamepad
+FrequencyGhz - 2.4  
+ProtocolsSupported - ExpressLRS, 4-in-1 multi-protocol
+MaxChannels - 16  
+OutputPowerMw - 250
+TelemetrySupport - true  
+ScreenType - Color LCD touchscreen  
+GimbalType - Hall sensor  
+BatteryType - 2S LiPo / dual 18650
+WeightG - 533
+FirmwareSupport - EdgeTX  
+Price - 139.99
+
+--------------------------------------------------------------
+
+Manufacturer - BETAFPV  
+Model - LiteRadio 3 Pro 
+ControllerStyle - Gamepad / Compact portable  
+FrequencyGhz - 2.4  
+ProtocolsSupported - ExpressLRS, multi-protocol via external bay  
+MaxChannels - 16  
+OutputPowerMw - 250
+TelemetrySupport - true  
+ScreenType - LCD
+GimbalType - Hall sensor  
+BatteryType - Built-in 1S 2000mAh LiPo  
+WeightG - null
+FirmwareSupport - EdgeTX / BETAFPV firmware  
+Price - 89.99
+
+---------------------------------------------------------------
+
+Manufacturer - Team BlackSheep  
+Model - Tango 2 PRO V3 
+ControllerStyle - Compact / Gamepad-style  
+FrequencyGhz - 2.4
+ProtocolsSupported - TBS Crossfire, others via modules  
+MaxChannels - 16  
+OutputPowerMw - 500
+TelemetrySupport - true
+ScreenType - OLED
+GimbalType - Full-size hall sensor  
+BatteryType - Built-in 5000mAh 1S LiPo
+WeightG - null 
+FirmwareSupport - FreedomTX
+Price - 199.99
+
+

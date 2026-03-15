@@ -1,0 +1,36 @@
+Manufacturer - HGLRC  
+Model - F405 V1
+McuProcessor - STM32F405  
+ImuGyro - ICM42688P
+MountPatternMm - 30.5
+VoltageInputS - 2-8S
+FirmwareSupport - HGLRCF405V2
+WeightG - 9.5  
+Price - 38.99
+
+-----------------------------------------------------
+Manufacturer - Lumenier  
+Model - LUX H743 NDAA 
+McuProcessor - STM32H743
+ImuGyro - ICM-45686 (primary) + ICM-42688-P (dual gyro with sync)  
+MountPatternMm - 30.5
+VoltageInputS - 3-8S  
+FirmwareSupport - Betaflight, INAV, Ardupilot, PX4  
+WeightG - null
+Price - 148.99
+
+------------------------------------------------------
+Manufacturer - Team BlackSheep
+Model - Lucid H7
+McuProcessor - STM32H743VIH6
+ImuGyro - ICM42688 x2
+MountPatternMm - 30.5
+VoltageInputS - 2-8S
+FirmwareSupport - Betaflight, INAV, Ardupilot
+WeightG - null
+Price - 59.95
+
+
+
+
+

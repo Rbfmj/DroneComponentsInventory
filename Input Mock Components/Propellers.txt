@@ -1,0 +1,85 @@
+Manufacturer - Gemfan  
+Model - 3525 Hurricane
+DiameterMm - 89
+PitchInch - 2.5  
+BladeCount - 3  
+Material - Polycarbonate
+ShaftDiameterMm - 1.5
+RotationDirection - CW & CCW  
+RecommendedMotorSize - 1102-1303
+RecommendedMotorKv - 15000
+FrameClass - Micro / Toothpick
+WeightG - 1.83 
+ColorOptions - Clear Gray, Yellow  
+IncludedQuantity - 4
+Price - 2.69
+
+-----------------------------------------------------------------
+Manufacturer - Gemfan  
+Model - 493D 3D 
+DiameterMm - 124
+PitchInch - 3.2  
+BladeCount - 3  
+Material - Polycarbonate
+ShaftDiameterMm - 5  
+RotationDirection - CW & CCW  
+RecommendedMotorSize - 2207-2306
+RecommendedMotorKv - 1700
+FrameClass - 5" Freestyle / Cinewhoop  
+WeightG - 4.4
+ColorOptions - Radioactive Green, Zurple  
+IncludedQuantity - 4 
+Price - 2.99
+
+--------------------------------------------------------------
+Manufacturer - Gemfan  
+Model - 1608 Cinewhoop
+DiameterMm - 40  
+PitchInch - 0.8  
+BladeCount - 3  
+Material - Polycarbonate
+ShaftDiameterMm - 1.2  
+RotationDirection - CW & CCW  
+RecommendedMotorSize - 0702-1102
+RecommendedMotorKv - 20000
+FrameClass - Cinewhoop / Tiny Whoop
+WeightG - 0.42
+ColorOptions - Clear Blue  
+IncludedQuantity - 8
+Price - 3.29
+
+-------------------------------------------------------------
+Manufacturer - HQProp  
+Model - 15x7x3 3-Blade Propeller
+DiameterMm - 381
+PitchInch - 7  
+BladeCount - 3  
+Material - Glass Fiber Composite  
+ShaftDiameterMm - 6  
+RotationDirection - CW & CCW  
+RecommendedMotorSize - 3110-4014
+RecommendedMotorKv - 400-900
+FrameClass - Large Multirotor / Heavy-Lift
+WeightG - 63.9
+ColorOptions - Black  
+IncludedQuantity - 2
+Price - 28.99
+
+--------------------------------------------------------------
+
+Manufacturer - HQProp  
+Model - MacroQuad 9x5x3 3-Blade Propeller
+DiameterMm - 229 
+PitchInch - 5  
+BladeCount - 3  
+Material - Glass Fiber Reinforced Nylon  
+ShaftDiameterMm - 5  
+RotationDirection - CW & CCW  
+RecommendedMotorSize - 2808-3110
+RecommendedMotorKv - 900
+FrameClass - Macro / Long-Range
+WeightG - 17.4
+ColorOptions - Black  
+IncludedQuantity - 2 
+Price - 11.99
+

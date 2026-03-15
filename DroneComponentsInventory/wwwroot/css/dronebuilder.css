@@ -1,0 +1,339 @@
+/* ============================================================
+   DRONE BUILDER
+   ============================================================ */
+
+.drone-builder-view,
+.drone-builder-view .wrapper .inner {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+.drone-builder-view .wrapper > .inner {
+    padding: 0 1rem;
+}
+
+.drone-builder-view h2 {
+    margin-top: 0;
+    font-weight: 300;
+}
+
+.drone-builder-view {
+    padding-top: 3.5rem;
+}
+
+.drone-builder {
+    display: flex;
+    gap: 2rem;
+    min-height: 60vh;
+    padding: 1rem 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.builder-left {
+    flex: 0 1 22%;
+    min-width: 0;
+    overflow-y: auto;
+    max-height: 68vh;
+    padding-right: 1.25rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.builder-center {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0 1rem;
+    overflow-y: auto;
+}
+
+.builder-right {
+    flex: 0 1 28%;
+    min-width: 0;
+    overflow-y: auto;
+    max-height: 68vh;
+    padding-left: 1.25rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+/* --- Panel titles --- */
+.panel-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.55);
+    color: inherit;
+}
+
+/* --- Category dropdowns (left panel) --- */
+.category-section {
+    margin-bottom: 0.75rem;
+}
+
+.category-label {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: inherit;
+}
+
+.category-select {
+    width: 100%;
+    height: 2.75rem;
+    padding: 0 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    background: #fff;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    cursor: pointer;
+}
+
+.category-select:focus {
+    border-color: #47D3E5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(71, 211, 229, 0.15);
+}
+
+.category-select.has-selection {
+    border-color: rgba(71, 211, 229, 0.75);
+    background: rgba(71, 211, 229, 0.07);
+}
+
+/* --- Visualization area (center) --- */
+.visualization-area {
+    min-height: 360px;
+    border: 1px dashed rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.placeholder-text {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* --- Build summary cards (center panel) --- */
+.build-summary {
+    width: 100%;
+}
+
+.build-summary h6 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.6rem;
+    padding-bottom: 0.45rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.summary-card {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 6px 10px;
+    margin-bottom: 3px;
+    border-radius: 5px;
+    border-left: 3px solid rgba(71, 211, 229, 0.6);
+    background: rgba(71, 211, 229, 0.04);
+    transition: background 0.15s;
+}
+
+.summary-card:hover {
+    background: rgba(71, 211, 229, 0.09);
+}
+
+.summary-card .label {
+    flex: 0 0 auto;
+    min-width: 110px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.55);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.summary-card .value {
+    flex: 1 1 auto;
+    font-size: 0.88rem;
+    font-weight: 400;
+    color: #000;
+}
+
+/* --- Compatibility results (right panel) --- */
+.compat-results {
+    max-height: calc(68vh - 190px);
+    overflow-y: auto;
+}
+
+/* --- Status summary bar --- */
+.status-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 0.6rem 0;
+    padding: 6px 8px;
+    background: rgba(0, 0, 0, 0.025);
+    border-radius: 6px;
+}
+
+.status-count {
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+}
+
+.status-count-ok       { color: #0d7a3e; background: rgba(25, 135, 84, 0.10); }
+.status-count-critical { color: #b02a37; background: rgba(220, 53, 69, 0.10); }
+.status-count-warning  { color: #8a6d11; background: rgba(255, 193, 7, 0.14); }
+.status-count-unchecked { color: #5a5a5a; background: rgba(0, 0, 0, 0.06); }
+
+/* --- Individual check items (compact) --- */
+.check-item {
+    padding: 5px 8px;
+    margin-bottom: 4px;
+    border-radius: 5px;
+    border-left: 3px solid transparent;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    transition: background 0.15s;
+}
+
+.check-item strong {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.check-item p {
+    margin: 1px 0 0;
+    font-size: 0.78rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.3;
+}
+
+.check-ok {
+    border-left-color: #198754;
+    background: rgba(25, 135, 84, 0.06);
+}
+
+.check-critical {
+    border-left-color: #dc3545;
+    background: rgba(220, 53, 69, 0.06);
+}
+
+.check-warning {
+    border-left-color: #ffc107;
+    background: rgba(255, 193, 7, 0.08);
+}
+
+.check-unchecked {
+    border-left-color: rgba(0, 0, 0, 0.15);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+/* --- Buttons (match frames-view soft-pill style) --- */
+.drone-builder-view .button,
+.drone-builder-view a.button,
+.drone-builder-view button.button,
+.drone-builder-view input.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    box-shadow: none;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    max-width: none;
+    overflow: visible;
+}
+
+    .drone-builder-view .button:hover {
+        background: rgba(0, 0, 0, 0.03);
+        box-shadow: none;
+        color: inherit !important;
+        text-decoration: none;
+    }
+
+    .drone-builder-view .button:active {
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        color: inherit !important;
+    }
+
+    .drone-builder-view .button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+    }
+
+    .drone-builder-view .button.small {
+        height: 32px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+    }
+
+.save-input {
+    width: 100%;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    margin-bottom: 0.55rem;
+}
+
+.save-input:focus {
+    border-color: #47D3E5;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(71, 211, 229, 0.15);
+}
+
+.save-section {
+    padding-top: 0.5rem;
+}
+
+.save-section h6 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+/* --- Responsive --- */
+@media screen and (max-width: 992px) {
+    .drone-builder {
+        flex-direction: column;
+    }
+
+    .builder-left,
+    .builder-center,
+    .builder-right {
+        flex: 1 1 auto;
+        max-height: none;
+        min-width: 0;
+        border: none;
+        padding: 0;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+}

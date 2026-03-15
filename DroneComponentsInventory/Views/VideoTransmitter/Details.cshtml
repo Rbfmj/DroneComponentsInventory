@@ -28,7 +28,7 @@
             <dd>@(Model.MaxPowerMw?.ToString() + " mW" ?? "—")</dd>
 
             <dt>Voltage Input</dt>
-            <dd>@(Model.VoltageInputS ?? "—")</dd>
+            <dd>@(Model.VoltageInputS?.ToString() + "S" ?? "—")</dd>
 
             <dt>Mount Pattern</dt>
             <dd>@(Model.MountPatternMm?.ToString() + " mm" ?? "—")</dd>

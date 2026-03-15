@@ -23,10 +23,10 @@ namespace DroneComponentsInventory.Models
         public bool FailsafeSupport { get; set; } = false;
         public string? BindingMethod { get; set; }
         public string? IntendedUse { get; set; }
-        public int? WeightG { get; set; }
-        public int? LengthMm { get; set; }
-        public int? WidthMm { get; set; }
-        public int? HeightMm { get; set; }
+        public double? WeightG { get; set; }
+        public double? LengthMm { get; set; }
+        public double? WidthMm { get; set; }
+        public double? HeightMm { get; set; }
         public string? MountingType { get; set; }
         public double? Price { get; set; }
     }

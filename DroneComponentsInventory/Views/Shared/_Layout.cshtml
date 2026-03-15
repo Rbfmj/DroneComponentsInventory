@@ -24,6 +24,9 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="DroneBuilder" asp-action="Index">Drone Builder</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link text-dark" asp-controller="Frame" asp-action="Index">Add Frames</a>
                         </li>
                         <li class="nav-item">
@@ -67,7 +70,7 @@
             </div>
         </nav>
     </header>
-    <div class="container">
+    <div class="@(ViewBag.UseFluidLayout == true ? "container-fluid" : "container")">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

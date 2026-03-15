@@ -1,0 +1,15 @@
+Manufacturer - Lumenier  
+Model - SINDRA Gemini Dual-Band  
+FrequencyBand - 915MHz / 2.4GHz 
+Polarization - Linear  
+Connector - U.FL  
+ConnectorGender - null
+GainDbi - null
+RadiationPattern - Omnidirectional
+CompatibleReceivers - ELRS receivers with Gemini/X-Modes support 
+MountType - Cable-mounted / frame zip-tie
+CableLengthMm - 50 / 80 / 120 / 220
+WeightG - 4
+LengthMm - 153
+Price - 5.99
+

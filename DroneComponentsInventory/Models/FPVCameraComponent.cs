@@ -14,10 +14,10 @@ namespace DroneComponentsInventory.Models
         public string? SensorSize { get; set; }
         public int? ResolutionTvl { get; set; }
         public string? FovModes { get; set; }
-        public int? LensFocalMm { get; set; }
+        public double? LensFocalMm { get; set; }
         public string? SupportedAspectRatios { get; set; }
         public double? LowLightLux { get; set; }
-        public int? WeightG { get; set; }
+        public double? WeightG { get; set; }
         public int? MountSizeMm { get; set; }
         public double? Price { get; set; }
     }

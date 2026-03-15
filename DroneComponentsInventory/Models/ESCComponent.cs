@@ -13,9 +13,9 @@ namespace DroneComponentsInventory.Models
         public string? EscType { get; set; }
         public double? ContinuousCurrentA { get; set; }
         public int? VoltageInputS { get; set; }
-        public int? MountPatternMm { get; set; }
+        public double? MountPatternMm { get; set; }
         public string? SupportedProtocols { get; set; }
-        public int? WeightG { get; set; }
+        public double? WeightG { get; set; }
         public double? Price { get; set; }
     }
 }

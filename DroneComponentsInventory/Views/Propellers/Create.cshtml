@@ -40,13 +40,13 @@
 
                 <div class="form-group">
                     <label asp-for="DiameterMm" class="control-label">Diameter (mm)</label>
-                    <input asp-for="DiameterMm" class="form-control" type="number" step="1" />
+                    <input asp-for="DiameterMm" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="DiameterMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="PitchInch" class="control-label">Pitch (inch)</label>
-                    <input asp-for="PitchInch" class="form-control" type="number" step="0.1" />
+                    <input asp-for="PitchInch" class="form-control" type="number" step="any" />
                     <span asp-validation-for="PitchInch" class="text-danger"></span>
                 </div>
 
@@ -64,19 +64,19 @@
 
                 <div class="form-group">
                     <label asp-for="ShaftDiameterMm" class="control-label">Shaft Diameter (mm)</label>
-                    <input asp-for="ShaftDiameterMm" class="form-control" type="number" step="0.1" />
+                    <input asp-for="ShaftDiameterMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="ShaftDiameterMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="RotationDirection" class="control-label">Rotation Direction</label>
-                    <input asp-for="RotationDirection" class="form-control" placeholder="CW / CCW" />
+                    <input asp-for="RotationDirection" class="form-control" />
                     <span asp-validation-for="RotationDirection" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="RecommendedMotorSize" class="control-label">Recommended Motor Size</label>
-                    <input asp-for="RecommendedMotorSize" class="form-control" placeholder="e.g. 2205" />
+                    <input asp-for="RecommendedMotorSize" class="form-control" />
                     <span asp-validation-for="RecommendedMotorSize" class="text-danger"></span>
                 </div>
 
@@ -88,19 +88,19 @@
 
                 <div class="form-group">
                     <label asp-for="FrameClass" class="control-label">Frame Class</label>
-                    <input asp-for="FrameClass" class="form-control" placeholder="e.g. 5-inch" />
+                    <input asp-for="FrameClass" class="form-control" />
                     <span asp-validation-for="FrameClass" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="WeightG" class="control-label">Weight (g) per prop</label>
-                    <input asp-for="WeightG" class="form-control" type="number" step="0.1" />
+                    <input asp-for="WeightG" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
                     <label asp-for="ColorOptions" class="control-label">Color Options</label>
-                    <input asp-for="ColorOptions" class="form-control" placeholder="e.g. Black, Red, Blue" />
+                    <input asp-for="ColorOptions" class="form-control" />
                     <span asp-validation-for="ColorOptions" class="text-danger"></span>
                 </div>
 
@@ -111,7 +111,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price ($)</label>
+                    <label asp-for="Price" class="control-label">Price</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>

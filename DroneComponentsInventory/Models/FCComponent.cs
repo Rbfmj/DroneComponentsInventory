@@ -12,10 +12,10 @@ namespace DroneComponentsInventory.Models
         public string Model { get; set; } = null!;
         public string? McuProcessor { get; set; }
         public string? ImuGyro { get; set; }
-        public int? MountPatternMm { get; set; }
+        public double? MountPatternMm { get; set; }
         public string? VoltageInputS { get; set; }
         public string? FirmwareSupport { get; set; }
-        public int? WeightG { get; set; }
+        public double? WeightG { get; set; }
         public double? Price { get; set; }
     }
 }

@@ -1,0 +1,195 @@
+Battery:
+Manufacturer = XILO
+Model = 650mAh 4S 100C Essential Micro LiPo Battery XT30
+CellCountS = 4
+NominalVoltageV = 14.8
+CapacityMah = 650
+DischargeRateC = 100.0
+BurstRateC = null
+DischargeConnector = XT30 (16AWG wire)
+BalanceConnector = Standard 4S balance lead
+Chemistry = LiPo
+WeightG = 80
+LengthMm = 60
+WidthMm = 27
+HeightMm = 24
+Price = 31.49
+
+
+ESC:
+Manufacturer = Lumenier
+Model = LUX HD AIO - G4 FC + 35A AM32 3-6S ESC
+EscType = 4-in-1 AIO AM32
+ContinuousCurrentA = 35.0
+VoltageInputS = 6
+MountPatternMm = 25.5
+SupportedProtocols = AM32
+WeightG = 10.3
+Price = 116.99
+
+
+FC:
+Manufacturer = Lumenier
+Model = LUX HD AIO - G4 FC + 35A AM32 3-6S ESC
+McuProcessor = STM32G473 (170 MHz, 512 KB Flash)
+ImuGyro = ICM42688
+MountPatternMm = 25.5
+VoltageInputS = 3-6
+FirmwareSupport = Betaflight 4.5.0
+WeightG = null
+Price = null
+
+FPVCamera:
+Manufacturer = Caddx
+Model = Ratel 2 Micro Starlight 1200TVL Low Latency FPV Camera
+TypeSystem = Analog
+SensorSize = 1/1.8 inch Starlight HDR
+ResolutionTvl = 1200
+FovModes = 165°
+LensFocalMm = 2.1
+SupportedAspectRatios = 4:3 / 16:9
+LowLightLux = 0.0001
+WeightG = 5.9
+MountSizeMm = 19
+Price = 40.49
+
+FPVGoggles:
+Manufacturer = Fat Shark
+Model = Dominator HDO+ FPV Goggles
+VideoSystem = Analog
+DisplayType = OLED
+ScreenSizeInch = 0.49
+Resolution = 1920 x 1080 / 960x720
+LatencyMs = null
+ReceiverType = Modular
+DiversityAntennas = 2
+WeightG = 235.8
+DvrCapability = true
+BatteryLifeHours = null
+PowerInput = 7-25V / 2S-6S
+IpdAdjustable = true
+Price = 649.99
+
+Frame:
+Manufacturer = Lumenier
+Model = QAV-S 2 Sub-250 Joshua Bardwell SE 3
+WheelbaseMm = 145
+MaxPropInch = 3.0
+Geometry = True X
+Material = 3K Carbon Fiber + Aluminum camera plates
+WeightG = 55
+ArmThicknessMm = 3.5
+MotorMountPattern = 9 / 12
+FcMountPattern = 25.5
+MaxStackHeightMm = null
+Price = 77.99
+
+Motor:
+Manufacturer = XILO
+Model = Stealth 1404 Motor - 4500KV
+StatorSizeMm = 1404
+Kv = 4500
+MountPattern = 12
+WeightG = 9.2
+RecommendedVoltageS = 4
+RecommendedPropInch = 3.0
+MaxThrustG = 351
+Price = 19.49
+
+Propellers:
+Manufacturer = Gemfan
+Model = Hurricane 3020 3-Blade Propeller
+DiameterMm = 76.5
+PitchInch = 2.0
+BladeCount = 3
+Material = Polycarbonate (PC)
+ShaftDiameterMm = 1.5
+RotationDirection = CW & CCW
+RecommendedMotorSize = 1106
+RecommendedMotorKv = 4500
+FrameClass = cinewhoop
+WeightG = 1.3
+ColorOptions = Clear gray, Red, Whiskey
+IncludedQuantity = 4
+Price = 3.99
+
+Radio Controllers:
+Manufacturer = RadioMaster
+Model = Zorro Radio Controller - ELRS
+ControllerStyle = Gamepad
+FrequencyGhz = 2.4
+ProtocolsSupported = ExpressLRS
+MaxChannels = 16
+OutputPowerMw = null
+TelemetrySupport = true
+ScreenType = 128x64 Monochrome LCD
+GimbalType = Hall-effect
+BatteryType = 2 x 18350 (not included) or external 2S via USB-C / DC input
+WeightG = 350
+FirmwareSupport = OpenTX / EdgeTX
+Price = 168.99
+
+Receiver antenna:
+Manufacturer = Happymodel
+Model = Omnidirectional Dipole for EP1
+FrequencyBand = 2.4
+Polarization = Linear
+Connector = U.FL / IPEX / MHF
+ConnectorGender = Male
+GainDbi = 2.23
+RadiationPattern = Omnidirectional
+CompatibleReceivers = Happymodel EP1 RX
+MountType = Wire routing / zip-tie / frame mount
+CableLengthMm = 40 / 90
+WeightG = 1
+LengthMm = null
+Price = null
+
+Receiver:
+Manufacturer = Happymodel
+Model = ExpressLRS Nano 2.4GHz EP1 RX
+Protocol = ExpressLRS
+ModulationProtocol = LoRa
+FrequencyBand = 2.4
+Channels = 16
+TelemetrySupport = true
+AntennaCount = 1
+AntennaType = External omnidirectional dipole
+RangeKm = 10
+VoltageInputV = 5.0
+OutputSignal = CRSF
+FailsafeSupport = true
+BindingMethod = Power-cycle x3 + ELRS Lua Bind on TX
+IntendedUse = Tinywhoop / micro / freestyle / long-range FPV
+WeightG = 0.42
+LengthMm = 10
+WidthMm = 10
+HeightMm = 3
+MountingType = Solder pads / direct wire to FC UART
+Price = 22.49
+
+Video Antenna:
+Manufacturer = XILO
+Model = AXII MMCX 5.8GHz Antenna
+AntennaClass = Omnidirectional / Patch
+Polarization = RHCP
+Connector = MMCX
+GainDbi = 1.6
+AxialRatio = 1.0
+RadiationPattern = Omnidirectional
+OperatingFrequencyGhz = 5.8
+WeightG = 2.6
+Price = 12.99
+
+Video Transmitter:
+Manufacturer = XILO
+Model = STAX 5.8GHz FPV Video Transmitter
+Type = Analog
+MaxPowerMw = 600.0
+VoltageInputS = 7
+MountPatternMm = 30.5
+ControlProtocols = SmartAudio, Button control
+AntennaConnector = MMCX
+WeightG = 4.5
+Price = 38.99
+

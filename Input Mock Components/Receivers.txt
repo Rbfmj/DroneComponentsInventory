@@ -1,0 +1,69 @@
+Manufacturer - iFlight  
+Model - ELRS Nano 2.4GHz Receiver
+Protocol - ExpressLRS
+ModulationProtocol - CRSF
+FrequencyBand - 2.4GHz ISM
+Channels - null
+TelemetrySupport - true
+AntennaCount - 1  
+AntennaType - IPEX
+RangeKm - null 
+VoltageInputV - 5  
+OutputSignal - CRSF 
+FailsafeSupport - true 
+BindingMethod - ExpressLRS binding
+IntendedUse - FPV drones
+WeightG - 0.5
+LengthMm - 13  
+WidthMm - 10  
+HeightMm - null
+MountingType - Direct solder / surface mount
+Price - 22.99
+
+-----------------------------------------------------------
+
+Manufacturer - FrSky  
+Model - X8R 16ch SBUS Smart Port
+Protocol - FrSky
+ModulationProtocol - SBUS
+FrequencyBand - 2.4GHz  
+Channels - 16  
+TelemetrySupport - true
+AntennaCount - 2 
+AntennaType - PCB
+RangeKm - 1.5
+VoltageInputV - 4-10  
+OutputSignal - SBUS + PWM  
+FailsafeSupport - true
+BindingMethod - FrSky binding
+IntendedUse - FPV / general RC 
+WeightG - 16.8
+LengthMm - 46.5 
+WidthMm - 27
+HeightMm - 14.4  
+MountingType - Standard holes / strap
+Price - 36.99
+
+----------------------------------------------------------------
+
+Manufacturer - iFlight  
+Model - ELRS 500mW 900MHz Receiver
+Protocol - ExpressLRS
+ModulationProtocol - CRSF  
+FrequencyBand - 900
+Channels - null
+TelemetrySupport - true 
+AntennaCount - 1  
+AntennaType - U.FL
+RangeKm - null
+VoltageInputV - 5 
+OutputSignal - CRSF
+FailsafeSupport - true
+BindingMethod - ExpressLRS binding
+IntendedUse - Long-range FPV drones 
+WeightG - 1.8
+LengthMm - 25  
+WidthMm - 14  
+HeightMm - 4.3 
+MountingType - Direct solder / surface mount 
+Price - 31.99

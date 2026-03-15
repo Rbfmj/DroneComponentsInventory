@@ -17,7 +17,7 @@ namespace DroneComponentsInventory.Models
         public int? LatencyMs { get; set; }
         public string? ReceiverType { get; set; }
         public int? DiversityAntennas { get; set; }
-        public int? WeightG { get; set; }
+        public double? WeightG { get; set; }
         public bool DvrCapability { get; set; } = false;
         public double? BatteryLifeHours { get; set; }
         public string? PowerInput { get; set; }

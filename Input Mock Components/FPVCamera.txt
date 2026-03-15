@@ -1,0 +1,41 @@
+Manufacturer - WalleFPV  
+Model - Naked O4 Pro
+TypeSystem - Digital
+SensorSize - 1/1.3 
+ResolutionTvl - null 
+FovModes - 155° ultra-wide
+LensFocalMm - 12
+SupportedAspectRatios - null
+LowLightLux - null
+WeightG - 18.8
+MountSizeMm - 20
+Price - 399.99
+
+------------------------------------------------------------
+Manufacturer - Caddx  
+Model - Farsight Analog FPV Camera
+TypeSystem - Analog  
+SensorSize - 1/2
+ResolutionTvl - 1500
+FovModes - 122.5° / 92.2° / 155°
+LensFocalMm - 2.2  
+SupportedAspectRatios - 4:3  
+LowLightLux - 0.01
+WeightG - null
+MountSizeMm - 1
+Price - 167.99
+
+-------------------------------------------------------------
+Manufacturer - BETAFPV  
+Model - P1 Air Unit HD VTX
+TypeSystem - Digital
+SensorSize - 1/2.9  
+ResolutionTvl - null
+FovModes - 170°
+LensFocalMm - null
+SupportedAspectRatios - null
+LowLightLux - null
+WeightG - 6.8
+MountSizeMm - 14
+Price - 49.99
+

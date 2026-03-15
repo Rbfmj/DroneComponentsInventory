@@ -21,6 +21,7 @@ namespace DroneComponentsInventory.Models
         public DbSet<RadioControllerComponent> RadioControllerComponents { get; set; } = null!;
         public DbSet<PropellersComponent> PropellersComponents { get; set; } = null!;
         public DbSet<BatteryComponent> BatteryComponents { get; set; } = null!;
+        public DbSet<DroneBuild> DroneBuilds { get; set; } = null!;
     }
 
 }

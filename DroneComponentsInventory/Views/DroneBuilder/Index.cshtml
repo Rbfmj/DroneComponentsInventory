@@ -1,0 +1,212 @@
+@model DroneBuilderViewModel
+@{
+    Layout = null;
+    ViewData["Title"] = "Drone Builder";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Drone Builder</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/dronebuilder.css" />
+</head>
+
+<body class="is-preload">
+
+    <partial name="_IndexQuickNav" />
+
+    <div class="drone-builder-view">
+
+        <div class="wrapper">
+            <div class="inner">
+                <div class="drone-builder">
+                <!-- ===== LEFT PANEL -- Component Selection (20%) ===== -->
+                <aside class="builder-left">
+                    <h5 class="panel-title">Component Selection</h5>
+
+                    <div class="category-section">
+                        <label class="category-label">Frame</label>
+                        <select id="select-frame" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Frames)
+                            {
+                                <option value="@item.FrameId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Motors</label>
+                        <select id="select-motor" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Motors)
+                            {
+                                <option value="@item.MotorId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Propellers</label>
+                        <select id="select-propeller" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Propellers)
+                            {
+                                <option value="@item.PropellerId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">ESC</label>
+                        <select id="select-esc" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Escs)
+                            {
+                                <option value="@item.EscId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Battery</label>
+                        <select id="select-battery" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Batteries)
+                            {
+                                <option value="@item.BatteryId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Flight Controller</label>
+                        <select id="select-fc" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.FlightControllers)
+                            {
+                                <option value="@item.FcId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">FPV Camera</label>
+                        <select id="select-camera" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Cameras)
+                            {
+                                <option value="@item.CameraId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Video Transmitter (VTX)</label>
+                        <select id="select-vtx" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Vtxs)
+                            {
+                                <option value="@item.VtxId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Video Antenna</label>
+                        <select id="select-videoantenna" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.VideoAntennas)
+                            {
+                                <option value="@item.AntennaId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Receiver</label>
+                        <select id="select-receiver" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.Receivers)
+                            {
+                                <option value="@item.ReceiverId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Receiver Antenna</label>
+                        <select id="select-receiverantenna" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.ReceiverAntennas)
+                            {
+                                <option value="@item.ReceiverAntennaId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">Radio Controller</label>
+                        <select id="select-radiocontroller" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.RadioControllers)
+                            {
+                                <option value="@item.RadioControllerId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="category-section">
+                        <label class="category-label">FPV Goggles</label>
+                        <select id="select-fpvgoggles" class="category-select">
+                            <option value="">-- Select --</option>
+                            @foreach (var item in Model.FpvGoggles)
+                            {
+                                <option value="@item.FpvGogglesId">@item.Manufacturer @item.Model</option>
+                            }
+                        </select>
+                    </div>
+                </aside>
+
+                <!-- ===== CENTER PANEL -- Visualization (50%) ===== -->
+                <main class="builder-center">
+                    <h5 class="panel-title">Visualization</h5>
+                    <div class="visualization-area">
+                        <div id="build-summary" class="build-summary">
+                            <p class="placeholder-text">Select components from the left panel...</p>
+                        </div>
+                    </div>
+                </main>
+
+                <!-- ===== RIGHT PANEL -- Compatibility Log (30%) ===== -->
+                <aside class="builder-right">
+                    <h5 class="panel-title">Compatibility Check</h5>
+
+                    <div id="compatibility-results" class="compat-results">
+                        <p class="placeholder-text">Select components to see results...</p>
+                    </div>
+
+                    <hr />
+
+                    <div class="save-section">
+                        <h6>Save Build</h6>
+                        <input type="text" id="build-name" class="save-input" placeholder="Build name..." />
+                        <div style="margin-top: 12px; display: flex; gap: 8px;">
+                            <button id="btn-save" class="button small">Save</button>
+                        </div>
+                        <div id="save-result"></div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+
+    </div>
+
+    <script src="/js/dronebuilder.js"></script>
+</body>
+
+</html>

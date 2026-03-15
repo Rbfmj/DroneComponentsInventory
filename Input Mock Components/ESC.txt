@@ -1,0 +1,36 @@
+Manufacturer - HGLRC  
+Model - 60A V1 4-in-1 ESC
+Type - 4-in-1
+ContinuousCurrentA - 60
+VoltageInputS - 6
+MountPatternMm - 30.5
+SupportedProtocols - DShot600/300/150
+WeightG - 14  
+Price - 39.99
+
+----------------------------------------------------
+Manufacturer - Holybro
+Model - Tekko32 F4 50A 4-in-1
+Type - 4-in-1  
+ContinuousCurrentA - 50 
+VoltageInputS - 6
+MountPatternMm - 30.5
+SupportedProtocols - DShot150/300/600/1200, MultiShot, OneShot, ProShot, PWM
+WeightG - 13.8
+Price - 85.99
+
+----------------------------------------------------
+Manufacturer - Lumenier
+Model - Siege 100A Single
+EscType - Single
+ContinuousCurrentA - 100
+VoltageInputS - 8
+MountPatternMm - null 
+SupportedProtocols - DShot300/600, Bi-directional DShot, Servo PWM
+WeightG - null
+Price - 79.99
+
+
+
+
+

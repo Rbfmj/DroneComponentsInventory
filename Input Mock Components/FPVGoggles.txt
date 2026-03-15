@@ -1,0 +1,50 @@
+Manufacturer - BETAFPV  
+Model - VR04 HD FPV Goggles
+VideoSystem - Digital 
+DisplayType - LCD  
+ScreenSizeInch - 4.5  
+Resolution - 1920x1080  
+LatencyMs - 60
+ReceiverType - Integrated 
+DiversityAntennas - null
+WeightG - 400  
+DvrCapability - true 
+BatteryLifeHours - 3  
+PowerInput - Type-C charging; 2-6S whoop battery direct power  
+IpdAdjustable - false
+Price - 199.99
+
+------------------------------------------------------------
+Manufacturer - Orqa  
+Model - FPV.One PILOT
+VideoSystem - Analog
+DisplayType - OLED  
+ScreenSizeInch - null
+Resolution - 1280x960  
+LatencyMs - null
+ReceiverType - Standard receiver bay 
+DiversityAntennas - null
+WeightG - 256
+DvrCapability - true
+BatteryLifeHours - null 
+PowerInput - 6-26V DC
+IpdAdjustable - true
+Price - 799.99
+
+--------------------------------------------------------------
+Manufacturer - Walksnail  
+Model - Ascent FPV Goggles 
+VideoSystem - Digital
+DisplayType - null
+ScreenSizeInch - null 
+Resolution - 1920x1080
+LatencyMs - null 
+ReceiverType - Integrated
+DiversityAntennas - 2
+WeightG - null
+DvrCapability - true 
+BatteryLifeHours - null
+PowerInput - 6-25.2 
+IpdAdjustable - true 
+Price - 199.99
+

@@ -1,0 +1,12 @@
+Manufacturer - Foxeer  
+Model - Lollipop 4 Stubby antenna  
+AntennaClass - Omni-directional / Stubby  
+Polarization - RHCP
+Connector - SMA
+GainDbi - 2.6  
+AxialRatio - 1
+RadiationPattern - Omnidirectional 
+OperatingFrequencyGhz - 5.8
+WeightG - null  
+Price - 9.95
+

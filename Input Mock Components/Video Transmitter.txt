@@ -1,0 +1,11 @@
+Manufacturer - HDZero  
+Model - Whoop V2 VTX
+Type - Digital
+MaxPowerMw - 200
+VoltageInputS - 3
+MountPatternMm - 25.5
+ControlProtocols - MSP OSD / Smart Audio  
+AntennaConnector - U.FL
+WeightG - 5.4 
+Price - 63.99
+

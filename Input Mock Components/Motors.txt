@@ -1,0 +1,37 @@
+Manufacturer - AxisFlying  
+Model - AF2207.5 1960KV
+StatorSizeMm - 2207.5
+Kv - 1960  
+MountPattern - 12
+WeightG - 33.9
+RecommendedVoltageS - 6
+RecommendedPropInch - 5.1
+MaxThrustG - 1388
+Price - 25.99
+
+----------------------------------------------------------------
+Manufacturer - VCI Hobby  
+Model - ARES 2808 1350KV
+StatorSizeMm - 2808  
+Kv - 1350  
+MountPattern - 16
+WeightG - 66
+RecommendedVoltageS - 6
+RecommendedPropInch - 7 
+MaxThrustG - 2502
+Price - 21.99
+
+----------------------------------------------------------------
+Manufacturer - VCI Hobby  
+Model - 0702 Pro Lite 27000KV
+StatorSizeMm - 0702
+Kv - 27000  
+MountPattern - 6
+WeightG - 1.4
+RecommendedVoltageS - 1
+RecommendedPropInch - 1.2
+MaxThrustG - 35
+Price - 31.99
+
+
+

@@ -1,0 +1,41 @@
+Manufacturer - Daddy Loves Quads  
+Model - ASBO DCJ5 HD O3
+WheelbaseMm - null
+MaxPropInch - 5  
+Geometry - Deadcat  
+Material - Carbon Fiber
+WeightG - 151  
+ArmThicknessMm - 6
+MotorMountPattern - 16 / 19
+FcMountPattern - 20 / 25.5 / 30
+MaxStackHeightMm - null
+Price - 85.99
+
+---------------------------------------------------------------
+Manufacturer - DarwinFPV  
+Model - FoldApe4
+WheelbaseMm - 168  
+MaxPropInch - 4
+Geometry - Deadcat 
+Material - Carbon Fiber
+WeightG - 56 
+ArmThicknessMm - 4  
+MotorMountPattern - 10
+FcMountPattern - 25.5
+MaxStackHeightMm - 28
+Price - 51.99
+
+---------------------------------------------------------------
+Manufacturer - Axisflying  
+Model - MANTA 30
+WheelbaseMm - 160  
+MaxPropInch - 3  
+Geometry - True X  
+Material - Carbon Fiber
+WeightG - 87
+ArmThicknessMm - 4  
+MotorMountPattern - 12
+FcMountPattern - 20
+MaxStackHeightMm - null
+Price - 49.99
+

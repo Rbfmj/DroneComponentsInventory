@@ -18,7 +18,7 @@ namespace DroneComponentsInventory.Models
         public string? RadiationPattern { get; set; }
         public string? CompatibleReceivers { get; set; }
         public string? MountType { get; set; }
-        public int? CableLengthMm { get; set; }
+        public string? CableLengthMm { get; set; }
         public int? WeightG { get; set; }
         public int? LengthMm { get; set; }
         public double? Price { get; set; }

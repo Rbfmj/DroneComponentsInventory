@@ -64,7 +64,7 @@
 
                 <div class="form-group">
                     <label asp-for="GainDbi" class="control-label">Gain (dBi)</label>
-                    <input asp-for="GainDbi" class="form-control" type="number" step="0.1" />
+                    <input asp-for="GainDbi" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="GainDbi" class="text-danger"></span>
                 </div>
 
@@ -88,7 +88,7 @@
 
                 <div class="form-group">
                     <label asp-for="CableLengthMm" class="control-label">Cable Length (mm)</label>
-                    <input asp-for="CableLengthMm" class="form-control" type="number" step="1" />
+                    <input asp-for="CableLengthMm" class="form-control" placeholder="e.g. 40 / 90" />
                     <span asp-validation-for="CableLengthMm" class="text-danger"></span>
                 </div>
 
