@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 64" fill="none">
-  <rect x="8" y="12" width="26" height="40" rx="6" fill="rgba(108,92,231,0.12)" stroke="#6c5ce7" stroke-width="2"/>
-  <line x1="16" y1="12" x2="16" y2="4" stroke="#6c5ce7" stroke-width="2" stroke-linecap="round"/>
-  <line x1="26" y1="12" x2="26" y2="4" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
-  <rect x="50" y="24" width="34" height="18" rx="5" fill="rgba(231,76,60,0.10)" stroke="#e74c3c" stroke-width="2"/>
-  <line x1="42" y1="30" x2="50" y2="30" stroke="#212529" stroke-width="2" stroke-linecap="round"/>
-  <line x1="42" y1="36" x2="50" y2="36" stroke="#e74c3c" stroke-width="2" stroke-linecap="round"/>
-</svg>

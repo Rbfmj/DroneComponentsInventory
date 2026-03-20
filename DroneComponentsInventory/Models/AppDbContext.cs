@@ -22,6 +22,18 @@ namespace DroneComponentsInventory.Models
         public DbSet<PropellersComponent> PropellersComponents { get; set; } = null!;
         public DbSet<BatteryComponent> BatteryComponents { get; set; } = null!;
         public DbSet<DroneBuild> DroneBuilds { get; set; } = null!;
+        public DbSet<AssemblyLayout> AssemblyLayouts { get; set; } = null!;
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<AssemblyLayout>()
+                .HasOne(layout => layout.Build)
+                .WithOne()
+                .HasForeignKey<AssemblyLayout>(layout => layout.BuildId)
+                .OnDelete(DeleteBehavior.Cascade);
+        }
     }
 
 }

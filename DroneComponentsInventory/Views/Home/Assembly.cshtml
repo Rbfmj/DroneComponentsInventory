@@ -74,6 +74,7 @@
         window.DRONE_BUILD = @Html.Raw(JsonSerializer.Serialize(
             new
             {
+                buildId = Model.BuildId,
                 frame = Model.Frame is null ? null : new { manufacturer = Model.Frame.Manufacturer, model = Model.Frame.Model },
                 battery = Model.Battery is null ? null : new { manufacturer = Model.Battery.Manufacturer, model = Model.Battery.Model },
                 camera = Model.Camera is null ? null : new { manufacturer = Model.Camera.Manufacturer, model = Model.Camera.Model },

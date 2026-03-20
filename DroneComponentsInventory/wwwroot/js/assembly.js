@@ -3,6 +3,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     var build = window.DRONE_BUILD;
+    var buildId = build && build.buildId ? Number(build.buildId) : 0;
     const modeToggleButton = document.getElementById('modeToggleButton');
     const snapToggleButton = document.getElementById('snapToggleButton');
     const saveLayoutButton = document.getElementById('saveLayoutButton');
@@ -10,8 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const stepCounterElement = document.getElementById('step-counter');
     const prevStepButton = document.getElementById('btn-prev');
     const nextStepButton = document.getElementById('btn-next');
-    const SNAP_LAYOUT_STORAGE_KEY = 'droneAssemblySnapLayout';
-    let saveLayoutButtonResetHandle = null;
     let guideAutoAdvanceHandle = null;
     let isSnapEnabled = true;
     let currentMode = 'guide';
@@ -20,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let guideStartedParts = new Set();
     let developerCanvasSnapshot = null;
     let developerSnapEnabledBeforeGuide = true;
+    let hasSavedLayout = false;
 
     // ================================================================
     //  KONVA STAGE SETUP
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function () {
         'frame': {
             image: '/images/parts/frame.png',
             x: 0.5, y: 0.5, w: 0.8, h: 0.8,
-            draggable: false,
+            draggable: true,
             name: 'BASE FRAME',
             id: 'frame'
         },
@@ -79,105 +79,105 @@ document.addEventListener('DOMContentLoaded', function () {
             id: 'front-plate'
         },
         'motor-fl': {
-            image: '/images/parts/motor.svg',
+            image: '/images/parts/motor.png',
             x: 0.25, y: 0.25, w: 0.1, h: 0.1,
             draggable: true,
             name: 'MOTOR 1',
             id: 'motor-fl'
         },
         'motor-fr': {
-            image: '/images/parts/motor.svg',
+            image: '/images/parts/motor.png',
             x: 0.75, y: 0.25, w: 0.1, h: 0.1,
             draggable: true,
             name: 'MOTOR 2',
             id: 'motor-fr'
         },
         'motor-bl': {
-            image: '/images/parts/motor.svg',
+            image: '/images/parts/motor.png',
             x: 0.25, y: 0.75, w: 0.1, h: 0.1,
             draggable: true,
             name: 'MOTOR 3',
             id: 'motor-bl'
         },
         'motor-br': {
-            image: '/images/parts/motor.svg',
+            image: '/images/parts/motor.png',
             x: 0.75, y: 0.75, w: 0.1, h: 0.1,
             draggable: true,
             name: 'MOTOR 4',
             id: 'motor-br'
         },
         'fc': {
-            image: '/images/parts/fc-esc.svg',
+            image: '/images/parts/fc-esc.png',
             x: 0.5, y: 0.5, w: 0.12, h: 0.12,
             draggable: true,
             name: 'FLIGHT CONTROLLER',
             id: 'fc'
         },
         'capacitor': {
-            image: '/images/parts/cap-lead.svg',
+            image: '/images/parts/cap.png',
             x: 0.35, y: 0.5, w: 0.08, h: 0.08,
             draggable: true,
             name: 'CAPACITOR & BATTERY LEAD',
             id: 'capacitor'
         },
         'camera': {
-            image: '/images/parts/fpvcamera.svg',
+            image: '/images/parts/fpvcamera.png',
             x: 0.5, y: 0.15, w: 0.09, h: 0.07,
             draggable: true,
             name: 'CAMERA',
             id: 'camera'
         },
-        'receiver': {
-            image: '/images/parts/receiver.svg',
-            x: 0.5, y: 0.72, w: 0.1, h: 0.1,
-            draggable: true,
-            name: 'RECEIVER',
-            id: 'receiver'
-        },
         'vtx': {
-            image: '/images/parts/vtx-antenna.svg',
+            image: '/images/parts/vtx.png',
             x: 0.5, y: 0.85, w: 0.1, h: 0.1,
             draggable: true,
             name: 'VTX + ANTENNA',
             id: 'vtx'
         },
+        'receiver': {
+            image: '/images/parts/receiver+antenna.png',
+            x: 0.5, y: 0.72, w: 0.1, h: 0.1,
+            draggable: true,
+            name: 'RECEIVER',
+            id: 'receiver'
+        },
         'propeller-fl': {
-            image: '/images/parts/propeller.svg',
+            image: '/images/parts/propeller.png',
             x: 0.075, y: 0.075, w: 0.15, h: 0.15,
             draggable: true,
             name: 'PROPELLER 1',
             id: 'propeller-fl'
         },
         'propeller-fr': {
-            image: '/images/parts/propeller.svg',
+            image: '/images/parts/propeller.png',
             x: 0.925, y: 0.075, w: 0.15, h: 0.15,
             draggable: true,
             name: 'PROPELLER 2',
             id: 'propeller-fr'
         },
         'propeller-bl': {
-            image: '/images/parts/propeller.svg',
+            image: '/images/parts/propeller.png',
             x: 0.075, y: 0.925, w: 0.15, h: 0.15,
             draggable: true,
             name: 'PROPELLER 3',
             id: 'propeller-bl'
         },
         'propeller-br': {
-            image: '/images/parts/propeller.svg',
+            image: '/images/parts/propeller.png',
             x: 0.925, y: 0.925, w: 0.15, h: 0.15,
             draggable: true,
             name: 'PROPELLER 4',
             id: 'propeller-br'
         },
         'top-frame': {
-            image: '/images/parts/top-frame.png',
+            image: '/images/parts/top-plate.png',
             x: 0.5, y: 0.5, w: 0.25, h: 0.25,
             draggable: true,
             name: 'TOP FRAME',
             id: 'top-frame'
         },
         'battery-top': {
-            image: '/images/parts/battery.svg',
+            image: '/images/parts/battery.png',
             x: 0.5, y: 0.5, w: 0.15, h: 0.2,
             draggable: true,
             name: 'BATTERY (TOP)',
@@ -542,19 +542,34 @@ document.addEventListener('DOMContentLoaded', function () {
         layer.draw();
     }
 
-    function loadSavedSnapLayout() {
-        const saved = localStorage.getItem(SNAP_LAYOUT_STORAGE_KEY);
-        if (!saved) {
+    async function loadSavedSnapLayout() {
+        if (!buildId) {
             return false;
         }
 
         try {
-            const layout = JSON.parse(saved);
+            const response = await fetch(`/DroneBuilder/GetAssemblyLayout?id=${encodeURIComponent(buildId)}`, {
+                method: 'GET',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to load layout (${response.status})`);
+            }
+
+            const result = await response.json();
+            if (!result || !result.layoutJson) {
+                return false;
+            }
+
+            const layout = JSON.parse(result.layoutJson);
             applySnapLayout(layout);
             if (layer.find('.part').length > 0) {
                 applySnapLayoutToCanvas();
             }
-            console.log('✓ Saved snap layout loaded');
+            console.log('✓ Saved snap layout loaded from database');
             return true;
         } catch (error) {
             console.error('✗ Failed to load saved snap layout', error);
@@ -569,6 +584,50 @@ document.addEventListener('DOMContentLoaded', function () {
 
         saveLayoutButton.textContent = text;
         saveLayoutButton.classList.toggle('is-saved', !!isSaved);
+    }
+
+    async function saveCurrentLayout() {
+        if (!buildId) {
+            setSaveLayoutButtonState('Save Failed', false);
+            console.error('✗ Failed to save layout: build id missing');
+            return;
+        }
+
+        try {
+            setSaveLayoutButtonState('Saving...', false);
+
+            const layout = getCurrentSnapLayout();
+            const response = await fetch('/DroneBuilder/SaveAssemblyLayout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    buildId: buildId,
+                    layoutJson: JSON.stringify(layout)
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error(`Failed to save layout (${response.status})`);
+            }
+
+            const result = await response.json();
+            if (!result || result.success !== true) {
+                throw new Error(result && result.error ? result.error : 'Save failed');
+            }
+
+            hasSavedLayout = true;
+            setSaveLayoutButtonState('Saved!', true);
+            console.log('✓ Layout saved to database');
+            setTimeout(function() {
+                setSaveLayoutButtonState('Save Layout', false);
+            }, 1500);
+        } catch (error) {
+            console.error('✗ Failed to save layout', error);
+            setSaveLayoutButtonState('Save Failed', false);
+        }
     }
 
     function updateModeToggleUi() {
@@ -824,6 +883,7 @@ function applyGuideModeState(resetCurrentParts) {
     });
     positionTracker.positions = {};
     Object.keys(PARTS).forEach(partId => positionTracker.trackPosition(partId));
+    showGuideHighlights();
     layer.draw();
 }
 
@@ -975,6 +1035,7 @@ function switchMode(mode) {
     }
 
     currentMode = 'developer';
+    clearGuideHighlights();
     updateModeToggleUi();
     updateDeveloperControlsVisibility();
     setSnapEnabled(developerSnapEnabledBeforeGuide);
@@ -1008,10 +1069,118 @@ function evaluateGuideStepCompletion() {
 
     const isComplete = step.partIds.every(partId => isPartSnapped(partId));
     if (!isComplete) {
+        showGuideHighlights();
+        layer.draw();
         return;
     }
 
     completeCurrentGuideStep(true);
+}
+
+// ================================================================
+//  GUIDE MODE TARGET HIGHLIGHTS
+// ================================================================
+var guideHighlightNodes = [];
+var guideHighlightAnim = null;
+
+function clearGuideHighlights() {
+    if (guideHighlightAnim) {
+        guideHighlightAnim.stop();
+        guideHighlightAnim = null;
+    }
+    guideHighlightNodes.forEach(function(node) {
+        node.destroy();
+    });
+    guideHighlightNodes = [];
+}
+
+function showGuideHighlights() {
+    clearGuideHighlights();
+
+    if (currentMode !== 'guide') {
+        return;
+    }
+
+    var step = getGuideStep(currentGuideStepIndex);
+    if (!step || step.isAction || isGuideStepComplete(currentGuideStepIndex) || step.partIds.length === 0) {
+        return;
+    }
+
+    var targets = [];
+    var processedGroups = new Set();
+
+    step.partIds.forEach(function(partId) {
+        var group = getInterchangeableGroup(partId);
+        if (group) {
+            var groupKey = group.join(',');
+            if (processedGroups.has(groupKey)) {
+                return;
+            }
+            processedGroups.add(groupKey);
+
+            group.forEach(function(memberId) {
+                var snapPos = SNAP_POSITIONS[memberId];
+                if (!snapPos) return;
+
+                var tX = snapPos.x * width;
+                var tY = snapPos.y * height;
+
+                var occupied = group.some(function(otherId) {
+                    var otherNode = getPartNode(otherId);
+                    if (!otherNode || !otherNode.visible()) return false;
+                    return Math.hypot(otherNode.x() - tX, otherNode.y() - tY) <= Math.max(8, getSnapThreshold() / 4);
+                });
+
+                if (!occupied) {
+                    targets.push({ x: snapPos.x, y: snapPos.y, partId: memberId });
+                }
+            });
+            return;
+        }
+
+        if (isPartSnapped(partId)) {
+            return;
+        }
+
+        var snapPos = SNAP_POSITIONS[partId];
+        if (snapPos) {
+            targets.push({ x: snapPos.x, y: snapPos.y, partId: partId });
+        }
+    });
+
+    targets.forEach(function(target) {
+        var ring = new Konva.Circle({
+            x: target.x * width,
+            y: target.y * height,
+            radius: 60,
+            stroke: 'rgba(220, 38, 38, 0.8)',
+            strokeWidth: 2,
+            fill: 'rgba(220, 38, 38, 0.25)',
+            listening: false,
+            name: 'guide-highlight'
+        });
+
+        layer.add(ring);
+        guideHighlightNodes.push(ring);
+    });
+
+    step.partIds.forEach(function(partId) {
+        var node = getPartNode(partId);
+        if (node && node.visible()) {
+            node.moveToTop();
+        }
+    });
+
+    if (guideHighlightNodes.length > 0) {
+        guideHighlightAnim = new Konva.Animation(function(frame) {
+            var cycle = (frame.time % 1800) / 1800;
+            var opacity = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(cycle * 2 * Math.PI));
+            guideHighlightNodes.forEach(function(node) {
+                node.opacity(opacity);
+            });
+        }, layer);
+        guideHighlightAnim.start();
+    }
 }
 
 // ================================================================
@@ -1041,6 +1210,8 @@ const transformer = new Konva.Transformer({
         return newBox;
     }
 });
+layer.add(transformer);
+transformer.visible(false);
 
 // ================================================================
 //  UTILITY FUNCTIONS
@@ -1055,110 +1226,6 @@ function getPixels(config) {
         y: y * height,
         w: config.w * width,
         h: config.h * height
-    };
-}
-
-function getPartTransform(partId) {
-    const transform = PART_TRANSFORMS[partId] || {};
-
-    return {
-        rotation: typeof transform.rotation === 'number' ? transform.rotation : 0,
-        scaleX: typeof transform.scaleX === 'number' ? transform.scaleX : 1,
-        scaleY: typeof transform.scaleY === 'number' ? transform.scaleY : 1
-    };
-}
-
-function applyPartTransform(partId, partNode) {
-    const transform = getPartTransform(partId);
-    partNode.rotation(transform.rotation);
-    partNode.scaleX(transform.scaleX);
-    partNode.scaleY(transform.scaleY);
-}
-
-function storePartTransform(partId, partNode) {
-    PART_TRANSFORMS[partId] = {
-        rotation: Number(partNode.rotation().toFixed(2)),
-        scaleX: Number(partNode.scaleX().toFixed(4)),
-        scaleY: Number(partNode.scaleY().toFixed(4))
-    };
-
-    return PART_TRANSFORMS[partId];
-}
-
-function getPartNode(partId) {
-    return layer.findOne(`#${partId}`);
-}
-
-function selectPart(partNode) {
-    selectedPartId = partNode ? partNode.id() : null;
-    transformer.nodes(partNode ? [partNode] : []);
-    transformer.moveToTop();
-    layer.draw();
-}
-
-function logPartState(partId) {
-    const pos = positionTracker.getPosition(partId);
-    if (!pos) {
-        console.warn(`Part not found: ${partId}`);
-        return null;
-    }
-
-    console.log(pos);
-    return pos;
-}
-
-function setPartRotation(partId, degrees) {
-    const node = getPartNode(partId);
-    if (!node) return null;
-
-    node.rotation(degrees);
-    storePartTransform(partId, node);
-    positionTracker.trackPosition(partId);
-    if (selectedPartId === partId) {
-        transformer.forceUpdate();
-    }
-    layer.draw();
-    return logPartState(partId);
-}
-
-function setPartScale(partId, scaleX, scaleY) {
-    const node = getPartNode(partId);
-    if (!node) return null;
-
-    node.scaleX(scaleX);
-    node.scaleY(typeof scaleY === 'number' ? scaleY : scaleX);
-    storePartTransform(partId, node);
-    positionTracker.trackPosition(partId);
-    if (selectedPartId === partId) {
-        transformer.forceUpdate();
-    }
-    layer.draw();
-    return logPartState(partId);
-}
-
-function resetPartTransform(partId) {
-    const node = getPartNode(partId);
-    if (!node) return null;
-
-    node.rotation(0);
-    node.scaleX(1);
-    node.scaleY(1);
-    storePartTransform(partId, node);
-    positionTracker.trackPosition(partId);
-    if (selectedPartId === partId) {
-        transformer.forceUpdate();
-    }
-    layer.draw();
-    return logPartState(partId);
-}
-
-function clampToCanvas(x, y, w, h) {
-    const halfW = w / 2;
-    const halfH = h / 2;
-
-    return {
-        x: Math.max(halfW, Math.min(width - halfW, x)),
-        y: Math.max(halfH, Math.min(height - halfH, y))
     };
 }
 
@@ -1357,47 +1424,49 @@ function addDebugInfo() {
         y: 0,
         width: width,
         height: height,
-        stroke: 'rgba(0, 0, 0, 0.28)',
-        strokeWidth: 2,
-        strokeDashArray: [10, 5],
-        listening: false,
-        name: 'border-guide'
+        stroke: 'rgba(71, 211, 229, 0.35)',
+        strokeWidth: 1,
+        dash: [6, 6],
+        listening: false
     });
-    layer.add(borderRect);
 
     hLine = new Konva.Line({
         points: [0, height / 2, width, height / 2],
-        stroke: 'rgba(255, 0, 0, 0.2)',
+        stroke: 'rgba(71, 211, 229, 0.3)',
         strokeWidth: 1,
-        listening: false,
-        name: 'debug'
+        dash: [6, 6],
+        listening: false
     });
-    layer.add(hLine);
 
     vLine = new Konva.Line({
         points: [width / 2, 0, width / 2, height],
-        stroke: 'rgba(255, 0, 0, 0.2)',
+        stroke: 'rgba(71, 211, 229, 0.3)',
         strokeWidth: 1,
-        listening: false,
-        name: 'debug'
+        dash: [6, 6],
+        listening: false
     });
-    layer.add(vLine);
 
     centerDot = new Konva.Circle({
         x: width / 2,
         y: height / 2,
-        radius: 5,
-        fill: 'rgba(255, 0, 0, 0.3)',
-        listening: false,
-        name: 'debug'
+        radius: 4,
+        fill: 'rgba(71, 211, 229, 0.9)',
+        listening: false
     });
+
+    layer.add(borderRect);
+    layer.add(hLine);
+    layer.add(vLine);
     layer.add(centerDot);
-    layer.add(transformer);
 }
 
-// ================================================================
-//  LOAD ALL PARTS WITH KONVA (WITH SNAP TARGETS)
-// ================================================================
+function clampToCanvas(x, y, w, h) {
+    return {
+        x: Math.max(w / 2, Math.min(width - (w / 2), x)),
+        y: Math.max(h / 2, Math.min(height - (h / 2), y))
+    };
+}
+
 async function loadAllParts() {
     console.log('Loading draggable parts with snap targets...');
 
@@ -1514,6 +1583,10 @@ async function loadAllParts() {
         }
     });
 
+    if (hasSavedLayout) {
+        applySnapLayoutToCanvas();
+    }
+
     Object.keys(PARTS).forEach(partId => {
         positionTracker.trackPosition(partId);
     });
@@ -1561,6 +1634,7 @@ window.addEventListener('resize', () => {
     if (vLine) vLine.points([width / 2, 0, width / 2, height]);
     if (centerDot) { centerDot.x(width / 2); centerDot.y(height / 2); }
     if (selectedPartId) { transformer.forceUpdate(); }
+    if (currentMode === 'guide') { showGuideHighlights(); }
 
     layer.draw();
 });
@@ -1572,13 +1646,18 @@ console.log('=== SNAP ASSEMBLY GUIDE ===');
 console.log('All parts are draggable and snap near their saved targets!');
 console.log('Base frame is your reference (not draggable).\n');
 
-loadSavedSnapLayout();
+async function initializeAssembly() {
+    hasSavedLayout = await loadSavedSnapLayout();
 
-addDebugInfo();
-if (currentMode === 'guide') {
-    setDebugVisible(false);
+    addDebugInfo();
+    if (currentMode === 'guide') {
+        setDebugVisible(false);
+    }
+
+    await loadAllParts();
 }
-loadAllParts();
+
+initializeAssembly();
 
 if (modeToggleButton) {
     modeToggleButton.addEventListener('click', function() {
@@ -1632,20 +1711,11 @@ window.partEditor = {
         }
 
         selectPart(node);
-        return logPartState(partId);
+        return node;
     },
-    get: logPartState,
-    setRotation: setPartRotation,
-    setScale: setPartScale,
-    resetTransform: resetPartTransform,
-    exportCode: function() {
-        console.clear();
-        console.log(positionTracker.exportAsCode());
-        return positionTracker.exportAsCode();
-    },
-    list: function() {
-        return Object.keys(PARTS);
-    }
+    rotate: setPartRotation,
+    scale: setPartScale,
+    log: logPartState
 };
 window.snapControls = {
     isEnabled: function() {
@@ -1679,29 +1749,75 @@ window.assemblyModeControls = {
     toggle: toggleMode
 };
 
-console.log('📍 Position Tracking Available!');
-console.log('\nCommands:');
-console.log('  positionTracker.getAllPositions()        - Get all current positions');
-console.log('  positionTracker.getPosition(\'motor-fl\') - Get specific part');
-console.log('  positionTracker.logAllPositions()        - Log all positions, size, and rotation');
-console.log('  positionTracker.logAsCode()              - Log snap + transform code');
-console.log('  positionTracker.exportAsJSON()           - Export as JSON');
-console.log('  positionTracker.exportAsCode()           - Export as code snippet');
-console.log('  partEditor.select(\'camera\')            - Select a part on canvas');
-console.log('  partEditor.setRotation(\'camera\', 15)   - Set rotation in degrees');
-console.log('  partEditor.setScale(\'camera\', 1.2)     - Resize uniformly');
-console.log('  partEditor.setScale(\'camera\', 1.2, 0.9) - Resize width/height independently');
-console.log('  partEditor.resetTransform(\'camera\')    - Reset size and rotation');
-console.log('  partEditor.exportCode()                  - Log paste-ready snap/transform code');
-console.log('  snapControls.on()                        - Turn snap positions on');
-console.log('  snapControls.off()                       - Turn snap positions off');
-console.log('  snapControls.toggle()                    - Toggle snap positions');
-console.log('  snapLayoutControls.save()                - Save current snap layout');
-console.log('  snapLayoutControls.load()                - Load saved snap layout');
-console.log('  snapLayoutControls.export()              - Get current snap layout object');
-console.log('  assemblyModeControls.developer()         - Switch to developer mode');
-console.log('  assemblyModeControls.guide()             - Switch to guide mode');
-console.log('  assemblyModeControls.toggle()            - Toggle developer/guide mode');
-console.log('\nClick any part to resize/rotate it with handles in developer mode, or switch to guide mode to build step by step.');
-console.log('Drag parts from the bottom area toward their targets to snap them, then export them.');
+function applyPartTransform(partId, partNode) {
+    const transform = getPartTransform(partId);
+    partNode.rotation(transform.rotation);
+    partNode.scaleX(transform.scaleX);
+    partNode.scaleY(transform.scaleY);
+}
+
+function getPartTransform(partId) {
+    return PART_TRANSFORMS[partId] || { rotation: 0, scaleX: 1, scaleY: 1 };
+}
+
+function storePartTransform(partId, partNode) {
+    PART_TRANSFORMS[partId] = {
+        rotation: Number(partNode.rotation().toFixed(2)),
+        scaleX: Number(partNode.scaleX().toFixed(4)),
+        scaleY: Number(partNode.scaleY().toFixed(4))
+    };
+
+    return PART_TRANSFORMS[partId];
+}
+
+function getPartNode(partId) {
+    return layer.findOne(`#${partId}`);
+}
+
+function selectPart(partNode) {
+    selectedPartId = partNode ? partNode.id() : null;
+    transformer.nodes(partNode ? [partNode] : []);
+    transformer.moveToTop();
+    layer.draw();
+}
+
+function logPartState(partId) {
+    const pos = positionTracker.getPosition(partId);
+    if (!pos) {
+        console.warn(`Part not found: ${partId}`);
+        return null;
+    }
+
+    console.log(pos);
+    return pos;
+}
+
+function setPartRotation(partId, degrees) {
+    const node = getPartNode(partId);
+    if (!node) return null;
+
+    node.rotation(degrees);
+    storePartTransform(partId, node);
+    positionTracker.trackPosition(partId);
+    if (selectedPartId === partId) {
+        transformer.forceUpdate();
+    }
+    layer.draw();
+    return logPartState(partId);
+}
+
+function setPartScale(partId, scaleX, scaleY) {
+    const node = getPartNode(partId);
+    if (!node) return null;
+
+    node.scaleX(scaleX);
+    node.scaleY(scaleY);
+    storePartTransform(partId, node);
+    positionTracker.trackPosition(partId);
+    if (selectedPartId === partId) {
+        transformer.forceUpdate();
+    }
+    layer.draw();
+    return logPartState(partId);
+}
 });

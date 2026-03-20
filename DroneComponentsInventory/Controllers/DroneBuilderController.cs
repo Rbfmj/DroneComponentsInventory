@@ -126,6 +126,61 @@ namespace DroneComponentsInventory.Controllers
             return Json(new { success = true, buildId = build.BuildId });
         }
 
+        [HttpGet]
+        public async Task<IActionResult> GetAssemblyLayout(int id)
+        {
+            var layout = await _context.AssemblyLayouts
+                .AsNoTracking()
+                .FirstOrDefaultAsync(x => x.BuildId == id);
+
+            return Json(new
+            {
+                success = true,
+                layoutJson = layout?.LayoutJson,
+                savedAt = layout?.SavedAt
+            });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SaveAssemblyLayout([FromBody] SaveAssemblyLayoutRequest request)
+        {
+            if (!ModelState.IsValid || request.BuildId <= 0 || string.IsNullOrWhiteSpace(request.LayoutJson))
+            {
+                return BadRequest(new { success = false, error = "Invalid layout payload." });
+            }
+
+            var buildExists = await _context.DroneBuilds.AnyAsync(x => x.BuildId == request.BuildId);
+            if (!buildExists)
+            {
+                return NotFound(new { success = false, error = "Build not found." });
+            }
+
+            var layout = await _context.AssemblyLayouts.FindAsync(request.BuildId);
+            if (layout == null)
+            {
+                layout = new AssemblyLayout
+                {
+                    BuildId = request.BuildId,
+                    LayoutJson = request.LayoutJson,
+                    SavedAt = DateTime.UtcNow
+                };
+                _context.AssemblyLayouts.Add(layout);
+            }
+            else
+            {
+                layout.LayoutJson = request.LayoutJson;
+                layout.SavedAt = DateTime.UtcNow;
+            }
+
+            await _context.SaveChangesAsync();
+
+            return Json(new
+            {
+                success = true,
+                savedAt = layout.SavedAt
+            });
+        }
+
         public async Task<IActionResult> Assembly(int id)
         {
             var build = await BuildQuery()
