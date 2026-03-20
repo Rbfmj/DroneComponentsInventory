@@ -1,0 +1,80 @@
+@model DroneComponentsInventory.Models.DroneBuild
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Build Details</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body class="is-preload">
+
+    <partial name="_IndexQuickNav" />
+
+    <div class="home-view">
+        <div class="build-panel">
+            <h2>@Model.Name</h2>
+
+            <dl class="build-meta">
+                <dt>Build ID</dt>
+                <dd>@Model.BuildId</dd>
+
+                <dt>Created</dt>
+                <dd>@Model.CreatedAt.ToLocalTime().ToString("f")</dd>
+
+                <dt>Frame</dt>
+                <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
+
+                <dt>Motor</dt>
+                <dd>@(Model.Motor is null ? "—" : $"{Model.Motor.Manufacturer} {Model.Motor.Model}")</dd>
+
+                <dt>Propeller</dt>
+                <dd>@(Model.Propeller is null ? "—" : $"{Model.Propeller.Manufacturer} {Model.Propeller.Model}")</dd>
+
+                <dt>ESC</dt>
+                <dd>@(Model.Esc is null ? "—" : $"{Model.Esc.Manufacturer} {Model.Esc.Model}")</dd>
+
+                <dt>Battery</dt>
+                <dd>@(Model.Battery is null ? "—" : $"{Model.Battery.Manufacturer} {Model.Battery.Model}")</dd>
+
+                <dt>Flight Controller</dt>
+                <dd>@(Model.Fc is null ? "—" : $"{Model.Fc.Manufacturer} {Model.Fc.Model}")</dd>
+
+                <dt>FPV Camera</dt>
+                <dd>@(Model.Camera is null ? "—" : $"{Model.Camera.Manufacturer} {Model.Camera.Model}")</dd>
+
+                <dt>VTX</dt>
+                <dd>@(Model.Vtx is null ? "—" : $"{Model.Vtx.Manufacturer} {Model.Vtx.Model}")</dd>
+
+                <dt>Video Antenna</dt>
+                <dd>@(Model.VideoAntenna is null ? "—" : $"{Model.VideoAntenna.Manufacturer} {Model.VideoAntenna.Model}")</dd>
+
+                <dt>Receiver</dt>
+                <dd>@(Model.Receiver is null ? "—" : $"{Model.Receiver.Manufacturer} {Model.Receiver.Model}")</dd>
+
+                <dt>Receiver Antenna</dt>
+                <dd>@(Model.ReceiverAntenna is null ? "—" : $"{Model.ReceiverAntenna.Manufacturer} {Model.ReceiverAntenna.Model}")</dd>
+
+                <dt>Radio Controller</dt>
+                <dd>@(Model.RadioController is null ? "—" : $"{Model.RadioController.Manufacturer} {Model.RadioController.Model}")</dd>
+
+                <dt>FPV Goggles</dt>
+                <dd>@(Model.FpvGoggles is null ? "—" : $"{Model.FpvGoggles.Manufacturer} {Model.FpvGoggles.Model}")</dd>
+            </dl>
+
+            <div class="panel-actions">
+                <a class="button small" asp-action="Assembly" asp-route-id="@Model.BuildId">Assembly</a>
+                <a class="button small danger" asp-action="Delete" asp-route-id="@Model.BuildId">Delete</a>
+                <a class="button small" asp-controller="Home" asp-action="Index">Back to List</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

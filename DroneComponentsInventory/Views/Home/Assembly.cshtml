@@ -1,0 +1,103 @@
+@model DroneComponentsInventory.Models.DroneBuild
+@using System.Text.Json
+@{
+    Layout = null;
+    ViewData["Title"] = $"Assembly Guide – {Model.Name}";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Assembly Guide – @Model.Name</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/assembly.css" />
+    <!-- Konva.js library -->
+    <script src="https://unpkg.com/konva@9/konva.min.js"></script>
+</head>
+
+<body class="is-preload">
+
+    <partial name="_IndexQuickNav" />
+
+    <div class="assembly-view">
+        <div class="wrapper">
+            <div class="inner">
+
+                <div class="assembly-header">
+                    <h2>Assembly Guide</h2>
+                    <p class="build-name">@Model.Name</p>
+                </div>
+
+                <div class="assembly-layout">
+
+                    <aside class="assembly-steps">
+                        <h5 class="panel-title">Build Steps</h5>
+                        <div id="step-list" class="step-list"></div>
+                        <div class="step-nav">
+                            <button id="btn-prev" class="button small" disabled>← Prev</button>
+                            <span id="step-counter" class="step-counter">1 / 18</span>
+                            <button id="btn-next" class="button small">Next →</button>
+                        </div>
+                    </aside>
+
+                    <main class="assembly-workbench">
+                        <h5 class="panel-title">Workbench</h5>
+                        <div class="workbench-area" id="workbench">
+                            <div class="workbench-controls">
+                                <button type="button" id="modeToggleButton" class="workbench-control-button mode-toggle-button is-developer" aria-pressed="false">
+                                    <span class="mode-toggle-label">Mode</span>
+                                    <span class="mode-toggle-state">Developer</span>
+                                </button>
+                                <button type="button" id="saveLayoutButton" class="workbench-control-button save-layout-button">
+                                    Save Layout
+                                </button>
+                                <button type="button" id="snapToggleButton" class="workbench-control-button snap-toggle-button is-on" aria-pressed="true">
+                                    <span class="snap-toggle-label">Snap</span>
+                                    <span class="snap-toggle-state">On</span>
+                                </button>
+                            </div>
+                            <!-- Konva canvas container -->
+                            <div id="container" style="width:100%; height:100%;"></div>
+                        </div>
+                    </main>
+
+                    <aside class="assembly-info">
+                        <h5 class="panel-title">Component Details</h5>
+                        <div id="component-info" class="component-info">
+                            <p class="placeholder-text">Step details will appear here...</p>
+                        </div>
+                    </aside>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        window.DRONE_BUILD = @Html.Raw(JsonSerializer.Serialize(
+            new
+            {
+                frame = Model.Frame is null ? null : new { manufacturer = Model.Frame.Manufacturer, model = Model.Frame.Model },
+                battery = Model.Battery is null ? null : new { manufacturer = Model.Battery.Manufacturer, model = Model.Battery.Model },
+                camera = Model.Camera is null ? null : new { manufacturer = Model.Camera.Manufacturer, model = Model.Camera.Model },
+                motor = Model.Motor is null ? null : new { manufacturer = Model.Motor.Manufacturer, model = Model.Motor.Model },
+                propeller = Model.Propeller is null ? null : new { manufacturer = Model.Propeller.Manufacturer, model = Model.Propeller.Model },
+                esc = Model.Esc is null ? null : new { manufacturer = Model.Esc.Manufacturer, model = Model.Esc.Model },
+                fc = Model.Fc is null ? null : new { manufacturer = Model.Fc.Manufacturer, model = Model.Fc.Model },
+                vtx = Model.Vtx is null ? null : new { manufacturer = Model.Vtx.Manufacturer, model = Model.Vtx.Model },
+                videoAntenna = Model.VideoAntenna is null ? null : new { manufacturer = Model.VideoAntenna.Manufacturer, model = Model.VideoAntenna.Model },
+                receiver = Model.Receiver is null ? null : new { manufacturer = Model.Receiver.Manufacturer, model = Model.Receiver.Model },
+                receiverAntenna = Model.ReceiverAntenna is null ? null : new { manufacturer = Model.ReceiverAntenna.Manufacturer, model = Model.ReceiverAntenna.Model },
+                radioController = Model.RadioController is null ? null : new { manufacturer = Model.RadioController.Manufacturer, model = Model.RadioController.Model },
+                fpvGoggles = Model.FpvGoggles is null ? null : new { manufacturer = Model.FpvGoggles.Manufacturer, model = Model.FpvGoggles.Model }
+            }));
+    </script>
+    <script src="/js/assembly.js"></script>
+
+</body>
+
+</html>

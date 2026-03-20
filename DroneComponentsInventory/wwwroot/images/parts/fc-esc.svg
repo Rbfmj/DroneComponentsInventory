@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <!-- PCB board (FC) -->
+  <rect x="8" y="12" width="48" height="40" rx="4" fill="rgba(108,92,231,0.10)" stroke="#6c5ce7" stroke-width="2"/>
+  <!-- ESC layer below -->
+  <rect x="12" y="16" width="40" height="32" rx="3" fill="rgba(108,92,231,0.06)" stroke="#6c5ce7" stroke-width="1" stroke-dasharray="3 2"/>
+  <!-- Chip -->
+  <rect x="24" y="24" width="16" height="16" rx="2" fill="#6c5ce7" opacity="0.7"/>
+  <!-- Traces -->
+  <line x1="8"  y1="22" x2="12" y2="22" stroke="#6c5ce7" stroke-width="1.5"/>
+  <line x1="8"  y1="32" x2="12" y2="32" stroke="#6c5ce7" stroke-width="1.5"/>
+  <line x1="8"  y1="42" x2="12" y2="42" stroke="#6c5ce7" stroke-width="1.5"/>
+  <line x1="52" y1="22" x2="56" y2="22" stroke="#6c5ce7" stroke-width="1.5"/>
+  <line x1="52" y1="32" x2="56" y2="32" stroke="#6c5ce7" stroke-width="1.5"/>
+  <line x1="52" y1="42" x2="56" y2="42" stroke="#6c5ce7" stroke-width="1.5"/>
+</svg>

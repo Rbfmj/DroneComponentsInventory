@@ -1,0 +1,1064 @@
+/* ============================================================
+   ASSEMBLY GUIDE
+   ============================================================ */
+
+.assembly-view,
+.assembly-view .wrapper .inner {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+.assembly-view .wrapper > .inner {
+    padding: 0 1rem;
+}
+
+.assembly-view {
+    padding-top: 3.5rem;
+}
+
+/* --- Header --- */
+.assembly-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.assembly-header h2 {
+    font-weight: 300;
+    margin: 0 0 0.25rem;
+}
+
+.assembly-header .build-name {
+    font-size: 1.05rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* --- 3-column layout --- */
+.assembly-layout {
+    display: flex;
+    gap: 2rem;
+    min-height: 60vh;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.assembly-steps {
+    flex: 0 1 22%;
+    min-width: 0;
+    overflow-y: auto;
+    max-height: 74vh;
+    padding-right: 1.25rem;
+    border-right: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.assembly-workbench {
+    flex: 1 1 auto;
+    min-width: 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.assembly-info {
+    flex: 0 1 24%;
+    min-width: 0;
+    overflow-y: auto;
+    max-height: 74vh;
+    padding-left: 1.25rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+/* --- Panel titles --- */
+.assembly-view .panel-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.55);
+    color: inherit;
+}
+
+/* ============================================================
+   STEP LIST (left panel)
+   ============================================================ */
+.step-list {
+    margin-bottom: 1rem;
+}
+
+.step-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    padding: 8px 10px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    border-left: 3px solid transparent;
+    font-size: 0.82rem;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+}
+
+.step-item:hover {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.step-item.active {
+    border-left-color: #47D3E5;
+    background: rgba(71, 211, 229, 0.08);
+}
+
+.step-item.completed {
+    border-left-color: #198754;
+    background: rgba(25, 135, 84, 0.06);
+}
+
+.step-item.completed .step-num {
+    background: #198754;
+    color: #fff;
+}
+
+.step-num {
+    flex: 0 0 auto;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+}
+
+.step-item.active .step-num {
+    background: #47D3E5;
+    color: #fff;
+}
+
+.step-text {
+    flex: 1 1 auto;
+}
+
+/* Locked step style */
+.step-item.locked {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.step-item.locked:hover {
+    background: transparent;
+}
+
+/* --- Step navigation --- */
+.step-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.step-counter {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+/* ============================================================
+   WORKBENCH (center panel)
+   ============================================================ */
+#workbench {
+    flex: 1 1 auto;
+    min-height: 760px;
+    height: 86vh;
+    max-height: 980px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8fafc;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    margin: 0 8px;
+}
+
+#droneSchematic {
+    width: 94% !important;
+    height: 94% !important;
+    max-width: 920px;
+    aspect-ratio: 1 / 1;
+    position: relative;
+    background: 
+        linear-gradient(#f1f3f5 1px, transparent 1px),
+        linear-gradient(90deg, #f1f3f5 1px, transparent 1px);
+    background-size: 24px 24px;
+    border-radius: 12px;
+}
+
+.snap-piece {
+    transition: transform 0.2s ease, filter 0.2s ease;
+    pointer-events: none;
+    position: absolute;
+}
+
+.snap-piece:hover {
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.2));
+}
+
+.snap-piece img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+.workbench-area {
+    flex: 1 1 auto;
+    min-height: 420px;
+    border: 2px dashed rgba(0, 0, 0, 0.18);
+    border-radius: 12px;
+    padding: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background:
+        radial-gradient(circle at center, rgba(71, 211, 229, 0.1), transparent 62%),
+        radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px),
+        rgba(255, 255, 255, 0.58);
+    background-size: auto, 24px 24px, auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.workbench-controls {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+.workbench-control-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.45rem 0.8rem;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    color: #1f2937;
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.workbench-control-button.is-hidden {
+    display: none;
+}
+
+.save-layout-button.is-saved {
+    background: rgba(25, 135, 84, 0.12);
+    border-color: rgba(25, 135, 84, 0.28);
+    color: #198754;
+}
+
+.snap-toggle-button {
+    position: static;
+}
+
+.snap-toggle-button .snap-toggle-label {
+    opacity: 0.8;
+}
+
+.snap-toggle-button .snap-toggle-state {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.8rem;
+    padding: 0.28rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(25, 135, 84, 0.14);
+    color: #198754;
+}
+
+.snap-toggle-button.is-off .snap-toggle-state {
+    background: rgba(220, 53, 69, 0.12);
+    color: #dc3545;
+}
+
+/* --- Drone schematic (top-down view) --- */
+.drone-schematic {
+    position: relative;
+    width: 340px;
+    height: 340px;
+}
+
+/* Frame center plate / drop zone */
+#zone-frame {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 1.1rem;
+    font-weight: bold;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+#zone-frame.drop-active {
+    z-index: 2;
+    pointer-events: auto;
+    background: rgba(71, 211, 229, 0.08);
+    border: 2px dashed #47D3E5;
+    border-radius: 8px;
+}
+
+#zone-frame .zone-label {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+#zone-frame.placed .zone-label {
+    opacity: 0;
+}
+
+/* Rear/front plate zones */
+.plate-zone {
+    position: absolute;
+    width: 94px;
+    height: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px dashed rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.02);
+    z-index: 3;
+    transition: all 0.3s ease;
+}
+
+.plate-zone.placed {
+    border-style: solid;
+    border-color: #495057;
+    background: rgba(73, 80, 87, 0.08);
+}
+
+.front-plate-zone { top: 102px; }
+.rear-plate-zone { bottom: 102px; }
+
+/* Top frame zone */
+.top-frame-zone {
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(0, 0, 0, 0.16);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 6;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.top-frame-zone.placed {
+    border-style: solid;
+    border-color: #212529;
+    background: rgba(33, 37, 41, 0.06);
+}
+
+/* Small accessory zones near FC */
+.aux-zone {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    border: 2px dashed rgba(0, 0, 0, 0.14);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.02);
+    z-index: 5;
+}
+
+.aux-zone.placed {
+    border-style: solid;
+    border-color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.1);
+}
+
+.cap-zone { left: 126px; }
+.lead-zone { left: 184px; }
+
+/* FC and battery/VTX positioning overrides */
+#zone-stack {
+    transform: translate(-50%, -50%) rotate(45deg);
+}
+
+#zone-vtx-top {
+    top: 126px;
+}
+
+.vtx-rear-zone {
+    top: auto;
+    bottom: 102px;
+}
+
+.battery-plug-zone {
+    width: 40px;
+    height: 26px;
+    bottom: 52px;
+    left: 68%;
+}
+
+.battery-top-zone {
+    width: 76px;
+    height: 36px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: auto;
+    z-index: 7;
+}
+
+/* Snap-piece styling for images */
+.snap-piece {
+    pointer-events: none;
+    position: absolute;
+}
+
+.snap-piece img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Optional: Slight vertical offset for stacked items in the center */
+#placed-step-3 {
+    margin-top: -10px;
+}
+/* ESC */
+#placed-step-5 {
+    margin-top: 10px;
+}
+/* Battery Connector */
+
+.snap-piece.placed {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+/* Frame arms – diagonal lines */
+.frame-arm {
+    position: absolute;
+    width: 200px;
+    height: 4px;
+    background: rgba(0, 0, 0, 0.12);
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 50%;
+    border-radius: 2px;
+    transition: background 0.4s;
+    display: none;
+}
+
+.frame-arm.placed {
+    background: linear-gradient(90deg, #333, #666);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.arm-fl { transform: translate(-50%, -50%) rotate(-45deg); }
+.arm-fr { transform: translate(-50%, -50%) rotate(45deg); }
+.arm-bl { transform: translate(-50%, -50%) rotate(-135deg); }
+.arm-br { transform: translate(-50%, -50%) rotate(135deg); }
+
+/* Frame center plate */
+.frame-center {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+    z-index: 2;
+}
+
+.frame-center.placed {
+    border-style: solid;
+    border-color: #333;
+    background: rgba(51, 51, 51, 0.06);
+}
+
+/* Motor mounts */
+.motor-mount {
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+    z-index: 3;
+}
+
+.motor-mount.placed {
+    border-style: solid;
+    border-color: #e07020;
+    background: rgba(224, 112, 32, 0.12);
+}
+
+.motor-mount.drop-active {
+    border: 2px dashed #47D3E5;
+    background: rgba(71, 211, 229, 0.1);
+}
+
+/* FC/ESC stack zone (center, on top of frame) */
+.stack-zone {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px dashed rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s;
+    z-index: 4;
+}
+
+.stack-zone.placed {
+    border-style: solid;
+    border-color: #6c5ce7;
+    background: rgba(108, 92, 231, 0.12);
+}
+
+
+/* Camera zone (front of drone) */
+.camera-zone {
+    position: absolute;
+    width: 40px;
+    height: 32px;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgba(9, 132, 227, 0.2);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    z-index: 5;
+    background: rgba(9, 132, 227, 0.03);
+}
+
+.camera-zone.placed {
+    border-color: #0984e3;
+    background: linear-gradient(135deg, rgba(9, 132, 227, 0.12), rgba(9, 132, 227, 0.06));
+    box-shadow: 0 2px 8px rgba(9, 132, 227, 0.18);
+}
+
+.camera-zone.drop-active {
+    border: 2px solid #0984e3;
+    background: rgba(9, 132, 227, 0.15);
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 12px rgba(9, 132, 227, 0.3);
+}
+
+/* VTX zone */
+.vtx-zone {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgba(0, 184, 148, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    z-index: 5;
+    background: rgba(0, 184, 148, 0.03);
+}
+
+.vtx-zone.placed {
+    border-color: #00b894;
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.12), rgba(0, 184, 148, 0.06));
+    box-shadow: 0 2px 8px rgba(0, 184, 148, 0.18);
+}
+
+.vtx-zone.drop-active {
+    border: 2px solid #00b894;
+    background: rgba(0, 184, 148, 0.15);
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 12px rgba(0, 184, 148, 0.3);
+}
+
+/* Receiver zone */
+.rx-zone {
+    position: absolute;
+    width: 44px;
+    height: 44px;
+    bottom: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgba(253, 203, 110, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    z-index: 5;
+    background: rgba(253, 203, 110, 0.03);
+}
+
+.rx-zone.placed {
+    border-color: #fdcb6e;
+    background: linear-gradient(135deg, rgba(253, 203, 110, 0.12), rgba(253, 203, 110, 0.06));
+    box-shadow: 0 2px 8px rgba(253, 203, 110, 0.18);
+}
+
+.rx-zone.drop-active {
+    border: 2px solid #fdcb6e;
+    background: rgba(253, 203, 110, 0.15);
+    transform: translateX(-50%) scale(1.15);
+    box-shadow: 0 0 12px rgba(253, 203, 110, 0.3);
+}
+
+/* Battery zone */
+.battery-zone {
+    position: absolute;
+    width: 68px;
+    height: 32px;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid rgba(231, 76, 60, 0.2);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+    z-index: 5;
+    background: rgba(231, 76, 60, 0.03);
+}
+
+.battery-zone.placed {
+    border-color: #e74c3c;
+    background: linear-gradient(135deg, rgba(231, 76, 60, 0.12), rgba(231, 76, 60, 0.06));
+    box-shadow: 0 2px 8px rgba(231, 76, 60, 0.18);
+}
+
+.battery-zone.drop-active {
+    border: 2px solid #e74c3c;
+    background: rgba(231, 76, 60, 0.15);
+    transform: translateX(-50%) scale(1.1);
+    box-shadow: 0 0 12px rgba(231, 76, 60, 0.3);
+}
+
+/* Propeller outlines */
+.prop-outline {
+    border: 2px dashed rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    transition: all 0.4s;
+    z-index: 0;
+}
+
+.prop-outline.hidden { opacity: 0; }
+
+.prop-outline.placed {
+    opacity: 1;
+    border-style: solid;
+    border-color: rgba(51, 51, 51, 0.3);
+    background: rgba(51, 51, 51, 0.03);
+}
+
+.prop-fl { top: 8px;  left: 8px; }
+.prop-fr { top: 8px;  right: 8px; }
+.prop-bl { bottom: 8px; left: 8px; }
+.prop-br { bottom: 8px; right: 8px; }
+
+/* Zone labels */
+.zone-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    transition: color 0.3s;
+}
+
+.placed .zone-label {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+/* Active drop-zone highlight (pulsing) */
+.drop-active {
+    animation: zonePulse 1.2s ease-in-out infinite;
+}
+
+@keyframes zonePulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(71, 211, 229, 0.3); }
+    50%      { box-shadow: 0 0 0 8px rgba(71, 211, 229, 0); }
+}
+
+/* --- Workbench controls --- */
+.workbench-tools {
+    display: flex;
+    justify-content: flex-end;
+    margin: -0.35rem 0 0.65rem;
+}
+
+/* ============================================================
+   DRAG SOURCE (below workbench)
+   ============================================================ */
+.drag-source {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.drag-hint {
+    font-size: 0.82rem;
+    color: rgba(0, 0, 0, 0.45);
+    margin: 0 0 0.5rem;
+}
+
+.draggable-component {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+    box-shadow: none;
+    cursor: grab;
+    transition: transform 0.15s, filter 0.15s;
+    user-select: none;
+}
+
+.draggable-component:hover .drag-img {
+    filter: drop-shadow(0 4px 14px rgba(71, 211, 229, 0.45));
+    transform: scale(1.06);
+}
+
+.draggable-component:active {
+    cursor: grabbing;
+}
+
+.draggable-component:active .drag-img {
+    transform: scale(1.1);
+}
+
+.draggable-component.hidden {
+    visibility: hidden;
+}
+
+.drag-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+    pointer-events: none;
+    transition: transform 0.15s, filter 0.15s;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.18));
+}
+
+/* Smoke Test Button */
+.smoke-test-btn {
+    background: linear-gradient(135deg, #00b894, #00a680);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 184, 148, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.smoke-test-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 184, 148, 0.4);
+}
+
+.smoke-test-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 184, 148, 0.3);
+}
+
+/* ============================================================
+   COMPONENT INFO (right panel)
+   ============================================================ */
+.component-info {
+    font-size: 0.88rem;
+}
+
+.component-info .info-title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin: 0 0 0.4rem;
+}
+
+.component-info .info-desc {
+    font-size: 0.84rem;
+    color: rgba(0, 0, 0, 0.6);
+    line-height: 1.5;
+    margin: 0 0 0.75rem;
+}
+
+.component-info .info-component {
+    padding: 8px 10px;
+    border-left: 3px solid #47D3E5;
+    border-radius: 5px;
+    background: rgba(71, 211, 229, 0.04);
+    font-size: 0.84rem;
+    margin-bottom: 0.5rem;
+}
+
+.component-info .info-component strong {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.placeholder-text {
+    color: rgba(0, 0, 0, 0.55);
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* --- Progress bar --- */
+.progress-section {
+    padding-top: 0.5rem;
+}
+
+.progress-section h6 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.progress-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #47D3E5, #198754);
+    border-radius: 4px;
+    transition: width 0.4s ease;
+}
+
+.progress-label {
+    font-size: 0.78rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0.3rem;
+}
+
+/* ============================================================
+   BUTTONS (match drone-builder soft style)
+   ============================================================ */
+.assembly-view .button,
+.assembly-view a.button,
+.assembly-view button.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    box-shadow: none;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+.assembly-view .button:hover {
+    background: rgba(0, 0, 0, 0.03);
+    box-shadow: none;
+    text-decoration: none;
+}
+
+.assembly-view .button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+}
+
+.assembly-view .button:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.assembly-view .button.small {
+    height: 32px;
+    padding: 4px 12px;
+    font-size: 0.92rem;
+}
+
+/* ============================================================
+   SMOKE TEST OVERLAY
+   ============================================================ */
+.smoke-test-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 140px;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(0, 184, 148, 0.2), rgba(71, 211, 229, 0.15));
+    border: 3px solid rgba(0, 184, 148, 0.4);
+    border-radius: 16px;
+    animation: smokeTestPop 0.5s ease-out;
+    z-index: 100;
+    box-shadow: 0 8px 24px rgba(0, 184, 148, 0.25);
+}
+
+.smoke-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.smoke-test-overlay p {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #00b894;
+    margin: 0;
+    text-align: center;
+}
+
+@keyframes smokeTestPop {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.6);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* ============================================================
+   COMPLETION STATE
+   ============================================================ */
+.completion-banner {
+    text-align: center;
+    padding: 1rem;
+    animation: completeFade 0.5s ease;
+}
+
+.completion-banner .complete-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.completion-banner h4 {
+    font-weight: 600;
+    margin: 0 0 0.3rem;
+}
+
+.completion-banner p {
+    font-size: 0.88rem;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+@keyframes completeFade {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 992px) {
+    .assembly-layout {
+        flex-direction: column;
+    }
+
+    .assembly-steps,
+    .assembly-workbench,
+    .assembly-info {
+        flex: 1 1 auto;
+        max-height: none;
+        min-width: 0;
+        border: none;
+        padding: 0;
+        border-bottom: 2px solid #e9ecef;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Zone visibility toggle */
+.zone-hidden {
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Keep FC image angled as requested */
+.snap-piece.piece-step-4 {
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+}

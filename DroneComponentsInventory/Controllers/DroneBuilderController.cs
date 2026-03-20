@@ -14,6 +14,24 @@ namespace DroneComponentsInventory.Controllers
             _context = context;
         }
 
+        private IQueryable<DroneBuild> BuildQuery()
+        {
+            return _context.DroneBuilds
+                .Include(b => b.Frame)
+                .Include(b => b.Motor)
+                .Include(b => b.Propeller)
+                .Include(b => b.Esc)
+                .Include(b => b.Battery)
+                .Include(b => b.Fc)
+                .Include(b => b.Camera)
+                .Include(b => b.Vtx)
+                .Include(b => b.VideoAntenna)
+                .Include(b => b.Receiver)
+                .Include(b => b.ReceiverAntenna)
+                .Include(b => b.RadioController)
+                .Include(b => b.FpvGoggles);
+        }
+
         public async Task<IActionResult> Index()
         {
             ViewBag.UseFluidLayout = true;
@@ -106,6 +124,67 @@ namespace DroneComponentsInventory.Controllers
             await _context.SaveChangesAsync();
 
             return Json(new { success = true, buildId = build.BuildId });
+        }
+
+        public async Task<IActionResult> Assembly(int id)
+        {
+            var build = await BuildQuery()
+                .FirstOrDefaultAsync(b => b.BuildId == id);
+
+            if (build == null)
+                return RedirectToAction("Index", "Home");
+
+            return View("~/Views/Home/Assembly.cshtml", build);
+        }
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var build = await BuildQuery()
+                .FirstOrDefaultAsync(b => b.BuildId == id.Value);
+
+            if (build == null)
+            {
+                return NotFound();
+            }
+
+            return View(build);
+        }
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var build = await BuildQuery()
+                .FirstOrDefaultAsync(b => b.BuildId == id.Value);
+
+            if (build == null)
+            {
+                return NotFound();
+            }
+
+            return View(build);
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var build = await _context.DroneBuilds.FindAsync(id);
+            if (build != null)
+            {
+                _context.DroneBuilds.Remove(build);
+            }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction("Index", "Home");
         }
     }
 }

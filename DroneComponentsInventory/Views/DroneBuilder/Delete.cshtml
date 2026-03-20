@@ -1,0 +1,66 @@
+@model DroneComponentsInventory.Models.DroneBuild
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete Build</title>
+
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+</head>
+<body class="is-preload">
+
+    <partial name="_IndexQuickNav" />
+
+    <div class="home-view">
+        <div class="build-panel">
+            <h3 style="margin-top: 0;">Delete Build</h3>
+
+            <p>
+                Are you sure you want to delete this build?
+                <strong>This action cannot be undone.</strong>
+            </p>
+
+            <hr />
+
+            <dl class="build-meta">
+                <dt>Build ID</dt>
+                <dd>@Model.BuildId</dd>
+
+                <dt>Name</dt>
+                <dd>@Model.Name</dd>
+
+                <dt>Created</dt>
+                <dd>@Model.CreatedAt.ToLocalTime().ToString("f")</dd>
+
+                <dt>Frame</dt>
+                <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
+
+                <dt>Motor</dt>
+                <dd>@(Model.Motor is null ? "—" : $"{Model.Motor.Manufacturer} {Model.Motor.Model}")</dd>
+
+                <dt>Battery</dt>
+                <dd>@(Model.Battery is null ? "—" : $"{Model.Battery.Manufacturer} {Model.Battery.Model}")</dd>
+
+                <dt>Flight Controller</dt>
+                <dd>@(Model.Fc is null ? "—" : $"{Model.Fc.Manufacturer} {Model.Fc.Model}")</dd>
+            </dl>
+
+            <form asp-action="Delete">
+                <input type="hidden" asp-for="BuildId" />
+
+                <div class="panel-actions">
+                    <a asp-controller="Home" asp-action="Index" class="button small">Cancel</a>
+                    <input type="submit" value="Delete" class="button small danger" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<svg width="232" height="150" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <rect fill="#bf0000" height="35" id="svg_1_top" stroke="#bf0000" stroke-width="6" width="212" x="10" y="70"/>
+  <rect fill="white" height="35" id="svg_1_bottom" stroke="#ffffff" stroke-width="6" width="212" x="10" y="105"/>
+  <rect fill="black" height="70" id="svg_2" stroke="black" stroke-width="6" transform="matrix(0.996385 0 0 0.672709 3.52082 22.2622)" width="100" x="63.92" y="-6.25"/>
+ </g>
+</svg>

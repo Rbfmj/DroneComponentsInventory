@@ -1,0 +1,357 @@
+/* ============================================================
+   HOME VIEW
+   Matches the softer grid/tile styling used by the component pages
+   ============================================================ */
+.home-view {
+    padding-bottom: 2rem;
+}
+
+/* ============================================================
+   BUTTONS – HOME VIEW
+   ============================================================ */
+.home-view .button,
+.home-view a.button,
+.home-view button.button,
+.home-view input.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    padding: 6px 18px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 999px;
+    color: inherit;
+    font-family: inherit !important;
+    font-size: 0.95rem;
+    font-weight: 300 !important;
+    line-height: 1;
+    text-decoration: none;
+    cursor: pointer;
+    vertical-align: middle;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+    .home-view .button:hover {
+        background: rgba(0, 0, 0, 0.03);
+        text-decoration: none;
+    }
+
+    .home-view .button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+    }
+
+    .home-view .button.small {
+        height: 32px;
+        padding: 4px 12px;
+        font-size: 0.92rem;
+    }
+
+/* ============================================================
+   HEADER / INTRO
+   ============================================================ */
+.home-view .home-hero {
+    padding: 0.5rem 0 0;
+}
+
+.home-view .home-hero h1 {
+    margin-bottom: 0.65rem;
+}
+
+.home-view .home-hero p {
+    margin-bottom: 1rem;
+}
+
+.home-view .hero-actions {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-view .build-count {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ============================================================
+   HOME GRID (CARD LAYOUT)
+   ============================================================ */
+.home-view .home-grid,
+.home-view .build-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    padding: 2rem 0;
+}
+
+@media (max-width: 1200px) {
+    .home-view .home-grid,
+    .home-view .build-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1000px) {
+    .home-view .home-grid,
+    .home-view .build-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .home-view .home-grid,
+    .home-view .build-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 420px) {
+    .home-view .home-grid,
+    .home-view .build-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   HOME TILE (GRID ITEM)
+   ============================================================ */
+.home-view .home-tile,
+.home-view .build-card {
+    padding: 1.5rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+    .home-view .home-tile:hover,
+    .home-view .build-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+.home-view .build-card-header {
+    display: block;
+}
+
+.home-view .build-card-header h3,
+.home-view .home-tile .title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.home-view .build-card-label,
+.home-view .home-tile .muted,
+.home-view .build-date {
+    display: block;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+.home-view .build-card-label {
+    margin-bottom: 0.35rem;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.home-view .build-card-actions {
+    margin-top: auto;
+}
+
+/* ============================================================
+   EMPTY STATE PANEL
+   ============================================================ */
+.home-view .empty-state-panel {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    text-align: center;
+}
+
+.home-view .empty-state-panel h3 {
+    margin-bottom: 0.5rem;
+}
+
+.home-view .empty-state-panel p {
+    margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 736px) {
+    .home-view .hero-actions {
+        flex-direction: column;
+    }
+}
+
+.home-view .build-link {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.home-view .build-link:focus,
+.home-view .build-link:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+}
+
+.home-view .build-link:hover {
+    text-decoration: none;
+}
+
+/* ============================================================
+   HOME TILE ACTIONS / CLICKABLE CARDS
+   ============================================================ */
+.home-view .button.small.danger {
+    color: #d9534f;
+    border-color: rgba(217, 83, 79, 0.12);
+}
+
+.home-view .build-card-clickable {
+    cursor: pointer;
+}
+
+.home-view .build-card-clickable:focus,
+.home-view .build-card-clickable:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(43, 140, 255, 0.08);
+}
+
+.home-view .build-card-actions {
+    margin-top: auto;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+/* ============================================================
+   BUILD PANEL (DETAIL / DELETE PAGES)
+   ============================================================ */
+.home-view .build-panel {
+    max-width: 920px;
+    margin: 2rem auto;
+    padding: 1.25rem;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.home-view .build-panel dl.build-meta {
+    display: grid;
+    grid-template-columns: minmax(140px, 220px) 1fr;
+    gap: 8px 18px;
+}
+
+.home-view .build-panel dl.build-meta dt {
+    font-weight: 600;
+    color: #555;
+}
+
+.home-view .build-panel dl.build-meta dd {
+    margin: 0;
+    color: #222;
+    word-break: break-word;
+}
+
+.home-view .build-panel .panel-actions {
+    margin-top: 16px;
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 736px) {
+    .home-view .build-panel dl.build-meta {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ============================================================
+   HOME VIEW – MODAL OVERLAY
+   ============================================================ */
+.home-view .home-modal {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+}
+
+.home-view .home-modal .panel {
+    position: relative;
+    width: 95%;
+    max-width: 900px;
+    max-height: 90%;
+    padding: 2.5rem 1.5rem 1.5rem;
+    overflow-y: auto;
+    background: #fff;
+    border-radius: 8px;
+    color: #333;
+    pointer-events: auto;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+}
+
+.home-modal .close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+/* ============================================================
+   BUILD META (MODAL LIST)
+   ============================================================ */
+.home-view .home-modal .build-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+}
+
+.home-view .home-modal .build-meta dt {
+    font-weight: 700;
+    color: #555;
+}
+
+.home-view .home-modal .build-meta dd {
+    margin: 0;
+}
+
+/* ============================================================
+   TYPOGRAPHY NORMALIZATION
+   ============================================================ */
+.home-view,
+.home-view .build-panel,
+.home-view .home-modal .panel {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-weight: 300;
+    line-height: 1.65;
+    color: #000;
+}
+
+.home-view h2,
+.home-view .build-panel h2 {
+    margin-top: 0;
+    font-weight: 300;
+}
