@@ -117,7 +117,6 @@ namespace DroneComponentsInventory.Controllers
                 ReceiverAntennaId = selection.ReceiverAntennaId,
                 RadioControllerId = selection.RadioControllerId,
                 FpvGogglesId = selection.FpvGogglesId,
-                CreatedAt = DateTime.UtcNow
             };
 
             _context.DroneBuilds.Add(build);
@@ -161,15 +160,13 @@ namespace DroneComponentsInventory.Controllers
                 layout = new AssemblyLayout
                 {
                     BuildId = request.BuildId,
-                    LayoutJson = request.LayoutJson,
-                    SavedAt = DateTime.UtcNow
+                    LayoutJson = request.LayoutJson
                 };
                 _context.AssemblyLayouts.Add(layout);
             }
             else
             {
                 layout.LayoutJson = request.LayoutJson;
-                layout.SavedAt = DateTime.UtcNow;
             }
 
             await _context.SaveChangesAsync();

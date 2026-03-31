@@ -1,0 +1,67 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36 Edg/146.0.0.0" version="29.6.4">
+  <diagram id="prtHgNgQTEPvFCAcTncT" name="Page-1">
+    <mxGraphModel dx="1244" dy="654" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-19" parent="1" style="swimlane;html=1;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;horizontal=0;startSize=20;horizontalStack=0;" value="Interaktīva dronu uzbūves tīmekļa vietne" vertex="1">
+          <mxGeometry height="400" width="440" x="120" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-35" edge="1" parent="dNxyNK7c78bLwvsdeMH5-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=classic;endFill=1;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="300" y="200" as="sourcePoint" />
+            <mxPoint x="300" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-20" parent="dNxyNK7c78bLwvsdeMH5-19" style="swimlane;html=1;startSize=20;horizontal=0;" value="Lietotājs" vertex="1">
+          <mxGeometry height="400" width="420" x="20" as="geometry" />
+        </mxCell>
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-25" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="dNxyNK7c78bLwvsdeMH5-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="dNxyNK7c78bLwvsdeMH5-24" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-23" parent="dNxyNK7c78bLwvsdeMH5-20" style="ellipse;whiteSpace=wrap;html=1;" value="Sāk" vertex="1">
+          <mxGeometry height="40" width="40" x="80" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-6" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="dNxyNK7c78bLwvsdeMH5-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IPf5WcPnn1tNHFj7lCrL-1" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="dNxyNK7c78bLwvsdeMH5-24" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Izvēlas komponentu, kuru vēlas pievienot" vertex="1">
+          <mxGeometry height="80" width="80" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-8" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="IPf5WcPnn1tNHFj7lCrL-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IPf5WcPnn1tNHFj7lCrL-2" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-1" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Izveido visas komponentas" vertex="1">
+          <mxGeometry height="80" width="80" x="300" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-9" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="IPf5WcPnn1tNHFj7lCrL-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="IPf5WcPnn1tNHFj7lCrL-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-2" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Veic saderības pārbaudi" vertex="1">
+          <mxGeometry height="80" width="80" x="300" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-10" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="IPf5WcPnn1tNHFj7lCrL-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IPf5WcPnn1tNHFj7lCrL-3" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-5" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Izveido saderīgu uzbūvi" vertex="1">
+          <mxGeometry height="80" width="80" x="60" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-11" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="IPf5WcPnn1tNHFj7lCrL-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IPf5WcPnn1tNHFj7lCrL-4" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-3" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Rediģē uzbūvi pēc izskata" vertex="1">
+          <mxGeometry height="80" width="80" x="60" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-13" edge="1" parent="dNxyNK7c78bLwvsdeMH5-20" source="IPf5WcPnn1tNHFj7lCrL-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="IPf5WcPnn1tNHFj7lCrL-12" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-4" parent="dNxyNK7c78bLwvsdeMH5-20" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=12;fontColor=#000000;align=center;" value="Veic interaktīvo uzbūvi&amp;nbsp;soli pa solim&amp;nbsp;" vertex="1">
+          <mxGeometry height="80" width="80" x="180" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="IPf5WcPnn1tNHFj7lCrL-12" parent="dNxyNK7c78bLwvsdeMH5-20" style="ellipse;whiteSpace=wrap;html=1;fontColor=#000000;rounded=0;" value="Beidz" vertex="1">
+          <mxGeometry height="45" width="45" x="317.5" y="297.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

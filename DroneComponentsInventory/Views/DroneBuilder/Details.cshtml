@@ -22,12 +22,6 @@
             <h2>@Model.Name</h2>
 
             <dl class="build-meta">
-                <dt>Build ID</dt>
-                <dd>@Model.BuildId</dd>
-
-                <dt>Created</dt>
-                <dd>@Model.CreatedAt.ToLocalTime().ToString("f")</dd>
-
                 <dt>Frame</dt>
                 <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
 

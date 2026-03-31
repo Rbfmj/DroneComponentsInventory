@@ -29,26 +29,44 @@
             <hr />
 
             <dl class="build-meta">
-                <dt>Build ID</dt>
-                <dd>@Model.BuildId</dd>
-
-                <dt>Name</dt>
-                <dd>@Model.Name</dd>
-
-                <dt>Created</dt>
-                <dd>@Model.CreatedAt.ToLocalTime().ToString("f")</dd>
-
                 <dt>Frame</dt>
                 <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
 
                 <dt>Motor</dt>
                 <dd>@(Model.Motor is null ? "—" : $"{Model.Motor.Manufacturer} {Model.Motor.Model}")</dd>
 
+                <dt>Propeller</dt>
+                <dd>@(Model.Propeller is null ? "—" : $"{Model.Propeller.Manufacturer} {Model.Propeller.Model}")</dd>
+
+                <dt>ESC</dt>
+                <dd>@(Model.Esc is null ? "—" : $"{Model.Esc.Manufacturer} {Model.Esc.Model}")</dd>
+
                 <dt>Battery</dt>
                 <dd>@(Model.Battery is null ? "—" : $"{Model.Battery.Manufacturer} {Model.Battery.Model}")</dd>
 
                 <dt>Flight Controller</dt>
                 <dd>@(Model.Fc is null ? "—" : $"{Model.Fc.Manufacturer} {Model.Fc.Model}")</dd>
+
+                <dt>FPV Camera</dt>
+                <dd>@(Model.Camera is null ? "—" : $"{Model.Camera.Manufacturer} {Model.Camera.Model}")</dd>
+
+                <dt>VTX</dt>
+                <dd>@(Model.Vtx is null ? "—" : $"{Model.Vtx.Manufacturer} {Model.Vtx.Model}")</dd>
+
+                <dt>Video Antenna</dt>
+                <dd>@(Model.VideoAntenna is null ? "—" : $"{Model.VideoAntenna.Manufacturer} {Model.VideoAntenna.Model}")</dd>
+
+                <dt>Receiver</dt>
+                <dd>@(Model.Receiver is null ? "—" : $"{Model.Receiver.Manufacturer} {Model.Receiver.Model}")</dd>
+
+                <dt>Receiver Antenna</dt>
+                <dd>@(Model.ReceiverAntenna is null ? "—" : $"{Model.ReceiverAntenna.Manufacturer} {Model.ReceiverAntenna.Model}")</dd>
+
+                <dt>Radio Controller</dt>
+                <dd>@(Model.RadioController is null ? "—" : $"{Model.RadioController.Manufacturer} {Model.RadioController.Model}")</dd>
+
+                <dt>FPV Goggles</dt>
+                <dd>@(Model.FpvGoggles is null ? "—" : $"{Model.FpvGoggles.Manufacturer} {Model.FpvGoggles.Model}")</dd>
             </dl>
 
             <form asp-action="Delete">

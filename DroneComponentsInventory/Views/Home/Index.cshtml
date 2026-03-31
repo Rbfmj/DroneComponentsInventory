@@ -67,11 +67,6 @@
                 <h2>@build.Name</h2>
 
                 <dl class="build-meta">
-                    <dt>Build ID</dt>
-                    <dd>@build.BuildId</dd>
-
-                    <dt>Created</dt>
-                    <dd>@build.CreatedAt.ToLocalTime().ToString("f")</dd>
 
                     <dt>Frame</dt>
                     <dd>@(build.Frame is null ? "—" : $"{build.Frame.Manufacturer} {build.Frame.Model}")</dd>

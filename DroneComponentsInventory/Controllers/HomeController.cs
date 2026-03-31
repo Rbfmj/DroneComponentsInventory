@@ -21,7 +21,6 @@ namespace DroneComponentsInventory.Controllers
                 .Include(b => b.Motor)
                 .Include(b => b.Battery)
                 .Include(b => b.Fc)
-                .OrderByDescending(b => b.CreatedAt)
                 .ToListAsync();
 
             return View(builds);
