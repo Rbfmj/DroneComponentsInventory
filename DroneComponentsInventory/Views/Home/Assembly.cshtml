@@ -2,7 +2,7 @@
 @using System.Text.Json
 @{
     Layout = null;
-    ViewData["Title"] = $"Assembly Guide – {Model.Name}";
+    ViewData["Title"] = $"Dronu uzbūves konstrukcija – {Model.Name}";
 }
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Assembly Guide – @Model.Name</title>
+    <title>Dronu uzbūves konstrukcija – @Model.Name</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/assembly.css" />
     <!-- Konva.js library -->
@@ -27,31 +27,30 @@
             <div class="inner">
 
                 <div class="assembly-header">
-                    <h2>Assembly Guide</h2>
+                    <h2>Dronu uzbūves konstrukcija</h2>
                     <p class="build-name">@Model.Name</p>
                 </div>
 
                 <div class="assembly-layout">
 
                     <aside class="assembly-steps">
-                        <h5 class="panel-title">Build Steps</h5>
+                        <h5 class="panel-title">Pamācības soļi</h5>
                         <div id="step-list" class="step-list"></div>
                     </aside>
 
                     <main class="assembly-workbench">
-                        <h5 class="panel-title">Workbench</h5>
                         <div class="workbench-area" id="workbench">
                             <div class="workbench-controls">
-                                <button type="button" id="modeToggleButton" class="workbench-control-button mode-toggle-button is-developer" aria-pressed="false">
-                                    <span class="mode-toggle-label">Mode</span>
-                                    <span class="mode-toggle-state">Developer</span>
+                                <button type="button" id="modeToggleButton" class="workbench-control-button mode-toggle-button is-developer" aria-pressed="false">             
+                                    <span class="mode-toggle-state">Izstrādātāja</span>
+                                    <span class="mode-toggle-label">Režīms</span>
                                 </button>
                                 <button type="button" id="saveLayoutButton" class="workbench-control-button save-layout-button">
-                                    Save Layout
+                                    Saglabāt izskatu
                                 </button>
                                 <button type="button" id="snapToggleButton" class="workbench-control-button snap-toggle-button is-on" aria-pressed="true">
-                                    <span class="snap-toggle-label">Snap</span>
-                                    <span class="snap-toggle-state">On</span>
+                                    <span class="snap-toggle-label">Savilkt</span>
+                                    <span class="snap-toggle-state">Ieslēgts</span>
                                 </button>
                             </div>
                             <!-- Konva canvas container -->

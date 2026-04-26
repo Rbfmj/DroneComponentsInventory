@@ -7,10 +7,10 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>FPV Cameras</title>
+    <title>Kameras</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fpvcamera.css" />
@@ -24,11 +24,11 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Cameras</h2>
-                <p>Select a camera to view technical specifications.</p>
+                <h2>Kameras</h2>
+                <p>Izvēlieties kameru, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Camera</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu kameru</a>
                 </p>
             </div>
         </div>
@@ -58,42 +58,42 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="fpvcamera-meta">
-                        <dt>Type / System</dt>
+                        <dt>Tips / sistēma</dt>
                         <dd>@item.TypeSystem</dd>
 
-                        <dt>Sensor Size</dt>
+                        <dt>Sensoru izmērs</dt>
                         <dd>@item.SensorSize</dd>
 
-                        <dt>Resolution</dt>
+                        <dt>Izšķirtspēja</dt>
                         <dd>@(item.ResolutionTvl?.ToString() + " TVL" ?? "")</dd>
 
-                        <dt>FOV Modes</dt>
+                        <dt>FOV režīmi</dt>
                         <dd>@item.FovModes</dd>
 
-                        <dt>Lens</dt>
+                        <dt>Objektīvs</dt>
                         <dd>@(item.LensFocalMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Aspect Ratios</dt>
+                        <dt>Attiecību aspekti</dt>
                         <dd>@item.SupportedAspectRatios</dd>
 
-                        <dt>Low Light Sensitivity</dt>
+                        <dt>Sensitivitāte vāja apgaismojuma apstākļos</dt>
                         <dd>@(item.LowLightLux?.ToString() ?? "")</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Mount Size</dt>
+                        <dt>Montāžas izmērs</dt>
                         <dd>@(item.MountSizeMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@item.Price</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.CameraId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.CameraId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.CameraId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.CameraId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.CameraId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.CameraId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
                 </div>
             </div>

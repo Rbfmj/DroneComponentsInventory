@@ -5,21 +5,16 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit FPV Video Antenna</title>
-
+    <title>Rediģēt FPV video antenu</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/videoantennas.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="videoantennas-panel">
-
-        <h2>Edit FPV Video Antenna</h2>
-
+        <h2>Rediģēt FPV video antenu</h2>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AntennaId" />
@@ -27,67 +22,67 @@
             <div class="form-grid">
                 <!-- Same fields as Create.cshtml above -->
                 <div class="form-group">
-                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <label asp-for="Manufacturer" class="control-label">Ražotājs</label>
                     <input asp-for="Manufacturer" class="form-control" />
                     <span asp-validation-for="Manufacturer" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label">Modelis</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="AntennaClass" class="control-label">Antenna Class</label>
+                    <label asp-for="AntennaClass" class="control-label">Antenas klase</label>
                     <input asp-for="AntennaClass" class="form-control" />
                     <span asp-validation-for="AntennaClass" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Polarization" class="control-label">Polarization</label>
+                    <label asp-for="Polarization" class="control-label">Polarizācija</label>
                     <input asp-for="Polarization" class="form-control" />
                     <span asp-validation-for="Polarization" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Connector" class="control-label">Connector</label>
+                    <label asp-for="Connector" class="control-label">Konektors</label>
                     <input asp-for="Connector" class="form-control" />
                     <span asp-validation-for="Connector" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="GainDbi" class="control-label">Gain (dBi)</label>
+                    <label asp-for="GainDbi" class="control-label">Iegūtais signāls (dBi)</label>
                     <input asp-for="GainDbi" class="form-control" type="number" step="0.1" />
                     <span asp-validation-for="GainDbi" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="AxialRatio" class="control-label">Axial Ratio</label>
+                    <label asp-for="AxialRatio" class="control-label">Axiala attiecība</label>
                     <input asp-for="AxialRatio" class="form-control" />
                     <span asp-validation-for="AxialRatio" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="RadiationPattern" class="control-label">Radiation Pattern</label>
+                    <label asp-for="RadiationPattern" class="control-label">Izstarojuma raksts</label>
                     <input asp-for="RadiationPattern" class="form-control" />
                     <span asp-validation-for="RadiationPattern" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="OperatingFrequencyGhz" class="control-label">Operating Frequency (GHz)</label>
+                    <label asp-for="OperatingFrequencyGhz" class="control-label">Darba frekvence (GHz)</label>
                     <input asp-for="OperatingFrequencyGhz" class="form-control" type="number" step="0.1" />
                     <span asp-validation-for="OperatingFrequencyGhz" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <label asp-for="WeightG" class="control-label">Svars (g)</label>
                     <input asp-for="WeightG" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price</label>
+                    <label asp-for="Price" class="control-label">Cena</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
@@ -95,8 +90,8 @@
             </div>
 
             <div style="margin-top: 24px; display: flex; gap: 12px;">
-                <input type="submit" value="Save" class="button small" />
-                <a asp-action="Index" class="button small">Cancel</a>
+                <input type="submit" value="Saglabāt" class="button small" />
+                <a asp-action="Index" class="button small">Atcelt</a>
             </div>
         </form>
 

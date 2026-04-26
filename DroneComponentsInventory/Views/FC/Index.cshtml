@@ -7,10 +7,10 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Flight Controllers</title>
+    <title>Lidojuma kontrolieri</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fc.css" />
@@ -28,9 +28,9 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>Flight Controllers</h2>
-                <p>Select a flight controller to view technical specifications.</p>
-                <p><a asp-action="Create" class="button small">Add New FC</a></p>
+                <h2>Lidojuma kontrolieri</h2>
+                <p>Izvēlieties lidojuma kontrolieri, lai skatītu tehnisko specifikāciju.</p>
+                <p><a asp-action="Create" class="button small">Pievienot jaunu lidojuma kontrolier</a></p>
             </div>
         </div>
 
@@ -58,33 +58,33 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="fc-meta">
-                        <dt>Processor</dt>
+                        <dt>Procesors</dt>
                         <dd>@item.McuProcessor</dd>
 
-                        <dt>IMU / Gyro</dt>
+                        <dt>IMU / Žiroskops</dt>
                         <dd>@item.ImuGyro</dd>
 
-                        <dt>Mount Pattern</dt>
+                        <dt>Montāžas raksts</dt>
                         <dd>@(item.MountPatternMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Voltage Input</dt>
+                        <dt>Sprieguma ieeja</dt>
                         <dd>@item.VoltageInputS</dd>
 
-                        <dt>Firmware</dt>
+                        <dt>Programmatūra</dt>
                         <dd>@item.FirmwareSupport</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@item.Price</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.FcId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.FcId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FcId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FcId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FcId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FcId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
                 </div>
             </div>

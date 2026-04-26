@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete FPV Goggles</title>
+    <title>Dzēst FPV brilles</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fpvgoggles.css" />
@@ -18,61 +18,61 @@
     <div class="fpvgoggles-panel">
 
         <h3 style="margin-top: 0;">
-            Delete FPV Goggles
+            Dzēst FPV brilles
         </h3>
 
         <p>
-            Are you sure you want to delete this goggles set?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šīs brilles?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="fpvgoggles-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Video System</dt>
+            <dt>Video sistēma</dt>
             <dd>@Html.DisplayFor(m => m.VideoSystem)</dd>
 
-            <dt>Display Type</dt>
+            <dt>Displeja veids</dt>
             <dd>@Html.DisplayFor(m => m.DisplayType)</dd>
 
-            <dt>Screen Size (in)</dt>
+            <dt>Ekraana izmērs (collas)</dt>
             <dd>@Html.DisplayFor(m => m.ScreenSizeInch)</dd>
 
-            <dt>Resolution</dt>
+            <dt>Izšķirtspēja</dt>
             <dd>@Html.DisplayFor(m => m.Resolution)</dd>
 
-            <dt>Latency (ms)</dt>
+            <dt>Latence (ms)</dt>
             <dd>@Html.DisplayFor(m => m.LatencyMs)</dd>
 
-            <dt>Receiver Type</dt>
+            <dt>Uztvērēja veids</dt>
             <dd>@Html.DisplayFor(m => m.ReceiverType)</dd>
 
-            <dt>Diversity Antennas</dt>
+            <dt>Diversitātes antenas</dt>
             <dd>@Html.DisplayFor(m => m.DiversityAntennas)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>DVR Capability</dt>
-            <dd>@(Model.DvrCapability ? "Yes" : "No")</dd>
+            <dt>DVR funkcionalitāte</dt>
+            <dd>@(Model.DvrCapability ? "Jā" : "Nē")</dd>
 
-            <dt>Battery Life (h)</dt>
+            <dt>Akumulatora darbības laiks (h)</dt>
             <dd>@Html.DisplayFor(m => m.BatteryLifeHours)</dd>
 
-            <dt>Power Input</dt>
+            <dt>Barošanas ievade</dt>
             <dd>@Html.DisplayFor(m => m.PowerInput)</dd>
 
-            <dt>IPD Adjustable</dt>
-            <dd>@(Model.IpdAdjustable ? "Yes" : "No")</dd>
+            <dt>IPD regulējams</dt>
+            <dd>@(Model.IpdAdjustable ? "Jā" : "Nē")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -90,11 +90,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

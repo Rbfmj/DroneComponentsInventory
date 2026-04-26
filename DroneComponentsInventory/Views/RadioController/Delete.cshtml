@@ -1,14 +1,14 @@
 @model DroneComponentsInventory.Models.RadioControllerComponent
 
 @{
-    /* Standalone view – no shared layout */
+    /* Patstāvīga skats - bez kopīgas izkārtojuma */
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Radio Controller</title>
+    <title>Dzēst radio pulti</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/radiocontrollers.css" />
@@ -18,58 +18,58 @@
     <div class="radiocontrollers-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Radio Controller
+            Dzēst radio pulti
         </h3>
 
         <p>
-            Are you sure you want to delete this radio controller?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo radio pulti?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="radiocontrollers-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Style</dt>
+            <dt>Stils</dt>
             <dd>@Html.DisplayFor(m => m.ControllerStyle)</dd>
 
-            <dt>Frequency (GHz)</dt>
+            <dt>Frequence (GHz)</dt>
             <dd>@Html.DisplayFor(m => m.FrequencyGhz)</dd>
 
-            <dt>Protocols</dt>
+            <dt>Protokoli</dt>
             <dd>@Html.DisplayFor(m => m.ProtocolsSupported)</dd>
 
-            <dt>Max Channels</dt>
+            <dt>Maks. kanāli</dt>
             <dd>@Html.DisplayFor(m => m.MaxChannels)</dd>
 
-            <dt>Output Power (mW)</dt>
+            <dt>Jauda (mW)</dt>
             <dd>@Html.DisplayFor(m => m.OutputPowerMw)</dd>
 
-            <dt>Telemetry Support</dt>
-            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+            <dt>Telemetrijas atbalsts</dt>
+            <dd>@(Model.TelemetrySupport ? "Jā" : "Nē")</dd>
 
-            <dt>Screen Type</dt>
+            <dt>Ekraana tips</dt>
             <dd>@Html.DisplayFor(m => m.ScreenType)</dd>
 
-            <dt>Gimbal Type</dt>
+            <dt>Gimbala tips</dt>
             <dd>@Html.DisplayFor(m => m.GimbalType)</dd>
 
-            <dt>Battery Type</dt>
+            <dt>Akumulatora tips</dt>
             <dd>@Html.DisplayFor(m => m.BatteryType)</dd>
 
-            <dt>Firmware</dt>
+            <dt>Programmatūra</dt>
             <dd>@Html.DisplayFor(m => m.FirmwareSupport)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -87,11 +87,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

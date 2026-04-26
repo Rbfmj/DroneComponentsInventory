@@ -255,94 +255,87 @@ document.addEventListener('DOMContentLoaded', function () {
     //Mācību soļi
     const GUIDE_STEPS = [
         {
-            title: 'Add rear plate',
-            description: 'Place the rear plate onto the frame.',
+            title: 'Aizmugurējās plāksnes pievienošana',
+            description: 'Novietojiet aizmugurējo plāksni uz rāmja.',
             partIds: ['rear-plate']
         },
         {
-            title: 'Add front plate',
-            description: 'Place the front plate onto the front section of the frame.',
+            title: 'Priekšējās plāksnes pievienošana',
+            description: 'Novietojiet priekšējo plāksni uz rāmja priekšējās daļas.',
             partIds: ['front-plate']
         },
         {
-            title: 'Add a flight controller',
-            description: 'Install the flight controller into the center stack area.',
+            title: 'Lidojumu kontroliera pievienošana',
+            description: 'Uzstādiet lidojuma kontrolieri rāmja vidū.',
             partIds: ['fc']
         },
         {
-            title: 'Add capacitor & battery lead',
-            description: 'Place the capacitor and battery lead before moving on.',
+            title: 'Kondensatora un akumulatora vada pievienošana',
+            description: 'Savienojiet kondensatoru un akumulatora vadu ar lidojuma kontrolieri.',
             partIds: ['capacitor']
         },
         {
-            title: 'Add all 4 motors',
-            description: 'Install all four motors onto the frame arms. Any motor can go to any arm.',
+            title: 'Visu motoru pievienošana',
+            description: 'Uzstādiet visus motorus uz rāmja.',
             partIds: ['motor-fl', 'motor-fr', 'motor-bl', 'motor-br']
         },
         {
-            title: 'Add VTX and antenna',
-            description: 'Place the VTX and antenna assembly onto the rear section.',
+            title: 'Video raidītāja un tā antenas pievienošana',
+            description: 'Novietojiet video raidītāja un tā antenu aizmugurējā daļā.',
             partIds: ['vtx']
         },
         {
-            title: 'Add camera',
-            description: 'Install the FPV camera onto the front of the frame.',
+            title: 'Kameras pievienošana',
+            description: 'Uzstādiet kameru rāmja priekšpusē.',
             partIds: ['camera']
         },
         {
-            title: 'Add receiver and antenna',
-            description: 'Place the receiver and route its antenna as part of this step.',
+            title: 'Radio uztvērēja un tā antenas pievienošana',
+            description: 'Uz rāmja pievienojiet radio uztvērēju un tā antenu.',
             partIds: ['receiver']
         },
         {
-            title: 'Smoke check',
-            description: 'Perform a smoke check before continuing.',
+            title: 'Īssavienojuma pārbaudes veikšana',
+            description: 'Veiciet īssavienojuma pārbaudi',
             partIds: [],
             isAction: true,
-            actionLabel: 'Mark Smoke Check Complete'
+            actionLabel: 'Veikt pārbaudi'
         },
         {
-            title: 'Add a top frame',
-            description: 'Install the top frame plate.',
+            title: 'Augšējā rāmja pievienošana',
+            description: 'Uzstādiet augšējo rāmja plāksni.',
             partIds: ['top-frame']
         },
         {
-            title: 'Add all propellers',
-            description: 'Install all four propellers onto the motors. Any propeller can go to any motor.',
+            title: 'Visu propelleru pievienošana',
+            description: 'Pievienojiet visus propellerus.',
             partIds: ['propeller-fl', 'propeller-fr', 'propeller-bl', 'propeller-br']
         },
         {
-            title: 'Install battery on top frame plate',
-            description: 'Place the battery onto the top frame plate.',
+            title: 'Akumulatora pievienošana rāmja augšpusē',
+            description: 'Pievienojiet akumulatoru uz augšējās plāknes.',
             partIds: ['battery-top']
         },
         {
-            title: 'Bind receiver to radio controller',
-            description: 'Bind the receiver to the radio controller before setup.',
+            title: 'Radio uztvērēja piesaiste radio kontrolierim',
+            description: 'Piesaistiet uztvērēju radio kontrolierim.',
             partIds: [],
             isAction: true,
-            actionLabel: 'Mark Receiver Bound'
+            actionLabel: 'Radio kontrolieris savienots'
         },
         {
-            title: 'Bind goggles and VTX',
-            description: 'Bind the goggles to the VTX.',
+            title: 'Briļļu piesaiste video raidītājam',
+            description: 'Piesaistiet pirmās personas brilles ar video uztvērēju.',
             partIds: [],
             isAction: true,
-            actionLabel: 'Mark Goggles Bound'
+            actionLabel: 'Brilles savienotas'
         },
         {
-            title: 'Configure the drone',
-            description: 'Configure motors, controller, goggles, and the rest of the setup.',
+            title: 'Drona konfigurēšana',
+            description: 'Konfigurējiet motorus, kontrolieri, aizsargbrilles un citus iestatījumus.',
             partIds: [],
             isAction: true,
-            actionLabel: 'Mark Configuration Complete'
-        },
-        {
-            title: 'Congratulations',
-            description: 'The drone build is complete.',
-            partIds: [],
-            isAction: true,
-            actionLabel: 'Finish Build'
+            actionLabel: 'Konfigurēšana pabeigta'
         }
     ];
 
@@ -642,7 +635,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         try {
             //Parāda lietotājam, ka saglabāšana ir procesā
-            setSaveLayoutButtonState('Saving...', false);
+            setSaveLayoutButtonState('Saglabā...', false);
             //Iegūst pašreizējo izkārtojumu
             const layout = getCurrentSnapLayout();
             //Nosūta datus uz serveri
@@ -673,15 +666,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //Saglabāšana veiksmīga
             hasSavedLayout = true;
-            setSaveLayoutButtonState('Saved!', true);
+            setSaveLayoutButtonState('Saglabāts!', true);
             console.log('✓ Layout saved to database');
             //Pēc 1.5 sekundēm atgriež pogu normālā stāvoklī
             setTimeout(function() {
-                setSaveLayoutButtonState('Save Layout', false);
+                setSaveLayoutButtonState('Saglabāt izskatu', false);
             }, 1500);
         } catch (error) {
             console.error('✗ Failed to save layout', error);
-            setSaveLayoutButtonState('Save Failed', false);
+            setSaveLayoutButtonState('Saglabāšana neizdevās', false);
         }
     }
 
@@ -700,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function () {
         //Atjaunina iekšējo tekstu 
         const state = modeToggleButton.querySelector('.mode-toggle-state');
         if (state) {
-            state.textContent = isGuideMode ? 'Guide' : 'Developer';
+            state.textContent = isGuideMode ? 'Izstrādātāja' : 'Mācību';
         }
     }
 
@@ -1027,13 +1020,13 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
 
-    //Atjaunina paneļus Developer režīmā
+    //Atjaunina paneļus Izstādātāja režīmā
     function renderDeveloperModePanels() {
         if (stepListElement) {
-            stepListElement.innerHTML = '<p class="placeholder-text">Switch to Guide mode to follow the drone build step by step.</p>';
+            stepListElement.innerHTML = '<p class="placeholder-text">Pārslēdzieties uz mācību režīmu, lai soli pa solim veiktu drona konstrukcijas procesu.</p>';
         }
         if (stepCounterElement) {
-            stepCounterElement.textContent = 'Developer mode';
+            stepCounterElement.textContent = 'Izstādātāja režīms';
         }
         if (prevStepButton) {
             prevStepButton.disabled = true;
@@ -1090,7 +1083,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             //Ja solim ir action poga un tas ir pašreizējais nepabeigtais solis – pievieno pogu
             const actionHtml = step.isAction && index === currentGuideStepIndex && !isGuideStepComplete(index)
-                ? `<div class="step-action-wrap"><button type="button" class="button small guide-step-action">${step.actionLabel || 'Mark Step Complete'}</button></div>`
+                ? `<div class="step-action-wrap"><button type="button" class="button small guide-step-action">${step.actionLabel || 'Soli pabeigt'}</button></div>`
                 : '';
             //Atgriež HTML vienu soli
             return `
@@ -1471,7 +1464,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function setSnapEnabled(enabled) {
         isSnapEnabled = !!enabled;
         updateSnapToggleUi();
-        console.log(`🧲 Snap positions ${isSnapEnabled ? 'enabled' : 'disabled'}`);
+        console.log(`Snap positions ${isSnapEnabled ? 'enabled' : 'disabled'}`);
         return isSnapEnabled;
     }
 

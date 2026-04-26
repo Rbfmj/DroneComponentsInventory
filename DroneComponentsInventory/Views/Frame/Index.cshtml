@@ -2,19 +2,19 @@
 @using System.Linq
 
 @{
-    /* This view is rendered standalone (no shared layout) */
+    /* Šī skats tiek rādīts patstāvīgi (nav kopīgas noformējuma) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <!-- Basic responsive meta -->
+    <!-- Pamata atsaucīgā meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Frames</title>
+    <title>Rāmji</title>
 
-    <!-- Core site styles -->
+    <!-- Tīmekļa vietnes kodols stilus -->
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/frames.css" />
 </head>
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Frames</h2>
+                <h2>Rāmji</h2>
 
-                <p>Select a frame to view technical specifications.</p>
+                <p>Izvēlieties rāmi, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Frame</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu rāmi</a>
                 </p>
             </div>
         </div>
@@ -67,42 +67,42 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="frames-meta">
-                        <dt>Wheelbase</dt>
+                        <dt>Riteņu bāze</dt>
                         <dd>@(item.WheelbaseMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Max Prop Size</dt>
+                        <dt>Maks. propellera izmērs</dt>
                         <dd>@(item.MaxPropInch?.ToString() + "\"" ?? "")</dd>
 
-                        <dt>Geometry</dt>
+                        <dt>Ģeometrija</dt>
                         <dd>@item.Geometry</dd>
 
-                        <dt>Material</dt>
+                        <dt>Materiāls</dt>
                         <dd>@item.Material</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Arm Thickness</dt>
+                        <dt>Roku biezums</dt>
                         <dd>@(item.ArmThicknessMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Motor Mount Pattern</dt>
+                        <dt>Motora stiprinājuma raksts</dt>
                         <dd>@item.MotorMountPattern</dd>
 
-                        <dt>FC Mount Pattern</dt>
+                        <dt>FC stiprinājuma raksts</dt>
                         <dd>@item.FcMountPattern</dd>
 
-                        <dt>Max Stack Height</dt>
+                        <dt>Maks. dzesēšanas augstums</dt>
                         <dd>@(item.MaxStackHeightMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.FrameId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.FrameId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FrameId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FrameId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FrameId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FrameId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

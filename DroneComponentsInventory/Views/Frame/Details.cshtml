@@ -5,50 +5,45 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Frame Details</title>
-
+    <title>Rāmja detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/frames.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="frames-panel">
-
         <h2>@Model.Manufacturer @Model.Model</h2>
-
         <dl class="frames-meta">
-            <dt>Wheelbase</dt>
+            <dt>Riteņa bāze</dt>
             <dd>@(Model.WheelbaseMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Max Prop Size</dt>
+            <dt>Max Prop Izmērs</dt>
             <dd>@(Model.MaxPropInch?.ToString() + "\"" ?? "—")</dd>
 
-            <dt>Geometry</dt>
+            <dt>Ģeometrija</dt>
             <dd>@(Model.Geometry ?? "—")</dd>
 
-            <dt>Material</dt>
+            <dt>Materiāls</dt>
             <dd>@(Model.Material ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Arm Thickness</dt>
+            <dt>Styru Biezums</dt>
             <dd>@(Model.ArmThicknessMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Motor Mount Pattern</dt>
+            <dt>Motoru Montāžas Raksts</dt>
             <dd>@(Model.MotorMountPattern ?? "—")</dd>
 
-            <dt>FC Mount Pattern</dt>
+            <dt>FC Montāžas Raksts</dt>
             <dd>@(Model.FcMountPattern ?? "—")</dd>
 
-            <dt>Max Stack Height</dt>
+            <dt>Maks. Kaudzes Augstums</dt>
             <dd>@(Model.MaxStackHeightMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -61,18 +56,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.FrameId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.FrameId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

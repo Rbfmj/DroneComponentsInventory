@@ -1,69 +1,63 @@
 @model DroneComponentsInventory.Models.FPVCameraComponent
 
 @{
-    /* Standalone view – no shared layout */
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete FPV Camera</title>
-
+    <title>Dzēst FPV kameru</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fpvcamera.css" />
 </head>
 <body class="is-preload">
-
     <div class="fpvcamera-panel">
-
         <h3 style="margin-top: 0;">
-            Delete FPV Camera
+            Dzēst FPV kameru
         </h3>
-
         <p>
-            Are you sure you want to delete this camera?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo kameru?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
-
         <hr />
 
         <dl class="fpvcamera-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>System Type</dt>
+            <dt>Sistēmas tips</dt>
             <dd>@Html.DisplayFor(m => m.TypeSystem)</dd>
 
-            <dt>Sensor Size</dt>
+            <dt>Sensoru izmērs</dt>
             <dd>@Html.DisplayFor(m => m.SensorSize)</dd>
 
-            <dt>Resolution (TVL)</dt>
+            <dt>Izšķirtspēja (TVL)</dt>
             <dd>@Html.DisplayFor(m => m.ResolutionTvl)</dd>
 
-            <dt>Field of View (FOV)</dt>
+            <dt>Skata leņķis (FOV)</dt>
             <dd>@Html.DisplayFor(m => m.FovModes)</dd>
 
-            <dt>Lens Focal Length (mm)</dt>
+            <dt>Objektīva fokusa attālums (mm)</dt>
             <dd>@Html.DisplayFor(m => m.LensFocalMm)</dd>
 
-            <dt>Aspect Ratios</dt>
+            <dt>Attiecības attiecības</dt>
             <dd>@Html.DisplayFor(m => m.SupportedAspectRatios)</dd>
 
-            <dt>Low Light Rating (Lux)</dt>
+            <dt>Zema apgaismojuma novērtējums (Lux)</dt>
             <dd>@Html.DisplayFor(m => m.LowLightLux)</dd>
 
-            <dt>Mounting Size (mm)</dt>
+            <dt>Montāžas izmērs (mm)</dt>
             <dd>@Html.DisplayFor(m => m.MountSizeMm)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -81,11 +75,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

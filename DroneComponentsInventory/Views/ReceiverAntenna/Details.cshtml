@@ -5,53 +5,48 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Receiver Antenna Details</title>
-
+    <title>Uztvērēja antenas detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/receiverantennas.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="receiverantennas-panel">
-
         <h2>@Model.Manufacturer @Model.Model</h2>
-
         <dl class="receiverantennas-meta">
-            <dt>Frequency Band</dt>
+            <dt>Frekvenču josla</dt>
             <dd>@(Model.FrequencyBand ?? "—")</dd>
 
-            <dt>Polarization</dt>
+            <dt>Polarizācija</dt>
             <dd>@(Model.Polarization ?? "—")</dd>
 
-            <dt>Connector</dt>
+            <dt>Konektors</dt>
             <dd>@(Model.Connector ?? "—") @Model.ConnectorGender</dd>
 
-            <dt>Gain</dt>
+            <dt>Iegūšana</dt>
             <dd>@(Model.GainDbi?.ToString() + " dBi" ?? "—")</dd>
 
-            <dt>Radiation Pattern</dt>
+            <dt>Radiācijas raksts</dt>
             <dd>@(Model.RadiationPattern ?? "—")</dd>
 
-            <dt>Compatible Receivers</dt>
+            <dt>Savienojamie uztvērēji</dt>
             <dd>@(Model.CompatibleReceivers ?? "—")</dd>
 
-            <dt>Mount Type</dt>
+            <dt>Montāžas veids</dt>
             <dd>@(Model.MountType ?? "—")</dd>
 
-            <dt>Cable Length</dt>
+            <dt>Kabeļa garums</dt>
             <dd>@(Model.CableLengthMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Length</dt>
+            <dt>Garums</dt>
             <dd>@(Model.LengthMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt> cena</dt>
             <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -64,18 +59,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.ReceiverAntennaId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.ReceiverAntennaId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

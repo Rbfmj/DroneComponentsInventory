@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Motor</title>
+    <title>Dzēst motoru</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/motors.css" />
@@ -18,46 +18,46 @@
     <div class="motors-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Motor
+            Dzēst motoru
         </h3>
 
         <p>
-            Are you sure you want to delete this motor?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo motoru?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="motors-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Stator Size</dt>
+            <dt>Statora izmērs</dt>
             <dd>@Html.DisplayFor(m => m.StatorSizeMm)</dd>
 
-            <dt>KV Rating</dt>
+            <dt>KV reitings</dt>
             <dd>@Html.DisplayFor(m => m.Kv)</dd>
 
-            <dt>Mount Pattern</dt>
+            <dt>Montāžas raksts</dt>
             <dd>@Html.DisplayFor(m => m.MountPattern)</dd>
 
-            <dt>Recommended Voltage (S)</dt>
+            <dt>Rekomendētais spriegums (S)</dt>
             <dd>@Html.DisplayFor(m => m.RecommendedVoltageS)</dd>
 
-            <dt>Recommended Prop (in)</dt>
+            <dt>Rekomendētā propelleru izmere (collas)</dt>
             <dd>@Html.DisplayFor(m => m.RecommendedPropInch)</dd>
 
-            <dt>Max Thrust (g)</dt>
+            <dt>Maks. stūme (g)</dt>
             <dd>@Html.DisplayFor(m => m.MaxThrustG)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt> cena </dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -75,11 +75,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

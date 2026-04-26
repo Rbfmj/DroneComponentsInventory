@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete ESC</title>
+    <title>Dzēst ESC</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/esc.css" />
@@ -18,43 +18,43 @@
     <div class="esc-panel">
 
         <h3 style="margin-top: 0;">
-            Delete ESC
+            Dzēst ESC
         </h3>
 
         <p>
-            Are you sure you want to delete this ESC?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo ESC?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="esc-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Type</dt>
+            <dt>Tips</dt>
             <dd>@Html.DisplayFor(m => m.EscType)</dd>
 
-            <dt>Continuous Current (A)</dt>
+            <dt>Pastāvīgais strāvas stiprums (A)</dt>
             <dd>@Html.DisplayFor(m => m.ContinuousCurrentA)</dd>
 
-            <dt>Voltage Input (S)</dt>
+            <dt>Sprieguma Ievade (S)</dt>
             <dd>@Html.DisplayFor(m => m.VoltageInputS)</dd>
 
-            <dt>Mount Pattern (mm)</dt>
+            <dt>Montāžas raksts (mm)</dt>
             <dd>@Html.DisplayFor(m => m.MountPatternMm)</dd>
 
-            <dt>Supported Protocols</dt>
+            <dt>Atbalstītās protokols</dt>
             <dd>@Html.DisplayFor(m => m.SupportedProtocols)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -72,11 +72,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

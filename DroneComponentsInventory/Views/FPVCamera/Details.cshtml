@@ -5,70 +5,69 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fpvcamera.css" />
 </head>
 <body class="is-preload">
-
     <div class="fpvcamera-panel">
         <h2>@Model.Manufacturer @Model.Model</h2>
         <hr />
         <dl class="fpvcamera-meta">
-            <dt>Type / System</dt>
+            <dt>Tips / Sistēma</dt>
             <dd>@Html.DisplayFor(model => model.TypeSystem)</dd>
 
-            <dt>Sensor Size</dt>
+            <dt>Sensoru izmērs</dt>
             <dd>@Html.DisplayFor(model => model.SensorSize)</dd>
 
-            <dt>Resolution (TVL)</dt>
+            <dt>Izšķirtspēja (TVL)</dt>
             <dd>@Html.DisplayFor(model => model.ResolutionTvl)</dd>
 
-            <dt>FOV Modes</dt>
+            <dt>FOV režīmi</dt>
             <dd>@Html.DisplayFor(model => model.FovModes)</dd>
 
-            <dt>Lens Focal (mm)</dt>
+            <dt>Objektīva fokuss (mm)</dt>
             <dd>@Html.DisplayFor(model => model.LensFocalMm)</dd>
 
-            <dt>Supported Aspect Ratios</dt>
+            <dt>Apkopes atbalstītās aspektu attiecības</dt>
             <dd>@Html.DisplayFor(model => model.SupportedAspectRatios)</dd>
 
-            <dt>Low Light (lux)</dt>
+            <dt>Zema apgaismojuma prasības (lux)</dt>
             <dd>@Html.DisplayFor(model => model.LowLightLux)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(model => model.WeightG)</dd>
 
-            <dt>Mount Size (mm)</dt>
+            <dt>Montāžas izmērs (mm)</dt>
             <dd>@Html.DisplayFor(model => model.MountSizeMm)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(model => model.Price)</dd>
         </dl>
 
         
         <!-- =====================================================
-             ACTION BUTTONS
+             AKCIJAS POGAS
              ===================================================== -->
         <div style="margin-top: 12px; display: flex; gap: 8px;">
 
             <a asp-action="Edit"
                    asp-route-id="@Model?.CameraId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.CameraId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

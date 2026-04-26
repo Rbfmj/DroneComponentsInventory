@@ -7,10 +7,10 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>ESC Components</title>
+    <title>Elektroniskie ātruma regulatori</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/esc.css" />
@@ -23,11 +23,11 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>ESC Components</h2>
-                <p>Select an ESC to view specifications.</p>
+                <h2>Elektroniskie ātruma regulatori</h2>
+                <p>Izvēlieties Elektroniskie ātruma regulatoru, lai skatītu specifikācijas.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New ESC</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu Elektroniskie ātruma regulatoru</a>
                 </p>
             </div>
         </div>
@@ -57,33 +57,33 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="esc-meta">
-                        <dt>Type</dt>
+                        <dt>Tips</dt>
                         <dd>@item.EscType</dd>
 
-                        <dt>Continuous Current</dt>
+                        <dt>Strāvas patēriņš (A)</dt>
                         <dd>@(item.ContinuousCurrentA?.ToString() + " A" ?? "")</dd>
 
-                        <dt>Voltage Input</dt>
+                        <dt>Ieejas spriegums (S)</dt>
                         <dd>@(item.VoltageInputS?.ToString() + "S" ?? "")</dd>
 
-                        <dt>Mount Pattern</dt>
+                        <dt>Montāžas raksts (mm)</dt>
                         <dd>@(item.MountPatternMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Protocols</dt>
+                        <dt>Atbalstītie protokoli</dt>
                         <dd>@item.SupportedProtocols</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars (g)</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@item.Price</dd>
                     </dl>
 
                     <div style="margin-top: 16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.EscId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.EscId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.EscId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.EscId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.EscId">Pārskats</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.EscId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
                 </div>
             </div>

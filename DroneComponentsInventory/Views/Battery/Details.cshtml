@@ -6,7 +6,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
@@ -24,7 +24,7 @@
     <div class="battery-panel">
 
         <!-- Page heading -->
-        <h2>Battery Details</h2>
+        <h2>Akumulatora detaļas</h2>
 
         <hr />
 
@@ -70,40 +70,40 @@
              ===================================================== -->
         <dl class="battery-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@(Model.Manufacturer ?? string.Empty)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@(Model.Model ?? string.Empty)</dd>
 
-            <dt>Cell Count (S)</dt>
+            <dt>Šūnu skaits (S)</dt>
             <dd>@(Model.CellCountS.HasValue? Model.CellCountS.Value + "S" : string.Empty)</dd>
 
-            <dt>Nominal Voltage</dt>
+            <dt>Nosacītā spriegums</dt>
             <dd>@(Model.NominalVoltageV.HasValue? Model.NominalVoltageV.Value + "V" : string.Empty)</dd>
 
-            <dt>Capacity (mAh)</dt>
+            <dt>Jauda (mAh)</dt>
             <dd>@(Model.CapacityMah.HasValue? Model.CapacityMah.Value + " mAh" : string.Empty)</dd>
 
-            <dt>Discharge Rate (C)</dt>
+            <dt>Izlādes likme (C)</dt>
             <dd>@(Model.DischargeRateC.HasValue? Model.DischargeRateC.Value + "C" : string.Empty)</dd>
 
-            <dt>Burst Rate (C)</dt>
+            <dt>Pārtraukšanas likme (C)</dt>
             <dd>@(Model.BurstRateC.HasValue? Model.BurstRateC.Value + "C" : string.Empty)</dd>
 
-            <dt>Connectors</dt>
+            <dt>Termināļi</dt>
             <dd>@connectorsDisplay</dd>
 
-            <dt>Chemistry</dt>
+            <dt>Ķīmija</dt>
             <dd>@(Model.Chemistry ?? string.Empty)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@(Model.WeightG.HasValue? Model.WeightG.Value + " g" : string.Empty)</dd>
 
-            <dt>Dimensions (L×W×H)</dt>
+            <dt>Dimensijas (L×W×H)</dt>
             <dd>@dimensionsDisplay</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@priceDisplay</dd>
 
         </dl>
@@ -116,18 +116,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.BatteryId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.BatteryId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

@@ -5,44 +5,39 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Video Transmitter Details</title>
-
+    <title>Video raidītāja detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/videotransmitters.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="videotransmitters-panel">
-
         <h2>@Model.Manufacturer @Model.Model</h2>
-
         <dl class="videotransmitters-meta">
-            <dt>Type</dt>
+            <dt>Tips</dt>
             <dd>@(Model.Type ?? "—")</dd>
 
-            <dt>Max Power</dt>
+            <dt>Maks. jauda</dt>
             <dd>@(Model.MaxPowerMw?.ToString() + " mW" ?? "—")</dd>
 
-            <dt>Voltage Input</dt>
+            <dt>Sprieguma ieeja</dt>
             <dd>@(Model.VoltageInputS?.ToString() + "S" ?? "—")</dd>
 
-            <dt>Mount Pattern</dt>
+            <dt>Piekare</dt>
             <dd>@(Model.MountPatternMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Control Protocols</dt>
+            <dt>Vadības protokoli</dt>
             <dd>@(Model.ControlProtocols ?? "—")</dd>
 
-            <dt>Antenna Connector</dt>
+            <dt>Antenu savienotājs</dt>
             <dd>@(Model.AntennaConnector ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -55,18 +50,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.VtxId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.VtxId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

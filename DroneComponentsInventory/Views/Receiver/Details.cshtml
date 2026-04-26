@@ -5,77 +5,72 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Receiver Details</title>
-
+    <title>Uztvērēja detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/receivers.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="receivers-panel">
-
         <h2>@Model.Manufacturer @Model.Model</h2>
-
         <dl class="receivers-meta">
-            <dt>Protocol</dt>
+            <dt>Protokols</dt>
             <dd>@(Model.Protocol ?? "—")</dd>
 
-            <dt>Modulation</dt>
+            <dt>Modulācija</dt>
             <dd>@(Model.ModulationProtocol ?? "—")</dd>
 
-            <dt>Frequency Band</dt>
+            <dt>Frekvenču josla</dt>
             <dd>@(Model.FrequencyBand ?? "—")</dd>
 
-            <dt>Channels</dt>
+            <dt>Kanāli</dt>
             <dd>@(Model.Channels?.ToString() ?? "—")</dd>
 
-            <dt>Telemetry Support</dt>
-            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+            <dt>Telemetrijas atbalsts</dt>
+            <dd>@(Model.TelemetrySupport ? "Jā" : "Nē")</dd>
 
-            <dt>Antenna Count</dt>
+            <dt>Antenu skaits</dt>
             <dd>@(Model.AntennaCount?.ToString() ?? "—")</dd>
 
-            <dt>Antenna Type</dt>
+            <dt>Antenu tips</dt>
             <dd>@(Model.AntennaType ?? "—")</dd>
 
-            <dt>Range</dt>
+            <dt>Diapazons</dt>
             <dd>@(Model.RangeKm?.ToString() + " km" ?? "—")</dd>
 
-            <dt>Voltage Input</dt>
+            <dt>Sprieguma ieeja</dt>
             <dd>@(Model.VoltageInputV?.ToString() + " V" ?? "—")</dd>
 
-            <dt>Output Signal</dt>
+            <dt>Izvades signāls</dt>
             <dd>@(Model.OutputSignal ?? "—")</dd>
 
-            <dt>Failsafe Support</dt>
-            <dd>@(Model.FailsafeSupport ? "Yes" : "No")</dd>
+            <dt>Atslāpšanas atbalsts</dt>
+            <dd>@(Model.FailsafeSupport ? "Jā" : "Nē")</dd>
 
-            <dt>Binding Method</dt>
+            <dt>Saistīšanas metode</dt>
             <dd>@(Model.BindingMethod ?? "—")</dd>
 
-            <dt>Intended Use</dt>
+            <dt>Izmantošanas mērķis</dt>
             <dd>@(Model.IntendedUse ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Length</dt>
+            <dt>Garums</dt>
             <dd>@(Model.LengthMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Width</dt>
+            <dt>Platums</dt>
             <dd>@(Model.WidthMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Height</dt>
+            <dt>Augstums</dt>
             <dd>@(Model.HeightMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>Mounting Type</dt>
+            <dt>Montāžas tips</dt>
             <dd>@(Model.MountingType ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -88,18 +83,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.ReceiverId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.ReceiverId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

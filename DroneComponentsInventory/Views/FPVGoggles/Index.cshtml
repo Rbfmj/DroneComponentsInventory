@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Goggles</title>
+    <title>Brilles</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Goggles</h2>
+                <h2>Brilles</h2>
 
-                <p>Select a pair of goggles to view technical specifications.</p>
+                <p>Izvēlieties brilles, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Goggles</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunas brilles</a>
                 </p>
             </div>
         </div>
@@ -67,51 +67,51 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="fpvgoggles-meta">
-                        <dt>Video System</dt>
+                        <dt>Video sistēma</dt>
                         <dd>@item.VideoSystem</dd>
 
-                        <dt>Display Type</dt>
+                        <dt>Displeja veids</dt>
                         <dd>@item.DisplayType</dd>
 
-                        <dt>Screen Size</dt>
+                        <dt>Ekraņa izmērs</dt>
                         <dd>@(item.ScreenSizeInch?.ToString() + " in" ?? "")</dd>
 
-                        <dt>Resolution</dt>
+                        <dt>Izšķirtspēja</dt>
                         <dd>@item.Resolution</dd>
 
-                        <dt>Latency</dt>
+                        <dt>Atsauce</dt>
                         <dd>@(item.LatencyMs?.ToString() + " ms" ?? "")</dd>
 
-                        <dt>Receiver Type</dt>
+                        <dt>Uztvērēja veids</dt>
                         <dd>@item.ReceiverType</dd>
 
-                        <dt>Diversity Antennas</dt>
+                        <dt>Diversitātes antenas</dt>
                         <dd>@item.DiversityAntennas</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
                         <dt>DVR</dt>
-                        <dd>@(item.DvrCapability ? "Yes" : "No")</dd>
+                        <dd>@(item.DvrCapability ? "Jā" : "Nē")</dd>
 
-                        <dt>Battery Life</dt>
+                        <dt>Akumulatora darbības laiks</dt>
                         <dd>@(item.BatteryLifeHours?.ToString() + " h" ?? "")</dd>
 
-                        <dt>Power Input</dt>
+                        <dt>Barošanas ievade</dt>
                         <dd>@item.PowerInput</dd>
 
-                        <dt>IPD Adjustable</dt>
-                        <dd>@(item.IpdAdjustable ? "Yes" : "No")</dd>
+                        <dt>IPD regulējams</dt>
+                        <dd>@(item.IpdAdjustable ? "Jā" : "Nē")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@(item.Price.HasValue ? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.FpvGogglesId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.FpvGogglesId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FpvGogglesId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.FpvGogglesId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.FpvGogglesId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.FpvGogglesId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

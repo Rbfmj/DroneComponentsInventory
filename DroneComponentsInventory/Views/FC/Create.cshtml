@@ -1,83 +1,81 @@
 @model DroneComponentsInventory.Models.FCComponent
 
 @{
-    /* Standalone view (no shared layout used) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fc.css" />
 </head>
 <body class="is-preload">
-
     <div class="fc-panel">
-        <h2>Create Flight Controller</h2>
+        <h2>Pievienot lidojuma kontrolieri</h2>
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-grid">
                 <div class="form-group">
-                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <label asp-for="Manufacturer" class="control-label">Ražotājs</label>
                     <input asp-for="Manufacturer" class="form-control" />
                     <span asp-validation-for="Manufacturer" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label">Modelis</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="McuProcessor" class="control-label">Processor</label>
+                    <label asp-for="McuProcessor" class="control-label">Procesors</label>
                     <input asp-for="McuProcessor" class="form-control" />
                     <span asp-validation-for="McuProcessor" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ImuGyro" class="control-label">IMU / Gyro</label>
+                    <label asp-for="ImuGyro" class="control-label">IMU / Žiros</label>
                     <input asp-for="ImuGyro" class="form-control" />
                     <span asp-validation-for="ImuGyro" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="MountPatternMm" class="control-label">Mount Pattern (mm)</label>
+                    <label asp-for="MountPatternMm" class="control-label">Konstrukcija (mm)</label>
                     <input asp-for="MountPatternMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="MountPatternMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="VoltageInputS" class="control-label">Voltage Input</label>
+                    <label asp-for="VoltageInputS" class="control-label">Sprieguma Ievade</label>
                     <input asp-for="VoltageInputS" class="form-control" />
                     <span asp-validation-for="VoltageInputS" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FirmwareSupport" class="control-label">Firmware Support</label>
+                    <label asp-for="FirmwareSupport" class="control-label">Programmaparatūras Atbalsts</label>
                     <input asp-for="FirmwareSupport" class="form-control" />
                     <span asp-validation-for="FirmwareSupport" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <label asp-for="WeightG" class="control-label">Svars (g)</label>
                     <input asp-for="WeightG" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price</label>
+                    <label asp-for="Price" class="control-label">Cena</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
             </div>
 
             <div style="margin-top:12px; display:flex; gap:8px;">
-                <input type="submit" value="Create" class="button small" />
-                <a asp-action="Index" class="button small">Cancel</a>
+                <input type="submit" value="Izveidot" class="button small" />
+                <a asp-action="Index" class="button small">Atcelt</a>
             </div>
         </form>
     </div>

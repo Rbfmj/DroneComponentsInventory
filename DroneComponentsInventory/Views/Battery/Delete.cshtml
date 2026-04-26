@@ -1,17 +1,17 @@
 @model DroneComponentsInventory.Models.BatteryComponent
 
 @{
-    /* Standalone view – no shared layout */
+    /* Patstāvīga skata iestatījumi – nav kopīgas izkārtojuma */
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <!-- Responsive viewport -->
+    <!-- Reaģējoša skata saskarne -->
     <meta name="viewport" content="width=device-width" />
 
-    <!-- Core site styles -->
+    <!-- Galvenie vietnes stili -->
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/battery.css" />
 </head>
@@ -19,81 +19,81 @@
 <body class="is-preload">
 
     <!-- =========================================================
-         BATTERY DELETE CONFIRMATION
+         AKUMULATORA DZĒŠANAS APSTIPRINĀJUMS
          ========================================================= -->
     <div class="battery-panel">
 
-        <!-- Page heading -->
+        <!-- Lappuses virsraksts -->
         <h3 style="margin-top: 0;">
-            Delete Battery
+            Dzēst akumulatoru
         </h3>
 
-        <!-- Warning message -->
+        <!-- Brīdinājuma ziņojums -->
         <p>
-            Are you sure you want to delete this battery?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo akumulatoru?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <!-- =====================================================
-             BATTERY SUMMARY (READ-ONLY)
+             AKUMULATORA KOPSAVILKUMS (TIKAI LASĪŠANAI)
              ===================================================== -->
         <dl class="battery-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Cell Count (S)</dt>
+            <dt>Elemntu skaits (S)</dt>
             <dd>@Html.DisplayFor(m => m.CellCountS)</dd>
 
-            <dt>Nominal Voltage</dt>
+            <dt>Nominālā sprieguma</dt>
             <dd>@Html.DisplayFor(m => m.NominalVoltageV)</dd>
 
-            <dt>Capacity (mAh)</dt>
+            <dt>Kapacitāte (mAh)</dt>
             <dd>@Html.DisplayFor(m => m.CapacityMah)</dd>
 
-            <dt>Discharge Rate (C)</dt>
+            <dt>Izlādes ātrums (C)</dt>
             <dd>@Html.DisplayFor(m => m.DischargeRateC)</dd>
 
-            <dt>Burst Rate (C)</dt>
+            <dt>Strāvas spikes (C)</dt>
             <dd>@Html.DisplayFor(m => m.BurstRateC)</dd>
 
-            <dt>Discharge Connector</dt>
+            <dt>Izlādes savienotājs</dt>
             <dd>@Html.DisplayFor(m => m.DischargeConnector)</dd>
 
-            <dt>Balance Connector</dt>
+            <dt>Balansa savienotājs</dt>
             <dd>@Html.DisplayFor(m => m.BalanceConnector)</dd>
 
-            <dt>Chemistry</dt>
+            <dt>Ķīmija</dt>
             <dd>@Html.DisplayFor(m => m.Chemistry)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Length</dt>
+            <dt>Garums</dt>
             <dd>@Html.DisplayFor(m => m.LengthMm)</dd>
 
-            <dt>Width</dt>
+            <dt>Platums</dt>
             <dd>@Html.DisplayFor(m => m.WidthMm)</dd>
 
-            <dt>Height</dt>
+            <dt>Augstums</dt>
             <dd>@Html.DisplayFor(m => m.HeightMm)</dd>
 
-            <dt>Price</dt>
+            <dt> cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
 
         <!-- =====================================================
-             DELETE FORM ACTIONS
+             DZĒŠANAS FORMA
              ===================================================== -->
         <form asp-action="Delete">
 
-            <!-- Hidden primary key -->
+            <!-- Slēptā primārā atslēga -->
             <input type="hidden"
                    asp-for="BatteryId" />
 
@@ -105,11 +105,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Izdzēst"
                        class="button small danger" />
 
             </div>

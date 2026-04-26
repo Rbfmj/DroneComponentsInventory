@@ -5,21 +5,16 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit FPV Receiver</title>
-
+    <title>Rediģēt FPV uztvērēju</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/receivers.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="receivers-panel">
-
-        <h2>Edit FPV Receiver</h2>
-
+        <h2>Rediģēt FPV uztvērēju</h2>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ReceiverId" />
@@ -27,127 +22,127 @@
             <div class="form-grid">
                 <!-- Same fields as Create.cshtml above -->
                 <div class="form-group">
-                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <label asp-for="Manufacturer" class="control-label">Ražotājs</label>
                     <input asp-for="Manufacturer" class="form-control" />
                     <span asp-validation-for="Manufacturer" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label">Modelis</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Protocol" class="control-label">Protocol</label>
+                    <label asp-for="Protocol" class="control-label">Protokols</label>
                     <input asp-for="Protocol" class="form-control" />
                     <span asp-validation-for="Protocol" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ModulationProtocol" class="control-label">Modulation Protocol</label>
+                    <label asp-for="ModulationProtocol" class="control-label">Modulācijas protokols</label>
                     <input asp-for="ModulationProtocol" class="form-control" />
                     <span asp-validation-for="ModulationProtocol" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FrequencyBand" class="control-label">Frequency Band</label>
+                    <label asp-for="FrequencyBand" class="control-label">Frekvenču josla</label>
                     <input asp-for="FrequencyBand" class="form-control" />
                     <span asp-validation-for="FrequencyBand" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Channels" class="control-label">Channels</label>
+                    <label asp-for="Channels" class="control-label">Kanāli</label>
                     <input asp-for="Channels" class="form-control" type="number" step="1" />
                     <span asp-validation-for="Channels" class="text-danger"></span>
                 </div>
 
                 <div class="form-group checkbox-group">
-                    <label asp-for="TelemetrySupport" class="control-label">Telemetry Support</label>
+                    <label asp-for="TelemetrySupport" class="control-label">Telemetrijas atbalsts</label>
                     <input asp-for="TelemetrySupport" type="checkbox" class="fpv-checkbox" />
                     <span asp-validation-for="TelemetrySupport" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="AntennaCount" class="control-label">Antenna Count</label>
+                    <label asp-for="AntennaCount" class="control-label">Antenu skaits</label>
                     <input asp-for="AntennaCount" class="form-control" type="number" step="1" />
                     <span asp-validation-for="AntennaCount" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="AntennaType" class="control-label">Antenna Type</label>
+                    <label asp-for="AntennaType" class="control-label">Antenu tips</label>
                     <input asp-for="AntennaType" class="form-control" />
                     <span asp-validation-for="AntennaType" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="RangeKm" class="control-label">Range (km)</label>
+                    <label asp-for="RangeKm" class="control-label">Darbības attālums (km)</label>
                     <input asp-for="RangeKm" class="form-control" type="number" step="0.1" />
                     <span asp-validation-for="RangeKm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="VoltageInputV" class="control-label">Voltage Input (V)</label>
+                    <label asp-for="VoltageInputV" class="control-label">Ieejas spriegums (V)</label>
                     <input asp-for="VoltageInputV" class="form-control" type="number" step="0.1" />
                     <span asp-validation-for="VoltageInputV" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="OutputSignal" class="control-label">Output Signal</label>
+                    <label asp-for="OutputSignal" class="control-label">Izvades signāls</label>
                     <input asp-for="OutputSignal" class="form-control" />
                     <span asp-validation-for="OutputSignal" class="text-danger"></span>
                 </div>
 
                 <div class="form-group checkbox-group">
-                    <label asp-for="FailsafeSupport" class="control-label">Failsafe Support</label>
+                    <label asp-for="FailsafeSupport" class="control-label">Failsafe atbalsts</label>
                     <input asp-for="FailsafeSupport" type="checkbox" class="fpv-checkbox" />
                     <span asp-validation-for="FailsafeSupport" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="BindingMethod" class="control-label">Binding Method</label>
+                    <label asp-for="BindingMethod" class="control-label">Sasaistes metode</label>
                     <input asp-for="BindingMethod" class="form-control" />
                     <span asp-validation-for="BindingMethod" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="IntendedUse" class="control-label">Intended Use</label>
+                    <label asp-for="IntendedUse" class="control-label">Plānotais lietojums</label>
                     <input asp-for="IntendedUse" class="form-control" />
                     <span asp-validation-for="IntendedUse" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <label asp-for="WeightG" class="control-label">Svars (g)</label>
                     <input asp-for="WeightG" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="LengthMm" class="control-label">Length (mm)</label>
+                    <label asp-for="LengthMm" class="control-label">Garums (mm)</label>
                     <input asp-for="LengthMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="LengthMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WidthMm" class="control-label">Width (mm)</label>
+                    <label asp-for="WidthMm" class="control-label">Platums (mm)</label>
                     <input asp-for="WidthMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WidthMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="HeightMm" class="control-label">Height (mm)</label>
+                    <label asp-for="HeightMm" class="control-label">Augstums (mm)</label>
                     <input asp-for="HeightMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="HeightMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="MountingType" class="control-label">Mounting Type</label>
+                    <label asp-for="MountingType" class="control-label">Montāžas tips</label>
                     <input asp-for="MountingType" class="form-control" />
                     <span asp-validation-for="MountingType" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price ($)</label>
+                    <label asp-for="Price" class="control-label">Cena ($)</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
@@ -155,8 +150,8 @@
             </div>
 
             <div style="margin-top: 24px; display: flex; gap: 12px;">
-                <input type="submit" value="Save" class="button small" />
-                <a asp-action="Index" class="button small">Cancel</a>
+                <input type="submit" value="Saglabāt" class="button small" />
+                <a asp-action="Index" class="button small">Atcelt</a>
             </div>
         </form>
 

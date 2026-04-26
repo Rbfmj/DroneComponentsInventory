@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Motors</title>
+    <title>Motori</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Motors</h2>
+                <h2>Motori</h2>
 
-                <p>Select a motor to view technical specifications.</p>
+                <p>Izvēlieties motoru, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Motor</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu motoru</a>
                 </p>
             </div>
         </div>
@@ -67,36 +67,36 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="motors-meta">
-                        <dt>Stator Size</dt>
+                        <dt>Statora izmērs</dt>
                         <dd>@(item.StatorSizeMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>KV Rating</dt>
+                        <dt>KV vērtība</dt>
                         <dd>@item.Kv</dd>
 
-                        <dt>Mount Pattern</dt>
+                        <dt>Montāžas raksts</dt>
                         <dd>@item.MountPattern</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Recommended Voltage</dt>
+                        <dt>Rekomendētais spriegums</dt>
                         <dd>@item.RecommendedVoltageS S</dd>
 
-                        <dt>Recommended Prop</dt>
+                        <dt>Rekomendētā props</dt>
                         <dd>@(item.RecommendedPropInch?.ToString() + "\"" ?? "")</dd>
 
-                        <dt>Max Thrust</dt>
+                        <dt>Maks. spiediens</dt>
                         <dd>@(item.MaxThrustG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.MotorId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.MotorId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.MotorId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.MotorId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.MotorId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.MotorId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

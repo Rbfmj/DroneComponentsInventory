@@ -5,67 +5,61 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Build</title>
-
+    <title>Dzēst būvi</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body class="is-preload">
-
     <partial name="_IndexQuickNav" />
-
     <div class="home-view">
         <div class="build-panel">
-            <h3 style="margin-top: 0;">Delete Build</h3>
-
+            <h3 style="margin-top: 0;">Dzēst būvi</h3>
             <p>
-                Are you sure you want to delete this build?
-                <strong>This action cannot be undone.</strong>
+                Vai tiešām vēlaties dzēst šo būvi?
+                <strong>Šo darbību nevar atsaukt.</strong>
             </p>
-
             <hr />
-
             <dl class="build-meta">
-                <dt>Frame</dt>
+                <dt>Rāmis</dt>
                 <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
 
-                <dt>Motor</dt>
+                <dt>Motors</dt>
                 <dd>@(Model.Motor is null ? "—" : $"{Model.Motor.Manufacturer} {Model.Motor.Model}")</dd>
 
-                <dt>Propeller</dt>
+                <dt>Propelleris</dt>
                 <dd>@(Model.Propeller is null ? "—" : $"{Model.Propeller.Manufacturer} {Model.Propeller.Model}")</dd>
 
                 <dt>ESC</dt>
                 <dd>@(Model.Esc is null ? "—" : $"{Model.Esc.Manufacturer} {Model.Esc.Model}")</dd>
 
-                <dt>Battery</dt>
+                <dt>Aku</dt>
                 <dd>@(Model.Battery is null ? "—" : $"{Model.Battery.Manufacturer} {Model.Battery.Model}")</dd>
 
-                <dt>Flight Controller</dt>
+                <dt>Fly-by-wire kontrolieris</dt>
                 <dd>@(Model.Fc is null ? "—" : $"{Model.Fc.Manufacturer} {Model.Fc.Model}")</dd>
 
-                <dt>FPV Camera</dt>
+                <dt>FPV kamera</dt>
                 <dd>@(Model.Camera is null ? "—" : $"{Model.Camera.Manufacturer} {Model.Camera.Model}")</dd>
 
                 <dt>VTX</dt>
                 <dd>@(Model.Vtx is null ? "—" : $"{Model.Vtx.Manufacturer} {Model.Vtx.Model}")</dd>
 
-                <dt>Video Antenna</dt>
+                <dt>Video antena</dt>
                 <dd>@(Model.VideoAntenna is null ? "—" : $"{Model.VideoAntenna.Manufacturer} {Model.VideoAntenna.Model}")</dd>
 
-                <dt>Receiver</dt>
+                <dt>Uztvērējs</dt>
                 <dd>@(Model.Receiver is null ? "—" : $"{Model.Receiver.Manufacturer} {Model.Receiver.Model}")</dd>
 
-                <dt>Receiver Antenna</dt>
+                <dt>Uztvērēja antena</dt>
                 <dd>@(Model.ReceiverAntenna is null ? "—" : $"{Model.ReceiverAntenna.Manufacturer} {Model.ReceiverAntenna.Model}")</dd>
 
-                <dt>Radio Controller</dt>
+                <dt>Radio kontrolieris</dt>
                 <dd>@(Model.RadioController is null ? "—" : $"{Model.RadioController.Manufacturer} {Model.RadioController.Model}")</dd>
 
-                <dt>FPV Goggles</dt>
+                <dt>FPV brillēs</dt>
                 <dd>@(Model.FpvGoggles is null ? "—" : $"{Model.FpvGoggles.Manufacturer} {Model.FpvGoggles.Model}")</dd>
             </dl>
 
@@ -73,8 +67,8 @@
                 <input type="hidden" asp-for="BuildId" />
 
                 <div class="panel-actions">
-                    <a asp-controller="Home" asp-action="Index" class="button small">Cancel</a>
-                    <input type="submit" value="Delete" class="button small danger" />
+                    <a asp-controller="Home" asp-action="Index" class="button small">Atcelt</a>
+                    <input type="submit" value="Dzēst" class="button small danger" />
                 </div>
             </form>
         </div>

@@ -5,101 +5,98 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Edit Camera</title>
+    <title>Rediģēt kameru</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fpvcamera.css" />
 </head>
 <body class="is-preload">
-
     <div class="fpvcamera-panel">
-
-        <h2>Edit Camera</h2>
-
+        <h2>Rediģēt kameru</h2>
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="CameraId" />
 
             <div class="form-grid">
                 <div class="form-group">
-                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <label asp-for="Manufacturer" class="control-label">Ražotājs</label>
                     <input asp-for="Manufacturer" class="form-control" />
                     <span asp-validation-for="Manufacturer" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label">Modelis</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="TypeSystem" class="control-label">Type / System</label>
+                    <label asp-for="TypeSystem" class="control-label">Tips / Sistēma</label>
                     <input asp-for="TypeSystem" class="form-control" />
                     <span asp-validation-for="TypeSystem" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="SensorSize" class="control-label">Sensor Size</label>
+                    <label asp-for="SensorSize" class="control-label">Sensora izmērs</label>
                     <input asp-for="SensorSize" class="form-control" />
                     <span asp-validation-for="SensorSize" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ResolutionTvl" class="control-label">Resolution (TVL)</label>
+                    <label asp-for="ResolutionTvl" class="control-label">Izšķirtspēja (TVL)</label>
                     <input asp-for="ResolutionTvl" class="form-control" type="number" />
                     <span asp-validation-for="ResolutionTvl" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FovModes" class="control-label">FOV Modes</label>
+                    <label asp-for="FovModes" class="control-label">Skata leņķa režīmi</label>
                     <input asp-for="FovModes" class="form-control" />
                     <span asp-validation-for="FovModes" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="LensFocalMm" class="control-label">Lens Focal (mm)</label>
+                    <label asp-for="LensFocalMm" class="control-label">Objektīva fokusa attālums (mm)</label>
                     <input asp-for="LensFocalMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="LensFocalMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="SupportedAspectRatios" class="control-label">Supported Aspect Ratios</label>
+                    <label asp-for="SupportedAspectRatios" class="control-label">Atbalstītās attiecības</label>
                     <input asp-for="SupportedAspectRatios" class="form-control" />
                     <span asp-validation-for="SupportedAspectRatios" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="LowLightLux" class="control-label">Low Light (lux)</label>
+                    <label asp-for="LowLightLux" class="control-label">Zema apgaismojuma (lux)</label>
                     <input asp-for="LowLightLux" class="form-control" type="number" step="any" />
                     <span asp-validation-for="LowLightLux" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WeightG" class="control-label">Weight (g)</label>
+                    <label asp-for="WeightG" class="control-label">Svars (g)</label>
                     <input asp-for="WeightG" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="MountSizeMm" class="control-label">Mount Size (mm)</label>
+                    <label asp-for="MountSizeMm" class="control-label">Montāžas izmērs (mm)</label>
                     <input asp-for="MountSizeMm" class="form-control" type="number" />
                     <span asp-validation-for="MountSizeMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price</label>
+                    <label asp-for="Price" class="control-label">Cena</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
             </div>
 
             <div style="margin-top:12px; display:flex; gap:8px;">
-                <input type="submit" value="Save" class="button small" />
-                <a asp-action="Index" class="button small">Cancel</a>
+                <input type="submit" value="Saglabāt" class="button small" />
+                <a asp-action="Index" class="button small">Atcelt</a>
             </div>
         </form>
 

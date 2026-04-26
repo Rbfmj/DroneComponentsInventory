@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Propellers</title>
+    <title>Propelleri</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Propellers</h2>
+                <h2>Propelleri</h2>
 
-                <p>Select a propeller set to view technical specifications.</p>
+                <p>Izvēlieties propelleru komplektu, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Propellers</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu propelleru komplektu</a>
                 </p>
             </div>
         </div>
@@ -67,51 +67,51 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="propellers-meta">
-                        <dt>Diameter</dt>
+                        <dt>Diametrs</dt>
                         <dd>@(item.DiameterMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Pitch</dt>
+                        <dt>Solis</dt>
                         <dd>@(item.PitchInch?.ToString() + "\"" ?? "")</dd>
 
-                        <dt>Blade Count</dt>
+                        <dt>Asu skaits</dt>
                         <dd>@item.BladeCount</dd>
 
-                        <dt>Material</dt>
+                        <dt>Materiāls</dt>
                         <dd>@item.Material</dd>
 
-                        <dt>Shaft Diameter</dt>
+                        <dt>Šaftas diametrs</dt>
                         <dd>@(item.ShaftDiameterMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Rotation</dt>
+                        <dt>Griezes virziens</dt>
                         <dd>@item.RotationDirection</dd>
 
-                        <dt>Recommended Motor</dt>
+                        <dt> Ieteiktais motors</dt>
                         <dd>@item.RecommendedMotorSize</dd>
 
-                        <dt>Recommended KV</dt>
+                        <dt>Ieteiktais KV</dt>
                         <dd>@item.RecommendedMotorKv</dd>
 
-                        <dt>Frame Class</dt>
+                        <dt>Rāmja klase</dt>
                         <dd>@item.FrameClass</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Colors</dt>
+                        <dt>Krāsas</dt>
                         <dd>@item.ColorOptions</dd>
 
-                        <dt>Included</dt>
+                        <dt>Iekļauti</dt>
                         <dd>@(item.IncludedQuantity?.ToString() + " pcs" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Цена</dt>
                         <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.PropellerId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.PropellerId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.PropellerId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.PropellerId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.PropellerId">Detalizēti</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.PropellerId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

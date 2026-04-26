@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>Battery Components</title>
+    <title>Akumulatori</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -34,16 +34,16 @@
              ===================================================== -->
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>Battery Components</h2>
+                <h2>Akumulatori</h2>
 
                 <p>
-                    Select a battery to view technical specifications.
+                    Izvēlieties akumulatoru, lai skatītu tehnisko specifikāciju.
                 </p>
 
                 <!-- Create new battery -->
                 <p>
                     <a asp-action="Create" class="button small">
-                        Add New Battery
+                        Pievienot jaunu akumulatoru
                     </a>
                 </p>
             </div>
@@ -108,22 +108,22 @@
                     <!-- Battery specifications -->
                     <dl class="battery-meta">
 
-                        <dt>Configuration</dt>
+                        <dt>Konfigurācija</dt>
                         <dd>@(item.CellCountS?.ToString() + "S" ?? "")</dd>
 
-                        <dt>Voltage</dt>
+                        <dt>Spriegums</dt>
                         <dd>@(item.NominalVoltageV?.ToString() + "V" ?? "")</dd>
 
-                        <dt>Capacity</dt>
+                        <dt>Kapacitāte</dt>
                         <dd>@(item.CapacityMah?.ToString() + " mAh" ?? "")</dd>
 
-                        <dt>Discharge Rate</dt>
+                        <dt>Izlādes strāva</dt>
                         <dd>@(item.DischargeRateC?.ToString() + "C" ?? "")</dd>
 
-                        <dt>Burst Rate</dt>
+                        <dt>Pārraides ātrums</dt>
                         <dd>@(item.BurstRateC?.ToString() + "C" ?? "")</dd>
 
-                        <dt>Connectors</dt>
+                        <dt>Savienotāji</dt>
                         <dd>
                             @string.Join(
                                 " / ",
@@ -132,16 +132,16 @@
                             )
                         </dd>
 
-                        <dt>Chemistry</dt>
+                        <dt>Ķīmija</dt>
                         <dd>@item.Chemistry</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Dimensions</dt>
+                        <dt>Dimensijas</dt>
                         <dd>@GetDimensions(item)</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@item.Price</dd>
 
                     </dl>
@@ -156,24 +156,24 @@
                         <a class="button small"
                                asp-action="Edit"
                                asp-route-id="@item.BatteryId">
-                            Edit
+                            Rediģēt
                         </a>
 
                         <a class="button small"
                                asp-action="Details"
                                asp-route-id="@item.BatteryId">
-                            Details
+                            Detalizēti
                         </a>
 
                         <a class="button small danger"
                                asp-action="Delete"
                                asp-route-id="@item.BatteryId">
-                            Delete
+                            Dzēst
                         </a>
 
                         <button type="button"
                                 class="button small close-modal">
-                            Close
+                            Aizvērt
                         </button>
                     </div>
 

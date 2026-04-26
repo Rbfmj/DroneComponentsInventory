@@ -5,67 +5,51 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Build Details</title>
-
+    <title>Būves detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/home.css" />
 </head>
 <body class="is-preload">
-
     <partial name="_IndexQuickNav" />
-
     <div class="home-view">
         <div class="build-panel">
             <h2>@Model.Name</h2>
-
             <dl class="build-meta">
-                <dt>Frame</dt>
+                <dt>Rāmis</dt>
                 <dd>@(Model.Frame is null ? "—" : $"{Model.Frame.Manufacturer} {Model.Frame.Model}")</dd>
-
-                <dt>Motor</dt>
+                <dt>Motors</dt>
                 <dd>@(Model.Motor is null ? "—" : $"{Model.Motor.Manufacturer} {Model.Motor.Model}")</dd>
-
-                <dt>Propeller</dt>
+                <dt>Propelleris</dt>
                 <dd>@(Model.Propeller is null ? "—" : $"{Model.Propeller.Manufacturer} {Model.Propeller.Model}")</dd>
-
                 <dt>ESC</dt>
                 <dd>@(Model.Esc is null ? "—" : $"{Model.Esc.Manufacturer} {Model.Esc.Model}")</dd>
-
-                <dt>Battery</dt>
+                <dt>Akumulators</dt>
                 <dd>@(Model.Battery is null ? "—" : $"{Model.Battery.Manufacturer} {Model.Battery.Model}")</dd>
-
-                <dt>Flight Controller</dt>
+                <dt>Lidojuma kontrolieris</dt>
                 <dd>@(Model.Fc is null ? "—" : $"{Model.Fc.Manufacturer} {Model.Fc.Model}")</dd>
-
-                <dt>FPV Camera</dt>
+                <dt>FPV kamera</dt>
                 <dd>@(Model.Camera is null ? "—" : $"{Model.Camera.Manufacturer} {Model.Camera.Model}")</dd>
-
                 <dt>VTX</dt>
                 <dd>@(Model.Vtx is null ? "—" : $"{Model.Vtx.Manufacturer} {Model.Vtx.Model}")</dd>
-
-                <dt>Video Antenna</dt>
+                <dt>Video antena</dt>
                 <dd>@(Model.VideoAntenna is null ? "—" : $"{Model.VideoAntenna.Manufacturer} {Model.VideoAntenna.Model}")</dd>
-
-                <dt>Receiver</dt>
+                <dt>Receivers</dt>
                 <dd>@(Model.Receiver is null ? "—" : $"{Model.Receiver.Manufacturer} {Model.Receiver.Model}")</dd>
-
-                <dt>Receiver Antenna</dt>
+                <dt>Receiver antena</dt>
                 <dd>@(Model.ReceiverAntenna is null ? "—" : $"{Model.ReceiverAntenna.Manufacturer} {Model.ReceiverAntenna.Model}")</dd>
-
-                <dt>Radio Controller</dt>
+                <dt>Radio kontrolieris</dt>
                 <dd>@(Model.RadioController is null ? "—" : $"{Model.RadioController.Manufacturer} {Model.RadioController.Model}")</dd>
-
-                <dt>FPV Goggles</dt>
+                <dt>FPV brillēs</dt>
                 <dd>@(Model.FpvGoggles is null ? "—" : $"{Model.FpvGoggles.Manufacturer} {Model.FpvGoggles.Model}")</dd>
             </dl>
 
             <div class="panel-actions">
-                <a class="button small" asp-action="Assembly" asp-route-id="@Model.BuildId">Assembly</a>
-                <a class="button small danger" asp-action="Delete" asp-route-id="@Model.BuildId">Delete</a>
-                <a class="button small" asp-controller="Home" asp-action="Index">Back to List</a>
+                <a class="button small" asp-action="Assembly" asp-route-id="@Model.BuildId">Montāža</a>
+                <a class="button small danger" asp-action="Delete" asp-route-id="@Model.BuildId">Dzēst</a>
+                <a class="button small" asp-controller="Home" asp-action="Index">Atpakaļ uz sarakstu</a>
             </div>
         </div>
     </div>

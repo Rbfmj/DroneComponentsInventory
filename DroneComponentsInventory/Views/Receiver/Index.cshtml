@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Receivers</title>
+    <title>Radio uztvērēji</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Receivers</h2>
+                <h2>Radio uztvērēji</h2>
 
-                <p>Select a receiver to view technical specifications.</p>
+                <p>Izvēlieties radio uztvērēju, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Receiver</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu radio uztvērēju</a>
                 </p>
             </div>
         </div>
@@ -67,69 +67,69 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="receivers-meta">
-                        <dt>Protocol</dt>
+                        <dt>Protokols</dt>
                         <dd>@item.Protocol</dd>
 
-                        <dt>Modulation</dt>
+                        <dt>Modulācija</dt>
                         <dd>@item.ModulationProtocol</dd>
 
-                        <dt>Frequency Band</dt>
+                        <dt>Frekvenču josla</dt>
                         <dd>@item.FrequencyBand</dd>
 
-                        <dt>Channels</dt>
+                        <dt>Kanāli</dt>
                         <dd>@item.Channels</dd>
 
-                        <dt>Telemetry Support</dt>
-                        <dd>@(item.TelemetrySupport ? "Yes" : "No")</dd>
+                        <dt>Telemetrijas atbalsts</dt>
+                        <dd>@(item.TelemetrySupport ? "Jā" : "Nē")</dd>
 
-                        <dt>Antenna Count</dt>
+                        <dt>Antenu skaits</dt>
                         <dd>@item.AntennaCount</dd>
 
-                        <dt>Antenna Type</dt>
+                        <dt>Antena tips</dt>
                         <dd>@item.AntennaType</dd>
 
-                        <dt>Range</dt>
+                        <dt>Diapazons</dt>
                         <dd>@(item.RangeKm?.ToString() + " km" ?? "")</dd>
 
-                        <dt>Voltage Input</dt>
+                        <dt>Sprieguma ieeja</dt>
                         <dd>@(item.VoltageInputV?.ToString() + " V" ?? "")</dd>
 
-                        <dt>Output Signal</dt>
+                        <dt>Izvades signāls</dt>
                         <dd>@item.OutputSignal</dd>
 
-                        <dt>Failsafe Support</dt>
-                        <dd>@(item.FailsafeSupport ? "Yes" : "No")</dd>
+                        <dt>Failsafe atbalsts</dt>
+                        <dd>@(item.FailsafeSupport ? "Jā" : "Nē")</dd>
 
-                        <dt>Binding Method</dt>
+                        <dt>Saistīšanas metode</dt>
                         <dd>@item.BindingMethod</dd>
 
-                        <dt>Intended Use</dt>
+                        <dt>Plānotā lietošana</dt>
                         <dd>@item.IntendedUse</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Length</dt>
+                        <dt>Garums</dt>
                         <dd>@(item.LengthMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Width</dt>
+                        <dt>Platums</dt>
                         <dd>@(item.WidthMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Height</dt>
+                        <dt>Augstums</dt>
                         <dd>@(item.HeightMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Mounting Type</dt>
+                        <dt>Uzstādīšanas tips</dt>
                         <dd>@item.MountingType</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.ReceiverId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.ReceiverId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.ReceiverId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.ReceiverId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.ReceiverId">Detālplāns</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.ReceiverId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

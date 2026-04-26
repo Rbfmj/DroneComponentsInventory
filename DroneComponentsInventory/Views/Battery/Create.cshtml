@@ -1,51 +1,29 @@
 @model DroneComponentsInventory.Models.BatteryComponent
 
 @{
-    /* Standalone view (no shared layout used) */
     Layout = null;
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
-    <!-- Responsive scaling for mobile devices -->
     <meta name="viewport" content="width=device-width" />
-
-    <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/battery.css" />
 </head>
-
 <body class="is-preload">
-
-    <!-- =========================================================
-         BATTERY CREATE PANEL
-         ========================================================= -->
     <div class="battery-panel">
-
-        <!-- Page heading -->
-        <h2>Create Battery</h2>
-
-        <!-- =====================================================
-             CREATE FORM
-             ===================================================== -->
+        <h2>Pievienot akumulatoru</h2>
         <form asp-action="Create">
-
-            <!-- Summary of model-level validation errors -->
-            <div asp-validation-summary="ModelOnly"
-                 class="text-danger">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
             </div>
 
-            <!-- =================================================
-                 FORM GRID
-                 Auto-layout grid for all input fields
-                 ================================================= -->
             <div class="form-grid">
 
-                <!-- Manufacturer -->
+                <!-- Ražotājs -->
                 <div class="form-group">
                     <label asp-for="Manufacturer" class="control-label">
-                        Manufacturer
+                        Ražotājs
                     </label>
 
                     <input asp-for="Manufacturer"
@@ -56,10 +34,10 @@
                     </span>
                 </div>
 
-                <!-- Model -->
+                <!-- Modelis -->
                 <div class="form-group">
                     <label asp-for="Model" class="control-label">
-                        Model
+                        Modelis
                     </label>
 
                     <input asp-for="Model"
@@ -70,10 +48,10 @@
                     </span>
                 </div>
 
-                <!-- Cell Count (S) -->
+                <!-- Šūnu skaits (S) -->
                 <div class="form-group">
                     <label asp-for="CellCountS" class="control-label">
-                        Cell Count (S)
+                        Šūnu skaits (S)
                     </label>
 
                     <input asp-for="CellCountS"
@@ -85,10 +63,10 @@
                     </span>
                 </div>
 
-                <!-- Nominal Voltage -->
+                <!-- Nosacītā sprieguma (V) -->
                 <div class="form-group">
                     <label asp-for="NominalVoltageV" class="control-label">
-                        Nominal Voltage (V)
+                        Nosacītais spriegums (V)
                     </label>
 
                     <input asp-for="NominalVoltageV"
@@ -101,10 +79,10 @@
                     </span>
                 </div>
 
-                <!-- Capacity -->
+                <!-- Jauda (mAh) -->
                 <div class="form-group">
                     <label asp-for="CapacityMah" class="control-label">
-                        Capacity (mAh)
+                        Jauda (mAh)
                     </label>
 
                     <input asp-for="CapacityMah"
@@ -116,10 +94,10 @@
                     </span>
                 </div>
 
-                <!-- Discharge Rate -->
+                <!-- Izlādes ātrums (C) -->
                 <div class="form-group">
                     <label asp-for="DischargeRateC" class="control-label">
-                        Discharge Rate (C)
+                        Izlādes ātrums (C)
                     </label>
 
                     <input asp-for="DischargeRateC"
@@ -132,10 +110,10 @@
                     </span>
                 </div>
 
-                <!-- Burst Rate -->
+                <!-- Ārkārtas ātrums (C) -->
                 <div class="form-group">
                     <label asp-for="BurstRateC" class="control-label">
-                        Burst Rate (C)
+                        Ārkārtas ātrums (C)
                     </label>
 
                     <input asp-for="BurstRateC"
@@ -148,10 +126,10 @@
                     </span>
                 </div>
 
-                <!-- Discharge Connector -->
+                <!-- Izlādes savienotājs -->
                 <div class="form-group">
                     <label asp-for="DischargeConnector" class="control-label">
-                        Discharge Connector
+                        Izlādes savienotājs
                     </label>
 
                     <input asp-for="DischargeConnector"
@@ -162,10 +140,10 @@
                     </span>
                 </div>
 
-                <!-- Balance Connector -->
+                <!-- Balansa savienotājs -->
                 <div class="form-group">
                     <label asp-for="BalanceConnector" class="control-label">
-                        Balance Connector
+                        Balansa savienotājs
                     </label>
 
                     <input asp-for="BalanceConnector"
@@ -176,10 +154,10 @@
                     </span>
                 </div>
 
-                <!-- Chemistry -->
+                <!-- Ķīmija -->
                 <div class="form-group">
                     <label asp-for="Chemistry" class="control-label">
-                        Chemistry
+                        Ķīmija
                     </label>
 
                     <input asp-for="Chemistry"
@@ -190,10 +168,10 @@
                     </span>
                 </div>
 
-                <!-- Weight -->
+                <!-- Svars (g) -->
                 <div class="form-group">
                     <label asp-for="WeightG" class="control-label">
-                        Weight (g)
+                        Svars (g)
                     </label>
 
                     <input asp-for="WeightG"
@@ -206,10 +184,10 @@
                     </span>
                 </div>
 
-                <!-- Length -->
+                <!-- Garums (mm) -->
                 <div class="form-group">
                     <label asp-for="LengthMm" class="control-label">
-                        Length (mm)
+                        Garums (mm)
                     </label>
 
                     <input asp-for="LengthMm"
@@ -222,10 +200,10 @@
                     </span>
                 </div>
 
-                <!-- Width -->
+                <!-- Platums (mm) -->
                 <div class="form-group">
                     <label asp-for="WidthMm" class="control-label">
-                        Width (mm)
+                        Platums (mm)
                     </label>
 
                     <input asp-for="WidthMm"
@@ -238,10 +216,10 @@
                     </span>
                 </div>
 
-                <!-- Height -->
+                <!-- Augstums (mm) -->
                 <div class="form-group">
                     <label asp-for="HeightMm" class="control-label">
-                        Height (mm)
+                        Augstums (mm)
                     </label>
 
                     <input asp-for="HeightMm"
@@ -254,10 +232,10 @@
                     </span>
                 </div>
 
-                <!-- Price -->
+                <!-- Cena -->
                 <div class="form-group">
                     <label asp-for="Price" class="control-label">
-                        Price
+                        Cena
                     </label>
 
                     <input asp-for="Price"
@@ -278,12 +256,12 @@
             <div style="margin-top: 12px; display: flex; gap: 8px;">
 
                 <input type="submit"
-                       value="Create"
+                       value="Izveidot"
                        class="button small" />
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
             </div>
 

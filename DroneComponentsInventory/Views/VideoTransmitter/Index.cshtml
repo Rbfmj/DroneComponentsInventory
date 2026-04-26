@@ -7,12 +7,12 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Basic responsive meta -->
     <meta name="viewport" content="width=device-width" />
 
-    <title>FPV Video Transmitters</title>
+    <title>Video raidītāji</title>
 
     <!-- Core site styles -->
     <link rel="stylesheet" href="/css/main.css" />
@@ -27,12 +27,12 @@
 
         <div class="wrapper style1 align-center">
             <div class="inner">
-                <h2>FPV Video Transmitters</h2>
+                <h2>Video raidītāji</h2>
 
-                <p>Select a video transmitter to view technical specifications.</p>
+                <p>Izvēlieties video raidītāju, lai skatītu tehnisko specifikāciju.</p>
 
                 <p>
-                    <a asp-action="Create" class="button small">Add New Video Transmitter</a>
+                    <a asp-action="Create" class="button small">Pievienot jaunu video raidītāju</a>
                 </p>
             </div>
         </div>
@@ -67,36 +67,36 @@
                     <h2>@item.Manufacturer @item.Model</h2>
 
                     <dl class="videotransmitters-meta">
-                        <dt>Type</dt>
+                        <dt>Tips</dt>
                         <dd>@item.Type</dd>
 
-                        <dt>Max Power</dt>
+                        <dt>Maks. jauda</dt>
                         <dd>@(item.MaxPowerMw?.ToString() + " mW" ?? "")</dd>
 
-                        <dt>Voltage Input</dt>
+                        <dt>Sprieguma ieeja</dt>
                         <dd>@item.VoltageInputS S</dd>
 
-                        <dt>Mount Pattern</dt>
+                        <dt>Montāžas raksts</dt>
                         <dd>@(item.MountPatternMm?.ToString() + " mm" ?? "")</dd>
 
-                        <dt>Control Protocols</dt>
+                        <dt>Regulēšanas protokoli</dt>
                         <dd>@item.ControlProtocols</dd>
 
-                        <dt>Antenna Connector</dt>
+                        <dt>Antenas savienotājs</dt>
                         <dd>@item.AntennaConnector</dd>
 
-                        <dt>Weight</dt>
+                        <dt>Svars</dt>
                         <dd>@(item.WeightG?.ToString() + " g" ?? "")</dd>
 
-                        <dt>Price</dt>
+                        <dt>Cena</dt>
                         <dd>@(item.Price.HasValue? item.Price.Value.ToString("0.00") : "")</dd>
                     </dl>
 
                     <div style="margin-top:16px; display:flex; gap:12px; justify-content:flex-end;">
-                        <a class="button small" asp-action="Edit" asp-route-id="@item.VtxId">Edit</a>
-                        <a class="button small" asp-action="Details" asp-route-id="@item.VtxId">Details</a>
-                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.VtxId">Delete</a>
-                        <button type="button" class="button small close-modal">Close</button>
+                        <a class="button small" asp-action="Edit" asp-route-id="@item.VtxId">Rediģēt</a>
+                        <a class="button small" asp-action="Details" asp-route-id="@item.VtxId">Detaļas</a>
+                        <a class="button small danger" asp-action="Delete" asp-route-id="@item.VtxId">Dzēst</a>
+                        <button type="button" class="button small close-modal">Aizvērt</button>
                     </div>
 
                 </div>

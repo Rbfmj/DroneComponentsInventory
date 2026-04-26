@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Propellers</title>
+    <title>Dzēst propelleru komplektu</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/propellers.css" />
@@ -18,61 +18,61 @@
     <div class="propellers-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Propeller Set
+            Dzēst propelleru komplektu
         </h3>
 
         <p>
-            Are you sure you want to delete this propeller set?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo propelleru komplektu?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="propellers-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Diameter (mm)</dt>
+            <dt>Diametrs (mm)</dt>
             <dd>@Html.DisplayFor(m => m.DiameterMm)</dd>
 
-            <dt>Pitch (in)</dt>
+            <dt>Plekste (collās)</dt>
             <dd>@Html.DisplayFor(m => m.PitchInch)</dd>
 
-            <dt>Blade Count</dt>
+            <dt>Asu skaits</dt>
             <dd>@Html.DisplayFor(m => m.BladeCount)</dd>
 
-            <dt>Material</dt>
+            <dt>Materiāls</dt>
             <dd>@Html.DisplayFor(m => m.Material)</dd>
 
-            <dt>Shaft Diameter (mm)</dt>
+            <dt>Vārpstas diametrs (mm)</dt>
             <dd>@Html.DisplayFor(m => m.ShaftDiameterMm)</dd>
 
-            <dt>Rotation</dt>
+            <dt>Virziens</dt>
             <dd>@Html.DisplayFor(m => m.RotationDirection)</dd>
 
-            <dt>Recommended Motor Size</dt>
+            <dt>Ieteicamā motora izmērs</dt>
             <dd>@Html.DisplayFor(m => m.RecommendedMotorSize)</dd>
 
-            <dt>Recommended Motor KV</dt>
+            <dt>Ieteicamā motora KV vērtība</dt>
             <dd>@Html.DisplayFor(m => m.RecommendedMotorKv)</dd>
 
-            <dt>Frame Class</dt>
+            <dt>Rāmja klase</dt>
             <dd>@Html.DisplayFor(m => m.FrameClass)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Colors Available</dt>
+            <dt>Pieejamās krāsas</dt>
             <dd>@Html.DisplayFor(m => m.ColorOptions)</dd>
 
-            <dt>Quantity Included</dt>
+            <dt>Iekļautais daudzums</dt>
             <dd>@Html.DisplayFor(m => m.IncludedQuantity)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -90,11 +90,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

@@ -6,7 +6,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
@@ -20,80 +20,80 @@
 
     <div class="fpvgoggles-panel">
 
-        <h2>FPV Goggles Details</h2>
+        <h2>FPV briļļu detaļas</h2>
 
         <hr />
 
         <dl class="fpvgoggles-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@(Model.Manufacturer ?? string.Empty)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@(Model.Model ?? string.Empty)</dd>
 
-            <dt>Video System</dt>
+            <dt>Video sistēma</dt>
             <dd>@(Model.VideoSystem ?? string.Empty)</dd>
 
-            <dt>Display Type</dt>
+            <dt>Displeja tips</dt>
             <dd>@(Model.DisplayType ?? string.Empty)</dd>
 
-            <dt>Screen Size</dt>
+            <dt>Ekraņa izmērs</dt>
             <dd>@(Model.ScreenSizeInch.HasValue ? Model.ScreenSizeInch.Value + " in" : string.Empty)</dd>
 
-            <dt>Resolution</dt>
+            <dt>Izšķirtspēja</dt>
             <dd>@(Model.Resolution ?? string.Empty)</dd>
 
-            <dt>Latency (ms)</dt>
+            <dt>Atruna (ms)</dt>
             <dd>@(Model.LatencyMs.HasValue ? Model.LatencyMs.Value + " ms" : string.Empty)</dd>
 
-            <dt>Receiver Type</dt>
+            <dt>Uztvērēja tips</dt>
             <dd>@(Model.ReceiverType ?? string.Empty)</dd>
 
-            <dt>Diversity Antennas</dt>
+            <dt>Diversitātes antenas</dt>
             <dd>@(Model.DiversityAntennas.HasValue ? Model.DiversityAntennas.Value.ToString() : string.Empty)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@(Model.WeightG.HasValue ? Model.WeightG.Value + " g" : string.Empty)</dd>
 
-            <dt>DVR Capability</dt>
-            <dd>@(Model.DvrCapability ? "Yes" : "No")</dd>
+            <dt>DVR funkcionalitāte</dt>
+            <dd>@(Model.DvrCapability ? "Jā" : "Nē")</dd>
 
-            <dt>Battery Life (h)</dt>
+            <dt>Akumulatora darbības laiks (h)</dt>
             <dd>@(Model.BatteryLifeHours.HasValue ? Model.BatteryLifeHours.Value + " h" : string.Empty)</dd>
 
-            <dt>Power Input</dt>
+            <dt>Barošanas ieeja</dt>
             <dd>@(Model.PowerInput ?? string.Empty)</dd>
 
-            <dt>IPD Adjustable</dt>
-            <dd>@(Model.IpdAdjustable ? "Yes" : "No")</dd>
+            <dt>IPD regulējams</dt>
+            <dd>@(Model.IpdAdjustable ? "Jā" : "Nē")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? Model.Price.Value.ToString("0.00") : string.Empty)</dd>
 
         </dl>
 
         
         <!-- =====================================================
-             ACTION BUTTONS
+             AKCIJAS POGAS
              ===================================================== -->
         <div style="margin-top: 12px; display: flex; gap: 8px;">
 
             <a asp-action="Edit"
                    asp-route-id="@Model?.FpvGogglesId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.FpvGogglesId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atgriezties pie saraksta
             </a>
 
         </div>

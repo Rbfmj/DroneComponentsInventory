@@ -5,113 +5,107 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Create FPV Propellers</title>
-
+    <title>Pievienot FPV propellerus</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/propellers.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="propellers-panel">
-
-        <h2>Create FPV Propellers</h2>
-
+        <h2>Pievienot FPV propellerus</h2>
         <form asp-action="Create">
-
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
             <div class="form-grid">
 
                 <div class="form-group">
-                    <label asp-for="Manufacturer" class="control-label">Manufacturer</label>
+                    <label asp-for="Manufacturer" class="control-label">Ražotājs</label>
                     <input asp-for="Manufacturer" class="form-control" />
                     <span asp-validation-for="Manufacturer" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Model" class="control-label">Model</label>
+                    <label asp-for="Model" class="control-label">Modelis</label>
                     <input asp-for="Model" class="form-control" />
                     <span asp-validation-for="Model" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="DiameterMm" class="control-label">Diameter (mm)</label>
+                    <label asp-for="DiameterMm" class="control-label">Diametrs (mm)</label>
                     <input asp-for="DiameterMm" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="DiameterMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="PitchInch" class="control-label">Pitch (inch)</label>
+                    <label asp-for="PitchInch" class="control-label">Skrūves solis (inch)</label>
                     <input asp-for="PitchInch" class="form-control" type="number" step="any" />
                     <span asp-validation-for="PitchInch" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="BladeCount" class="control-label">Blade Count</label>
+                    <label asp-for="BladeCount" class="control-label">Asu skaits</label>
                     <input asp-for="BladeCount" class="form-control" type="number" step="1" />
                     <span asp-validation-for="BladeCount" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Material" class="control-label">Material</label>
+                    <label asp-for="Material" class="control-label">Materiāls</label>
                     <input asp-for="Material" class="form-control" />
                     <span asp-validation-for="Material" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ShaftDiameterMm" class="control-label">Shaft Diameter (mm)</label>
+                    <label asp-for="ShaftDiameterMm" class="control-label">Vārpstas diametrs (mm)</label>
                     <input asp-for="ShaftDiameterMm" class="form-control" type="number" step="any" />
                     <span asp-validation-for="ShaftDiameterMm" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="RotationDirection" class="control-label">Rotation Direction</label>
+                    <label asp-for="RotationDirection" class="control-label">Griešanās virziens</label>
                     <input asp-for="RotationDirection" class="form-control" />
                     <span asp-validation-for="RotationDirection" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="RecommendedMotorSize" class="control-label">Recommended Motor Size</label>
+                    <label asp-for="RecommendedMotorSize" class="control-label">Ieteicamā motora izmērs</label>
                     <input asp-for="RecommendedMotorSize" class="form-control" />
                     <span asp-validation-for="RecommendedMotorSize" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="RecommendedMotorKv" class="control-label">Recommended Motor KV</label>
+                    <label asp-for="RecommendedMotorKv" class="control-label">Ieteiktais motora KV</label>
                     <input asp-for="RecommendedMotorKv" class="form-control" type="number" step="10" />
                     <span asp-validation-for="RecommendedMotorKv" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="FrameClass" class="control-label">Frame Class</label>
+                    <label asp-for="FrameClass" class="control-label">Rāmja klase</label>
                     <input asp-for="FrameClass" class="form-control" />
                     <span asp-validation-for="FrameClass" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="WeightG" class="control-label">Weight (g) per prop</label>
+                    <label asp-for="WeightG" class="control-label">Svars (g) uz propelleri</label>
                     <input asp-for="WeightG" class="form-control" type="number" step="any" />
                     <span asp-validation-for="WeightG" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="ColorOptions" class="control-label">Color Options</label>
+                    <label asp-for="ColorOptions" class="control-label">Krāsu iespējas</label>
                     <input asp-for="ColorOptions" class="form-control" />
                     <span asp-validation-for="ColorOptions" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="IncludedQuantity" class="control-label">Included Quantity (pcs)</label>
+                    <label asp-for="IncludedQuantity" class="control-label">Iekļautais daudzums (gab)</label>
                     <input asp-for="IncludedQuantity" class="form-control" type="number" step="1" />
                     <span asp-validation-for="IncludedQuantity" class="text-danger"></span>
                 </div>
 
                 <div class="form-group">
-                    <label asp-for="Price" class="control-label">Price</label>
+                    <label asp-for="Price" class="control-label">Cena</label>
                     <input asp-for="Price" class="form-control" type="number" step="0.01" />
                     <span asp-validation-for="Price" class="text-danger"></span>
                 </div>
@@ -119,8 +113,8 @@
             </div>
 
             <div style="margin-top: 24px; display: flex; gap: 12px;">
-                <input type="submit" value="Create" class="button small" />
-                <a asp-action="Index" class="button small">Cancel</a>
+                <input type="submit" value="Izveidot" class="button small" />
+                <a asp-action="Index" class="button small">Atcelt</a>
             </div>
 
         </form>

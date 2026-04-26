@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Flight Controller</title>
+    <title>Dzēst lidojuma kontrolieri</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fc.css" />
@@ -18,40 +18,40 @@
     <div class="fc-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Flight Controller
+            Dzēst lidojuma kontrolieri
         </h3>
 
         <p>
-            Are you sure you want to delete this flight controller?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo lidojuma kontrolieri?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="fc-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Processor</dt>
+            <dt>Procesors</dt>
             <dd>@Html.DisplayFor(m => m.McuProcessor)</dd>
 
-            <dt>IMU / Gyro</dt>
+            <dt>IMU / Žiroskops</dt>
             <dd>@Html.DisplayFor(m => m.ImuGyro)</dd>
 
-            <dt>Mount Pattern (mm)</dt>
+            <dt>Montāžas pinums (mm)</dt>
             <dd>@Html.DisplayFor(m => m.MountPatternMm)</dd>
 
-            <dt>Voltage Input (S)</dt>
+            <dt>Sprieguma ieeja (S)</dt>
             <dd>@Html.DisplayFor(m => m.VoltageInputS)</dd>
 
-            <dt>Firmware Support</dt>
+            <dt>Programmatūras atbalsts</dt>
             <dd>@Html.DisplayFor(m => m.FirmwareSupport)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
             <dt>Price</dt>
@@ -72,11 +72,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

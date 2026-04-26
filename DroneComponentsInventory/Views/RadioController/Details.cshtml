@@ -5,56 +5,51 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Radio Controller Details</title>
-
+    <title>Radio pults detaļas</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/radiocontrollers.css" />
 </head>
-
 <body class="is-preload">
-
     <div class="radiocontrollers-panel">
-
         <h2>@Model.Manufacturer @Model.Model</h2>
-
         <dl class="radiocontrollers-meta">
-            <dt>Style</dt>
+            <dt>Stils</dt>
             <dd>@(Model.ControllerStyle ?? "—")</dd>
 
-            <dt>Frequency</dt>
+            <dt>Frekvence</dt>
             <dd>@(Model.FrequencyGhz?.ToString("0.0") + " GHz" ?? "—")</dd>
 
-            <dt>Protocols Supported</dt>
+            <dt>Atbalstītie protokoli</dt>
             <dd>@(Model.ProtocolsSupported ?? "—")</dd>
 
-            <dt>Max Channels</dt>
+            <dt>Maks. kanāli</dt>
             <dd>@(Model.MaxChannels?.ToString() ?? "—")</dd>
 
-            <dt>Output Power</dt>
+            <dt>Jauda</dt>
             <dd>@(Model.OutputPowerMw?.ToString() + " mW" ?? "—")</dd>
 
-            <dt>Telemetry Support</dt>
-            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+            <dt>Telemetrijas atbalsts</dt>
+            <dd>@(Model.TelemetrySupport ? "Jā" : "Nē")</dd>
 
-            <dt>Screen Type</dt>
+            <dt>Ekrāna tips</dt>
             <dd>@(Model.ScreenType ?? "—")</dd>
 
-            <dt>Gimbal Type</dt>
+            <dt>Gimbal tips</dt>
             <dd>@(Model.GimbalType ?? "—")</dd>
 
-            <dt>Battery Type</dt>
+            <dt>Baterijas tips</dt>
             <dd>@(Model.BatteryType ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Firmware Support</dt>
+            <dt>Programmatūras atbalsts</dt>
             <dd>@(Model.FirmwareSupport ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -67,18 +62,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.RadioControllerId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.RadioControllerId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

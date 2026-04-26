@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Video Antenna</title>
+    <title>Dzēst video antenu</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/videoantennas.css" />
@@ -18,49 +18,49 @@
     <div class="videoantennas-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Video Antenna
+            Dzēst video antenu
         </h3>
 
         <p>
-            Are you sure you want to delete this video antenna?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo video antenu?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="videoantennas-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Antenna Class</dt>
+            <dt>Antenna klase</dt>
             <dd>@Html.DisplayFor(m => m.AntennaClass)</dd>
 
-            <dt>Polarization</dt>
+            <dt>Polarizācija</dt>
             <dd>@Html.DisplayFor(m => m.Polarization)</dd>
 
-            <dt>Connector</dt>
+            <dt>Konektors</dt>
             <dd>@Html.DisplayFor(m => m.Connector)</dd>
 
-            <dt>Gain (dBi)</dt>
+            <dt>Ieplūdes jauda (dBi)</dt>
             <dd>@Html.DisplayFor(m => m.GainDbi)</dd>
 
-            <dt>Axial Ratio</dt>
+            <dt>Asimetriskā attiecība</dt>
             <dd>@Html.DisplayFor(m => m.AxialRatio)</dd>
 
-            <dt>Radiation Pattern</dt>
+            <dt>Starojuma raksts</dt>
             <dd>@Html.DisplayFor(m => m.RadiationPattern)</dd>
 
-            <dt>Operating Frequency (GHz)</dt>
+            <dt>Darba frekvence (GHz)</dt>
             <dd>@Html.DisplayFor(m => m.OperatingFrequencyGhz)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -78,11 +78,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

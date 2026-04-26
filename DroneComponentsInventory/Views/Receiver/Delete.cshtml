@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Receiver</title>
+    <title>Dzēst uztvērēju</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/receivers.css" />
@@ -18,70 +18,70 @@
     <div class="receivers-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Receiver
+            Dzēst uztvērēju
         </h3>
 
         <p>
-            Are you sure you want to delete this receiver?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo uztvērēju?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="receivers-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Protocol</dt>
+            <dt>Protokols</dt>
             <dd>@Html.DisplayFor(m => m.Protocol)</dd>
 
-            <dt>Modulation</dt>
+            <dt>Modulācija</dt>
             <dd>@Html.DisplayFor(m => m.ModulationProtocol)</dd>
 
-            <dt>Frequency Band</dt>
+            <dt>Frekvenču josla</dt>
             <dd>@Html.DisplayFor(m => m.FrequencyBand)</dd>
 
-            <dt>Channels</dt>
+            <dt>Kanāli</dt>
             <dd>@Html.DisplayFor(m => m.Channels)</dd>
 
-            <dt>Telemetry Support</dt>
-            <dd>@(Model.TelemetrySupport ? "Yes" : "No")</dd>
+            <dt>Telemetrijas atbalsts</dt>
+            <dd>@(Model.TelemetrySupport ? "Jā" : "Nē")</dd>
 
-            <dt>Antenna Count</dt>
+            <dt>Antenu skaits</dt>
             <dd>@Html.DisplayFor(m => m.AntennaCount)</dd>
 
-            <dt>Antenna Type</dt>
+            <dt>Antenas tips</dt>
             <dd>@Html.DisplayFor(m => m.AntennaType)</dd>
 
-            <dt>Range (km)</dt>
+            <dt>Diapazons (km)</dt>
             <dd>@Html.DisplayFor(m => m.RangeKm)</dd>
 
-            <dt>Voltage Input (V)</dt>
+            <dt>Sprieguma ieejas (V)</dt>
             <dd>@Html.DisplayFor(m => m.VoltageInputV)</dd>
 
-            <dt>Output Signal</dt>
+            <dt>Izvades signāls</dt>
             <dd>@Html.DisplayFor(m => m.OutputSignal)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt> Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Length</dt>
+            <dt>Garums</dt>
             <dd>@Html.DisplayFor(m => m.LengthMm)</dd>
 
-            <dt>Width</dt>
+            <dt>Platums</dt>
             <dd>@Html.DisplayFor(m => m.WidthMm)</dd>
 
-            <dt>Height</dt>
+            <dt>Augstums</dt>
             <dd>@Html.DisplayFor(m => m.HeightMm)</dd>
 
-            <dt>Mounting</dt>
+            <dt>Montāža</dt>
             <dd>@Html.DisplayFor(m => m.MountingType)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -99,11 +99,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

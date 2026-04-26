@@ -9,7 +9,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
-    <title>Build your Drone</title>
+    <title>Izveido savu Dronu</title>
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/home.css" />
 </head>
@@ -22,12 +22,12 @@
         <div class="wrapper style1 align-center">
             <div class="inner">
                 <section class="home-hero">
-                    <h1>Build your Drone</h1>
+                    <h1>Izveido savu dronu</h1>
                     <p>
-                        Select a build to start or create a new build.
+                        Izvēlies dronu vai izveido jaunu dronu
                     </p>
                     <div class="hero-actions">
-                        <a asp-controller="DroneBuilder" asp-action="Index" class="button small">Create a new build</a>
+                        <a asp-controller="DroneBuilder" asp-action="Index" class="button small">Izveidot jaunu Dronu</a>
                     </div>
                 </section>
             </div>
@@ -42,7 +42,7 @@
                     <article class="build-card home-tile"
                              data-modal-id="hmodal-@build.BuildId">
                         <div class="build-card-header">
-                            <span class="build-card-label muted">Build</span>
+                            <span class="build-card-label muted">Drons</span>
                             <h3 class="title">@build.Name</h3>
                         </div>
                     </article>
@@ -68,16 +68,16 @@
 
                 <dl class="build-meta">
 
-                    <dt>Frame</dt>
+                    <dt>Rāmis</dt>
                     <dd>@(build.Frame is null ? "—" : $"{build.Frame.Manufacturer} {build.Frame.Model}")</dd>
 
-                    <dt>Motor</dt>
+                    <dt>Motors</dt>
                     <dd>@(build.Motor is null ? "—" : $"{build.Motor.Manufacturer} {build.Motor.Model}")</dd>
 
-                    <dt>Battery</dt>
+                    <dt>Akumulators</dt>
                     <dd>@(build.Battery is null ? "—" : $"{build.Battery.Manufacturer} {build.Battery.Model}")</dd>
 
-                    <dt>Flight Controller</dt>
+                    <dt>Lidojuma kontrolieris</dt>
                     <dd>@(build.Fc is null ? "—" : $"{build.Fc.Manufacturer} {build.Fc.Model}")</dd>
                 </dl>
 
@@ -86,26 +86,26 @@
                        asp-controller="DroneBuilder"
                        asp-action="Assembly"
                        asp-route-id="@build.BuildId">
-                        Assembly
+                       Konstruēt
                     </a>
 
                     <a class="button small"
                        asp-controller="DroneBuilder"
                        asp-action="Details"
                        asp-route-id="@build.BuildId">
-                        Details
+                        Pārlūkot
                     </a>
 
                     <a class="button small danger"
                        asp-controller="DroneBuilder"
                        asp-action="Delete"
                        asp-route-id="@build.BuildId">
-                        Delete
+                        Izdzēst
                     </a>
 
                     <button type="button"
                             class="button small close-modal">
-                        Close
+                        Aizvērt
                     </button>
                 </div>
             </div>

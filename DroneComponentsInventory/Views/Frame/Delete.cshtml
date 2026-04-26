@@ -5,10 +5,10 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Delete Frame</title>
+    <title>Dzēst rāmi</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/frames.css" />
@@ -18,52 +18,52 @@
     <div class="frames-panel">
 
         <h3 style="margin-top: 0;">
-            Delete Frame
+            Dzēst rāmi
         </h3>
 
         <p>
-            Are you sure you want to delete this frame?
-            <strong>This action cannot be undone.</strong>
+            Vai tiešām vēlaties dzēst šo rāmi?
+            <strong>Šo darbību nevar atsaukt.</strong>
         </p>
 
         <hr />
 
         <dl class="frames-meta">
 
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(m => m.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(m => m.Model)</dd>
 
-            <dt>Wheelbase (mm)</dt>
+            <dt>Riteņa bāze (mm)</dt>
             <dd>@Html.DisplayFor(m => m.WheelbaseMm)</dd>
 
-            <dt>Max Prop Size (in)</dt>
+            <dt>Maks. propelleru izmērs (collas)</dt>
             <dd>@Html.DisplayFor(m => m.MaxPropInch)</dd>
 
-            <dt>Geometry</dt>
+            <dt>Ģeometrija</dt>
             <dd>@Html.DisplayFor(m => m.Geometry)</dd>
 
-            <dt>Material</dt>
+            <dt>Materiāls</dt>
             <dd>@Html.DisplayFor(m => m.Material)</dd>
 
-            <dt>Arm Thickness (mm)</dt>
+            <dt>Roku biezums (mm)</dt>
             <dd>@Html.DisplayFor(m => m.ArmThicknessMm)</dd>
 
-            <dt>Motor Mount</dt>
+            <dt>Motora stiprinājums</dt>
             <dd>@Html.DisplayFor(m => m.MotorMountPattern)</dd>
 
-            <dt>FC Mount Pattern</dt>
+            <dt>FC stiprinājuma raksts</dt>
             <dd>@Html.DisplayFor(m => m.FcMountPattern)</dd>
 
-            <dt>Max Stack Height (mm)</dt>
+            <dt>Maks. kārbu augstums (mm)</dt>
             <dd>@Html.DisplayFor(m => m.MaxStackHeightMm)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(m => m.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt> cena</dt>
             <dd>@Html.DisplayFor(m => m.Price)</dd>
 
         </dl>
@@ -81,11 +81,11 @@
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
 
                 <input type="submit"
-                       value="Delete"
+                       value="Dzēst"
                        class="button small danger" />
 
             </div>

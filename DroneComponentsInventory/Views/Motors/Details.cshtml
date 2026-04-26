@@ -5,10 +5,10 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Motor Details</title>
+    <title>Motora detaļas</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/motors.css" />
@@ -21,28 +21,28 @@
         <h2>@Model.Manufacturer @Model.Model</h2>
 
         <dl class="motors-meta">
-            <dt>Stator Size</dt>
+            <dt>Statora izmērs</dt>
             <dd>@(Model.StatorSizeMm?.ToString() + " mm" ?? "—")</dd>
 
-            <dt>KV Rating</dt>
+            <dt>KV reitings</dt>
             <dd>@(Model.Kv?.ToString() ?? "—")</dd>
 
-            <dt>Mount Pattern</dt>
+            <dt>Montāžas raksts</dt>
             <dd>@(Model.MountPattern ?? "—")</dd>
 
-            <dt>Weight</dt>
+            <dt>Svars</dt>
             <dd>@(Model.WeightG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Recommended Voltage</dt>
+            <dt>Rekomendēta spriegums</dt>
             <dd>@(Model.RecommendedVoltageS?.ToString() ?? "—")</dd>
 
-            <dt>Recommended Prop</dt>
+            <dt>Rekomendētā propellers</dt>
             <dd>@(Model.RecommendedPropInch?.ToString() + "\"" ?? "—")</dd>
 
-            <dt>Max Thrust</dt>
+            <dt>Maksimālā stiepe</dt>
             <dd>@(Model.MaxThrustG?.ToString() + " g" ?? "—")</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@(Model.Price.HasValue ? "$" + Model.Price.Value.ToString("0.00") : "—")</dd>
         </dl>
 
@@ -55,18 +55,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.MotorId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.MotorId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

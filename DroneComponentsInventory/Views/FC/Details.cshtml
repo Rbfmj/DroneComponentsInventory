@@ -5,43 +5,42 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="/css/fc.css" />
 </head>
 <body class="is-preload">
-
     <div class="fc-panel">
-        <h2>Flight Controller Details</h2>
+        <h2>Lidojuma kontroliera detaļas</h2>
         <hr />
         <dl class="fc-meta">
-            <dt>Manufacturer</dt>
+            <dt>Ražotājs</dt>
             <dd>@Html.DisplayFor(model => model.Manufacturer)</dd>
 
-            <dt>Model</dt>
+            <dt>Modelis</dt>
             <dd>@Html.DisplayFor(model => model.Model)</dd>
 
-            <dt>Processor</dt>
+            <dt>Procesors</dt>
             <dd>@Html.DisplayFor(model => model.McuProcessor)</dd>
 
-            <dt>IMU / Gyro</dt>
+            <dt>IMU / Žiroskops</dt>
             <dd>@Html.DisplayFor(model => model.ImuGyro)</dd>
 
-            <dt>Mount Pattern (mm)</dt>
+            <dt>Montāžas raksts (mm)</dt>
             <dd>@Html.DisplayFor(model => model.MountPatternMm)</dd>
 
-            <dt>Voltage Input</dt>
+            <dt>Sprieguma ieeja</dt>
             <dd>@Html.DisplayFor(model => model.VoltageInputS)</dd>
 
-            <dt>Firmware Support</dt>
+            <dt>Programmatūras atbalsts</dt>
             <dd>@Html.DisplayFor(model => model.FirmwareSupport)</dd>
 
-            <dt>Weight (g)</dt>
+            <dt>Svars (g)</dt>
             <dd>@Html.DisplayFor(model => model.WeightG)</dd>
 
-            <dt>Price</dt>
+            <dt>Cena</dt>
             <dd>@Html.DisplayFor(model => model.Price)</dd>
         </dl>
 
@@ -54,18 +53,18 @@
             <a asp-action="Edit"
                    asp-route-id="@Model?.FcId"
                    class="button small">
-                Edit
+                Rediģēt
             </a>
 
             <a asp-action="Delete"
                    asp-route-id="@Model?.FcId"
                    class="button small">
-                Delete
+                Dzēst
             </a>
 
             <a asp-action="Index"
                    class="button small">
-                Back to List
+                Atpakaļ uz sarakstu
             </a>
 
         </div>

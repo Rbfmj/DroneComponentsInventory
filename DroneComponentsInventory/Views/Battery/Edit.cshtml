@@ -6,7 +6,7 @@
 }
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="lv">
 <head>
     <!-- Responsive viewport -->
     <meta name="viewport" content="width=device-width" />
@@ -24,7 +24,7 @@
     <div class="battery-panel">
 
         <!-- Page heading -->
-        <h2>Edit Battery</h2>
+        <h2>Rediģēt akumulatoru</h2>
 
         <!-- =====================================================
              EDIT FORM
@@ -48,7 +48,7 @@
                 <!-- Manufacturer -->
                 <div class="form-group">
                     <label asp-for="Manufacturer" class="control-label">
-                        Manufacturer
+                        Ražotājs
                     </label>
 
                     <input asp-for="Manufacturer"
@@ -62,7 +62,7 @@
                 <!-- Model -->
                 <div class="form-group">
                     <label asp-for="Model" class="control-label">
-                        Model
+                        Modelis
                     </label>
 
                     <input asp-for="Model"
@@ -76,7 +76,7 @@
                 <!-- Cell Count -->
                 <div class="form-group">
                     <label asp-for="CellCountS" class="control-label">
-                        Cell Count (S)
+                        Šūnu skaits (S)
                     </label>
 
                     <input asp-for="CellCountS"
@@ -91,7 +91,7 @@
                 <!-- Nominal Voltage -->
                 <div class="form-group">
                     <label asp-for="NominalVoltageV" class="control-label">
-                        Nominal Voltage (V)
+                        Nosacītā spriegums (V)
                     </label>
 
                     <input asp-for="NominalVoltageV"
@@ -107,7 +107,7 @@
                 <!-- Capacity -->
                 <div class="form-group">
                     <label asp-for="CapacityMah" class="control-label">
-                        Capacity (mAh)
+                        Ietilpība (mAh)
                     </label>
 
                     <input asp-for="CapacityMah"
@@ -122,7 +122,7 @@
                 <!-- Discharge Rate -->
                 <div class="form-group">
                     <label asp-for="DischargeRateC" class="control-label">
-                        Discharge Rate (C)
+                        Izlādes ātrums (C)
                     </label>
 
                     <input asp-for="DischargeRateC"
@@ -138,7 +138,7 @@
                 <!-- Burst Rate -->
                 <div class="form-group">
                     <label asp-for="BurstRateC" class="control-label">
-                        Burst Rate (C)
+                        Pārtraukuma ātrums (C)
                     </label>
 
                     <input asp-for="BurstRateC"
@@ -154,7 +154,7 @@
                 <!-- Discharge Connector -->
                 <div class="form-group">
                     <label asp-for="DischargeConnector" class="control-label">
-                        Discharge Connector
+                        Izlādes savienotājs
                     </label>
 
                     <input asp-for="DischargeConnector"
@@ -168,7 +168,7 @@
                 <!-- Balance Connector -->
                 <div class="form-group">
                     <label asp-for="BalanceConnector" class="control-label">
-                        Balance Connector
+                        Balansa savienotājs
                     </label>
 
                     <input asp-for="BalanceConnector"
@@ -182,7 +182,7 @@
                 <!-- Chemistry -->
                 <div class="form-group">
                     <label asp-for="Chemistry" class="control-label">
-                        Chemistry
+                        Ķīmija
                     </label>
 
                     <input asp-for="Chemistry"
@@ -196,7 +196,7 @@
                 <!-- Weight -->
                 <div class="form-group">
                     <label asp-for="WeightG" class="control-label">
-                        Weight (g)
+                        Svars (g)
                     </label>
 
                     <input asp-for="WeightG"
@@ -212,7 +212,7 @@
                 <!-- Length -->
                 <div class="form-group">
                     <label asp-for="LengthMm" class="control-label">
-                        Length (mm)
+                        Garums (mm)
                     </label>
 
                     <input asp-for="LengthMm"
@@ -228,7 +228,7 @@
                 <!-- Width -->
                 <div class="form-group">
                     <label asp-for="WidthMm" class="control-label">
-                        Width (mm)
+                        Platums (mm)
                     </label>
 
                     <input asp-for="WidthMm"
@@ -244,7 +244,7 @@
                 <!-- Height -->
                 <div class="form-group">
                     <label asp-for="HeightMm" class="control-label">
-                        Height (mm)
+                        Augstums (mm)
                     </label>
 
                     <input asp-for="HeightMm"
@@ -260,7 +260,7 @@
                 <!-- Price -->
                 <div class="form-group">
                     <label asp-for="Price" class="control-label">
-                        Price
+                        Cena
                     </label>
 
                     <input asp-for="Price"
@@ -281,12 +281,12 @@
             <div style="margin-top: 12px; display: flex; gap: 8px;">
 
                 <input type="submit"
-                       value="Save"
+                       value="Saglabāt"
                        class="button small" />
 
                 <a asp-action="Index"
                        class="button small">
-                    Cancel
+                    Atcelt
                 </a>
             </div>
 
